@@ -18,25 +18,20 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--g50);color:var(--g900);min-height:100vh}
 
-/* HEADER */
-.hdr{background:var(--nv);padding:16px 20px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.25)}
+.hdr{background:var(--nv);padding:14px 20px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.25)}
 .hdr-logo{background:rgba(184,151,58,.2);color:var(--gd);font-weight:700;font-size:12px;padding:5px 10px;border-radius:6px;border:1px solid rgba(184,151,58,.3);letter-spacing:.5px;white-space:nowrap}
 .hdr-title{color:var(--wh);font-weight:600;font-size:14px;flex:1}
 .hdr-step{color:var(--gd2);font-size:12px;font-weight:500;white-space:nowrap}
 
-/* PROGRESS */
 .progress-wrap{background:var(--nv);padding:0 20px 14px}
 .progress-bar{height:4px;background:rgba(255,255,255,.15);border-radius:4px;overflow:hidden}
 .progress-fill{height:100%;background:var(--gd);border-radius:4px;transition:width .5s ease;width:0%}
 .progress-steps{display:flex;justify-content:space-between;margin-top:8px}
 .ps{font-size:10.5px;color:rgba(255,255,255,.4);cursor:pointer;transition:var(--tr);display:flex;flex-direction:column;align-items:center;gap:3px}
-.ps.done{color:var(--ok)}
-.ps.active{color:var(--gd2);font-weight:600}
+.ps.done{color:var(--ok)}.ps.active{color:var(--gd2);font-weight:600}
 .ps-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.2)}
-.ps.done .ps-dot{background:var(--ok)}
-.ps.active .ps-dot{background:var(--gd)}
+.ps.done .ps-dot{background:var(--ok)}.ps.active .ps-dot{background:var(--gd)}
 
-/* INTRO SCREEN */
 #screen-intro{padding:32px 20px;max-width:600px;margin:0 auto}
 .intro-card{background:var(--wh);border-radius:14px;padding:32px;border:1px solid var(--g200);box-shadow:var(--sh);text-align:center}
 .intro-logo{width:64px;height:64px;background:var(--nv);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px}
@@ -53,41 +48,56 @@ body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;backgroun
 .codice-input:focus{border-color:var(--gd);box-shadow:0 0 0 3px rgba(184,151,58,.15)}
 .codice-hint{font-size:11px;color:var(--g500);margin-top:5px}
 
-/* FORM SCREENS */
 .screen{display:none;padding:20px;max-width:680px;margin:0 auto}
 .screen.active{display:block;animation:fi .22s ease}
 @keyframes fi{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
 
-/* SECTION HEADER */
 .sec-hdr{margin-bottom:18px}
 .sec-tag{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--gd);margin-bottom:4px;display:flex;align-items:center;gap:6px}
 .sec-tag::before{content:'';display:inline-block;width:18px;height:2px;background:var(--gd)}
 .sec-title{font-size:20px;font-weight:700;color:var(--nv);margin-bottom:4px}
 .sec-desc{font-size:13px;color:var(--g500);line-height:1.5}
 
-/* CARD */
 .card{background:var(--wh);border-radius:var(--r);padding:18px;margin-bottom:14px;border:1px solid var(--g200);box-shadow:var(--sh)}
 .ct{font-size:13px;font-weight:700;color:var(--nv);margin-bottom:14px;display:flex;align-items:center;gap:7px}
 .ct .ico{color:var(--gd)}
 
-/* FORM FIELDS */
 .fg{display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
 .fg label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.4px;color:var(--g500)}
-input[type=text],input[type=number],input[type=email],input[type=url],select,textarea{width:100%;padding:9px 11px;border:1.5px solid var(--g200);border-radius:8px;font-family:inherit;font-size:13.5px;color:var(--g900);background:var(--wh);transition:var(--tr);outline:none;-webkit-appearance:none}
+input[type=text],input[type=number],input[type=email],select,textarea{width:100%;padding:9px 11px;border:1.5px solid var(--g200);border-radius:8px;font-family:inherit;font-size:13.5px;color:var(--g900);background:var(--wh);transition:var(--tr);outline:none;-webkit-appearance:none}
 input:focus,select:focus,textarea:focus{border-color:var(--nv);box-shadow:0 0 0 3px rgba(15,31,61,.07)}
 textarea{resize:vertical;min-height:70px}
 select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:28px;cursor:pointer}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-@media(max-width:480px){.grid2{grid-template-columns:1fr}}
+@media(max-width:500px){.grid2{grid-template-columns:1fr}}
+
+/* ============================================================
+   SCALE 8 — NUOVO DESIGN con select dropdown
+   ============================================================ */
+.s8-intro{background:var(--g50);border:1px solid var(--g200);border-radius:8px;padding:12px 14px;margin-bottom:16px;font-size:12.5px;color:var(--g700);line-height:1.6}
+.s8-intro strong{color:var(--nv);display:block;margin-bottom:6px;font-size:13px}
+
+.s8-item{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:8px;border:1.5px solid var(--g200);margin-bottom:8px;background:var(--wh);transition:var(--tr)}
+.s8-item:hover{border-color:var(--g300);background:var(--g50)}
+.s8-item.filled{border-color:rgba(15,31,61,.25);background:rgba(15,31,61,.02)}
+.s8-item-ico{font-size:18px;flex-shrink:0;width:28px;text-align:center}
+.s8-item-lbl{font-size:13.5px;font-weight:600;color:var(--nv);flex:1;min-width:0}
+.s8-item-select{flex:0 0 auto;width:220px}
+.s8-item-select select{font-size:12.5px;padding:7px 28px 7px 10px;border-color:var(--g200)}
+.s8-item-select select.chosen{border-color:var(--nv);background-color:rgba(15,31,61,.03);font-weight:600;color:var(--nv)}
+@media(max-width:560px){
+  .s8-item{flex-wrap:wrap;gap:8px}
+  .s8-item-select{width:100%}
+  .s8-item-select select{font-size:13px}
+}
 
 /* LEVEL SELECTOR */
-.level-q{margin-bottom:12px;padding:12px 14px;border:1.5px solid var(--g200);border-radius:8px;background:var(--wh)}
+.level-q{margin-bottom:10px;padding:12px 14px;border:1.5px solid var(--g200);border-radius:8px;background:var(--wh)}
 .level-q.answered{border-color:rgba(16,185,129,.35);background:rgba(16,185,129,.02)}
-.level-q-num{font-size:10px;font-weight:700;color:var(--gd);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.level-q-num{font-size:10px;font-weight:700;color:var(--gd);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
 .level-q-txt{font-size:13.5px;color:var(--g700);margin-bottom:10px;font-weight:500;line-height:1.4}
 .level-opts{display:flex;flex-direction:column;gap:6px}
 .level-opt{display:flex;align-items:flex-start;gap:10px;padding:9px 12px;border-radius:8px;border:1.5px solid var(--g200);cursor:pointer;font-size:13px;color:var(--g700);transition:var(--tr);user-select:none}
-.level-opt:active{transform:scale(.99)}
 .level-opt input{display:none}
 .lo-badge{min-width:22px;height:22px;border-radius:50%;border:2px solid var(--g300);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--g400);flex-shrink:0;transition:var(--tr)}
 .level-opt.sel-0{background:var(--err-bg);border-color:#fca5a5}
@@ -99,41 +109,27 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 .level-opt.sel-3{background:#eff6ff;border-color:#93c5fd}
 .level-opt.sel-3 .lo-badge{background:#3b82f6;border-color:#3b82f6;color:#fff}
 
-/* PERCENT */
 .pct-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
 .pct-row label{font-size:13px;color:var(--g700);min-width:120px;font-weight:500}
 .pct-row input{width:80px;text-align:right}
 .pct-row span{font-size:13px;color:var(--g500)}
 
-/* SCALE 8 */
-.s8-row{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--g100)}
-.s8-lbl{font-size:13px;color:var(--g700);font-weight:500;flex:1;min-width:130px}
-.scale8-wrap{display:flex;gap:4px}
-.s8-btn{width:32px;height:32px;border-radius:6px;border:1.5px solid var(--g200);background:var(--wh);font-size:12px;font-weight:600;cursor:pointer;transition:var(--tr);font-family:inherit;color:var(--g700)}
-.s8-btn.sel{background:var(--nv);border-color:var(--nv);color:#fff}
-@media(max-width:480px){.s8-lbl{min-width:90px;font-size:12px}.s8-btn{width:28px;height:28px;font-size:11px}}
-
-/* AUTOVAL SLIDER */
 .autoval-wrap{margin-top:8px}
 .autoval-slider{width:100%;accent-color:var(--nv);cursor:pointer}
 .autoval-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--g400);margin-top:4px}
-.autoval-val{text-align:center;font-size:22px;font-weight:700;color:var(--nv);margin:10px 0 4px}
+.autoval-val{text-align:center;font-size:24px;font-weight:700;color:var(--nv);margin:10px 0 4px}
 
-/* BOTTONI NAVIGAZIONE */
 .nav-btns{display:flex;gap:10px;margin-top:20px;padding-top:16px;border-top:1px solid var(--g200);flex-wrap:wrap}
 .btn{padding:11px 22px;border-radius:10px;border:none;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:var(--tr);display:inline-flex;align-items:center;gap:6px;justify-content:center}
-.btn-p{background:var(--nv);color:#fff;flex:1}.btn-p:hover{background:#162945}
-.btn-p:active{transform:scale(.98)}
+.btn-p{background:var(--nv);color:#fff;flex:1}.btn-p:hover{background:#162945}.btn-p:active{transform:scale(.98)}
 .btn-o{background:var(--wh);color:var(--nv);border:1.5px solid var(--g200)}.btn-o:hover{border-color:var(--nv)}
 .btn-send{background:var(--gd);color:#fff;flex:1;font-size:15px;padding:14px 24px}.btn-send:hover{background:var(--gd2)}
 
-/* SCORE PREVIEW */
 .score-preview{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
 .sp-item{flex:1;min-width:90px;background:var(--g50);border:1px solid var(--g200);border-radius:8px;padding:10px;text-align:center}
 .sp-val{font-size:24px;font-weight:700;color:var(--nv);line-height:1}
 .sp-lbl{font-size:11px;color:var(--g500);margin-top:4px}
 
-/* THANK YOU SCREEN */
 #screen-thanks{display:none;padding:32px 20px;max-width:600px;margin:0 auto}
 .thanks-card{background:var(--wh);border-radius:14px;padding:36px;border:1px solid var(--g200);box-shadow:var(--sh);text-align:center}
 .thanks-ico{font-size:52px;margin-bottom:16px}
@@ -147,13 +143,11 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 .ts-val{font-size:24px;font-weight:700}
 .ts-lbl{font-size:11px;color:var(--g500);margin-top:3px}
 
-/* SEND LOADING */
-#send-overlay{display:none;position:fixed;inset:0;background:rgba(15,31,61,.8);z-index:500;align-items:center;justify-content:center;flex-direction:column;gap:16px}
+#send-overlay{display:none;position:fixed;inset:0;background:rgba(15,31,61,.85);z-index:500;align-items:center;justify-content:center;flex-direction:column;gap:16px}
 .send-spinner{width:48px;height:48px;border:4px solid rgba(184,151,58,.3);border-top-color:var(--gd);border-radius:50%;animation:spin .8s linear infinite}
 .send-lbl{color:var(--wh);font-size:14px;font-weight:500}
 @keyframes spin{to{transform:rotate(360deg)}}
 
-/* TOAST */
 #toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:999;display:flex;flex-direction:column;align-items:center;gap:6px;pointer-events:none}
 .toast-msg{padding:10px 20px;border-radius:8px;font-size:13px;font-weight:500;color:#fff;box-shadow:0 4px 12px rgba(0,0,0,.2);animation:slideUp .25s ease}
 .toast-ok{background:var(--ok)}.toast-err{background:var(--err)}.toast-info{background:var(--nv)}
@@ -162,31 +156,29 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 </head>
 <body>
 
-<!-- HEADER -->
 <div class="hdr">
   <div class="hdr-logo">BDZ</div>
   <div class="hdr-title">Assessment Adeguatezza Assetti</div>
   <div class="hdr-step" id="hdr-step">Benvenuto</div>
 </div>
 
-<!-- PROGRESS BAR (nascosta nell'intro) -->
 <div class="progress-wrap" id="progress-wrap" style="display:none">
   <div class="progress-bar"><div class="progress-fill" id="prog-fill"></div></div>
   <div class="progress-steps">
-    <div class="ps active" id="ps-s1" onclick="goTo('s1')"><div class="ps-dot"></div>Anagrafica</div>
-    <div class="ps" id="ps-s2" onclick="goTo('s2')"><div class="ps-dot"></div>Organizzativo</div>
-    <div class="ps" id="ps-s3" onclick="goTo('s3')"><div class="ps-dot"></div>Amministrativo</div>
-    <div class="ps" id="ps-s4" onclick="goTo('s4')"><div class="ps-dot"></div>Contabile</div>
+    <div class="ps active" id="ps-s1"><div class="ps-dot"></div>Anagrafica</div>
+    <div class="ps" id="ps-s2"><div class="ps-dot"></div>Organizzativo</div>
+    <div class="ps" id="ps-s3"><div class="ps-dot"></div>Amministrativo</div>
+    <div class="ps" id="ps-s4"><div class="ps-dot"></div>Contabile</div>
     <div class="ps" id="ps-send"><div class="ps-dot"></div>Invio</div>
   </div>
 </div>
 
-<!-- ===================== INTRO ===================== -->
+<!-- INTRO -->
 <div id="screen-intro">
   <div class="intro-card">
     <div class="intro-logo">🏛️</div>
     <div class="intro-title">Assessment Adeguatezza Assetti</div>
-    <div class="intro-sub">Questionario di valutazione dell'adeguatezza organizzativa, amministrativa e contabile della tua azienda.<br>Richiede circa <strong>15–20 minuti</strong>.</div>
+    <div class="intro-sub">Questionario di valutazione dell'adeguatezza organizzativa, amministrativa e contabile.<br>Richiede circa <strong>15–20 minuti</strong>.</div>
     <div class="intro-features">
       <div class="feat"><div class="feat-ico">🏗️</div><div class="feat-txt"><strong>Assetto Organizzativo</strong>Struttura, processi, HR, governance</div></div>
       <div class="feat"><div class="feat-ico">📋</div><div class="feat-txt"><strong>Assetto Amministrativo</strong>Budget, tesoreria, reporting, KPI</div></div>
@@ -195,7 +187,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     </div>
     <div class="codice-wrap">
       <div class="codice-lbl">Codice Cliente (fornito da Studio BDZ)</div>
-      <input class="codice-input" id="codice-input" type="text" maxlength="8" placeholder="es. BDZ00001" autocapitalize="characters" autocomplete="off" spellcheck="false">
+      <input class="codice-input" id="codice-input" type="text" maxlength="12" placeholder="es. BDZ00001" autocapitalize="characters" autocomplete="off" spellcheck="false">
       <div class="codice-hint">Se non hai un codice, lascia vuoto — verrà generato automaticamente.</div>
     </div>
     <button class="btn btn-p" style="width:100%;font-size:15px;padding:14px" onclick="startSurvey()">Inizia il questionario →</button>
@@ -203,12 +195,12 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
   </div>
 </div>
 
-<!-- ===================== S1: ANAGRAFICA ===================== -->
+<!-- S1: ANAGRAFICA -->
 <div class="screen" id="screen-s1">
   <div class="sec-hdr">
     <div class="sec-tag">Sezione 1 di 4</div>
     <div class="sec-title">Anagrafica Aziendale</div>
-    <div class="sec-desc">Dati identificativi, sistema informativo, mercato e strategia.</div>
+    <div class="sec-desc">Dati identificativi, sistema informativo e strategia aziendale.</div>
   </div>
 
   <div class="card">
@@ -219,7 +211,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
       <div class="fg"><label>ATECO Principale</label><input type="text" id="az-ateco1" placeholder="es. 28.12" oninput="D.anagrafica.ateco1=this.value;autoSave()"></div>
       <div class="fg"><label>ATECO Secondario</label><input type="text" id="az-ateco2" placeholder="es. 46.62" oninput="D.anagrafica.ateco2=this.value;autoSave()"></div>
     </div>
-    <div class="fg"><label>Nome del referente (professionista BDZ)</label><input type="text" id="az-prof" placeholder="es. Dott. Basso" oninput="D.anagrafica.professionista=this.value;autoSave()"></div>
+    <div class="fg"><label>Referente Studio BDZ</label><input type="text" id="az-prof" placeholder="es. Dott. Basso" oninput="D.anagrafica.professionista=this.value;autoSave()"></div>
   </div>
 
   <div class="card">
@@ -243,24 +235,36 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         </select>
       </div>
     </div>
-    <div class="fg"><label>Software / gestionale utilizzato</label><input type="text" id="si-sw" placeholder="es. TeamSystem, Zucchetti, SAP..." oninput="D.anagrafica.siSw=this.value;autoSave()"></div>
+    <div class="fg"><label>Software / gestionale utilizzato</label>
+      <input type="text" id="si-sw" placeholder="es. TeamSystem, Zucchetti, SAP, Danea..." oninput="D.anagrafica.siSw=this.value;autoSave()">
+    </div>
   </div>
 
+  <!-- SCALE 8 — NUOVO DESIGN -->
   <div class="card">
-    <div class="ct"><span class="ico">🔢</span> Come gestite queste attività?</div>
-    <div style="font-size:11.5px;color:var(--g500);margin-bottom:12px;padding:8px 10px;background:var(--g50);border-radius:6px;line-height:1.6">
-      <strong>Scala:</strong> 1=Non gestita &middot; 2=Manualmente &middot; 3=Word &middot; 4=Excel &middot; 5=Software esterno scollegato &middot; 6=Software collegato al gestionale &middot; 7=Business Intelligence &middot; 8=Integrata nel gestionale
+    <div class="ct"><span class="ico">🔢</span> Come vengono gestite queste attività in azienda?</div>
+    <div class="s8-intro">
+      <strong>Per ogni attività, seleziona come viene gestita:</strong>
+      Per ciascuna riga scegli l'opzione dal menu a tendina che meglio descrive la situazione attuale della tua azienda.
     </div>
     <div id="scale8-container"></div>
   </div>
 
   <div class="card">
-    <div class="ct"><span class="ico">🎯</span> Strategia Aziendale (sintesi)</div>
-    <div class="fg"><label>Mission — perché esiste l'azienda</label><textarea id="str-mission" rows="2" placeholder="La nostra azienda esiste per..." oninput="D.anagrafica.strMission=this.value;autoSave()"></textarea></div>
-    <div class="fg"><label>Vision — dove vogliamo arrivare</label><textarea id="str-vision" rows="2" oninput="D.anagrafica.strVision=this.value;autoSave()"></textarea></div>
+    <div class="ct"><span class="ico">🎯</span> Strategia Aziendale</div>
+    <div class="fg"><label>Mission — perché esiste la vostra azienda</label>
+      <textarea id="str-mission" rows="2" placeholder="La nostra azienda esiste per..." oninput="D.anagrafica.strMission=this.value;autoSave()"></textarea>
+    </div>
+    <div class="fg"><label>Vision — dove volete arrivare</label>
+      <textarea id="str-vision" rows="2" oninput="D.anagrafica.strVision=this.value;autoSave()"></textarea>
+    </div>
     <div class="grid2">
-      <div class="fg"><label>Principali punti di forza</label><textarea id="sw-f" rows="3" oninput="D.anagrafica.swF=this.value;autoSave()"></textarea></div>
-      <div class="fg"><label>Principali punti di debolezza</label><textarea id="sw-d" rows="3" oninput="D.anagrafica.swD=this.value;autoSave()"></textarea></div>
+      <div class="fg"><label>Principali punti di forza</label>
+        <textarea id="sw-f" rows="3" placeholder="Es. qualità prodotto, reputazione, tecnologia..." oninput="D.anagrafica.swF=this.value;autoSave()"></textarea>
+      </div>
+      <div class="fg"><label>Principali punti di debolezza</label>
+        <textarea id="sw-d" rows="3" placeholder="Es. struttura organizzativa, liquidità, marketing..." oninput="D.anagrafica.swD=this.value;autoSave()"></textarea>
+      </div>
     </div>
   </div>
 
@@ -269,129 +273,77 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
   </div>
 </div>
 
-<!-- ===================== S2: ORGANIZZATIVO ===================== -->
+<!-- S2: ORGANIZZATIVO -->
 <div class="screen" id="screen-s2">
   <div class="sec-hdr">
     <div class="sec-tag">Sezione 2 di 4</div>
     <div class="sec-title">Assetto Organizzativo</div>
-    <div class="sec-desc">Struttura, processi, controllo, risorse umane e governance. Seleziona la risposta che meglio descrive la situazione attuale della tua azienda.</div>
+    <div class="sec-desc">Seleziona la risposta che meglio descrive la situazione attuale. Non esistono risposte giuste o sbagliate.</div>
   </div>
-
+  <div class="card"><div class="ct"><span class="ico">🏗️</span> Struttura Organizzativa</div><div id="q-s2-org"></div></div>
+  <div class="card"><div class="ct"><span class="ico">⚙️</span> Processi e Procedure</div><div id="q-s2-proc"></div></div>
+  <div class="card"><div class="ct"><span class="ico">🎯</span> Controllo e Monitoraggio</div><div id="q-s2-ctrl"></div></div>
+  <div class="card"><div class="ct"><span class="ico">👥</span> Risorse Umane</div><div id="q-s2-hr"></div></div>
+  <div class="card"><div class="ct"><span class="ico">🔒</span> Governance e Compliance</div><div id="q-s2-gov"></div></div>
   <div class="card">
-    <div class="ct"><span class="ico">🏗️</span> Struttura Organizzativa</div>
-    <div id="q-s2-org"></div>
-  </div>
-  <div class="card">
-    <div class="ct"><span class="ico">⚙️</span> Processi e Procedure</div>
-    <div id="q-s2-proc"></div>
-  </div>
-  <div class="card">
-    <div class="ct"><span class="ico">🎯</span> Controllo e Monitoraggio</div>
-    <div id="q-s2-ctrl"></div>
-  </div>
-  <div class="card">
-    <div class="ct"><span class="ico">👥</span> Risorse Umane</div>
-    <div id="q-s2-hr"></div>
-  </div>
-  <div class="card">
-    <div class="ct"><span class="ico">🔒</span> Governance e Compliance</div>
-    <div id="q-s2-gov"></div>
-  </div>
-
-  <div class="card">
-    <div class="ct"><span class="ico">📊</span> Autovalutazione Assetto Organizzativo</div>
+    <div class="ct"><span class="ico">📊</span> Autovalutazione — Assetto Organizzativo</div>
     <div class="autoval-wrap">
       <div class="autoval-val" id="av-s2-val">5</div>
       <input type="range" class="autoval-slider" id="av-s2" min="0" max="10" value="5" oninput="document.getElementById('av-s2-val').textContent=this.value;D.autovalOrg=+this.value;autoSave()">
       <div class="autoval-labels"><span>0 — Non adeguato</span><span>10 — Pienamente adeguato</span></div>
     </div>
   </div>
-
   <div class="nav-btns">
     <button class="btn btn-o" onclick="goTo('s1')">← Indietro</button>
     <button class="btn btn-p" onclick="next('s2','s3')">Sezione successiva →</button>
   </div>
 </div>
 
-<!-- ===================== S3: AMMINISTRATIVO ===================== -->
+<!-- S3: AMMINISTRATIVO -->
 <div class="screen" id="screen-s3">
   <div class="sec-hdr">
     <div class="sec-tag">Sezione 3 di 4</div>
     <div class="sec-title">Assetto Amministrativo</div>
     <div class="sec-desc">Sistema amministrativo, budgeting, tesoreria, ciclo attivo/passivo e reporting.</div>
   </div>
-
+  <div class="card"><div class="ct"><span class="ico">🏛️</span> Sistema Amministrativo di Base</div><div id="q-s3-base"></div></div>
+  <div class="card"><div class="ct"><span class="ico">📅</span> Pianificazione e Controllo</div><div id="q-s3-ctrl"></div></div>
+  <div class="card"><div class="ct"><span class="ico">🔄</span> Ciclo Attivo e Passivo</div><div id="q-s3-ciclo"></div></div>
+  <div class="card"><div class="ct"><span class="ico">📊</span> Reporting e KPI</div><div id="q-s3-rep"></div></div>
   <div class="card">
-    <div class="ct"><span class="ico">🏛️</span> Sistema Amministrativo di Base</div>
-    <div id="q-s3-base"></div>
-  </div>
-  <div class="card">
-    <div class="ct"><span class="ico">📅</span> Pianificazione e Controllo</div>
-    <div id="q-s3-ctrl"></div>
-  </div>
-  <div class="card">
-    <div class="ct"><span class="ico">🔄</span> Ciclo Attivo e Passivo</div>
-    <div id="q-s3-ciclo"></div>
-  </div>
-  <div class="card">
-    <div class="ct"><span class="ico">📊</span> Reporting e KPI</div>
-    <div id="q-s3-rep"></div>
-  </div>
-
-  <div class="card">
-    <div class="ct"><span class="ico">📊</span> Autovalutazione Assetto Amministrativo</div>
+    <div class="ct"><span class="ico">📊</span> Autovalutazione — Assetto Amministrativo</div>
     <div class="autoval-wrap">
       <div class="autoval-val" id="av-s3-val">5</div>
       <input type="range" class="autoval-slider" id="av-s3" min="0" max="10" value="5" oninput="document.getElementById('av-s3-val').textContent=this.value;D.autovalAmm=+this.value;autoSave()">
       <div class="autoval-labels"><span>0 — Inadeguato</span><span>10 — Perfettamente adeguato</span></div>
     </div>
   </div>
-
   <div class="nav-btns">
     <button class="btn btn-o" onclick="goTo('s2')">← Indietro</button>
     <button class="btn btn-p" onclick="next('s3','s4')">Sezione successiva →</button>
   </div>
 </div>
 
-<!-- ===================== S4: CONTABILE ===================== -->
+<!-- S4: CONTABILE -->
 <div class="screen" id="screen-s4">
   <div class="sec-hdr">
     <div class="sec-tag">Sezione 4 di 4</div>
     <div class="sec-title">Assetto Contabile</div>
     <div class="sec-desc">Sistema contabile, procedure, registrazioni, chiusure e conformità fiscale.</div>
   </div>
-
+  <div class="card"><div class="ct"><span class="ico">📒</span> Sistema Contabile di Base</div><div id="q-s4-base"></div></div>
+  <div class="card"><div class="ct"><span class="ico">✅</span> Procedure e Controlli</div><div id="q-s4-proc"></div></div>
+  <div class="card"><div class="ct"><span class="ico">🔄</span> Ciclo Attivo e Passivo</div><div id="q-s4-ciclo"></div></div>
+  <div class="card"><div class="ct"><span class="ico">📑</span> Chiusure e Reporting</div><div id="q-s4-rep"></div></div>
+  <div class="card"><div class="ct"><span class="ico">🔒</span> Conformità e Archiviazione</div><div id="q-s4-conf"></div></div>
   <div class="card">
-    <div class="ct"><span class="ico">📒</span> Sistema Contabile di Base</div>
-    <div id="q-s4-base"></div>
-  </div>
-  <div class="card">
-    <div class="ct"><span class="ico">✅</span> Procedure e Controlli</div>
-    <div id="q-s4-proc"></div>
-  </div>
-  <div class="card">
-    <div class="ct"><span class="ico">🔄</span> Ciclo Attivo e Passivo</div>
-    <div id="q-s4-ciclo"></div>
-  </div>
-  <div class="card">
-    <div class="ct"><span class="ico">📑</span> Chiusure e Reporting</div>
-    <div id="q-s4-rep"></div>
-  </div>
-  <div class="card">
-    <div class="ct"><span class="ico">🔒</span> Conformità e Archiviazione</div>
-    <div id="q-s4-conf"></div>
-  </div>
-
-  <div class="card">
-    <div class="ct"><span class="ico">📊</span> Autovalutazione Assetto Contabile</div>
+    <div class="ct"><span class="ico">📊</span> Autovalutazione — Assetto Contabile</div>
     <div class="autoval-wrap">
       <div class="autoval-val" id="av-s4-val">5</div>
       <input type="range" class="autoval-slider" id="av-s4" min="0" max="10" value="5" oninput="document.getElementById('av-s4-val').textContent=this.value;D.autovalCont=+this.value;autoSave()">
       <div class="autoval-labels"><span>0 — Inadeguato</span><span>10 — Perfettamente adeguato</span></div>
     </div>
   </div>
-
-  <!-- SCORE PREVIEW -->
   <div class="card">
     <div class="ct"><span class="ico">🎯</span> Riepilogo score</div>
     <div class="score-preview">
@@ -399,16 +351,15 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
       <div class="sp-item"><div class="sp-val" id="sp-s3">—</div><div class="sp-lbl">Amministrativo</div></div>
       <div class="sp-item"><div class="sp-val" id="sp-s4">—</div><div class="sp-lbl">Contabile</div></div>
     </div>
-    <div style="margin-top:12px;font-size:12px;color:var(--g500);line-height:1.5">Lo score viene calcolato automaticamente dalle tue risposte. Il tuo consulente BDZ riceverà il report completo e ti contatterà per pianificare la sessione di analisi.</div>
+    <div style="margin-top:12px;font-size:12px;color:var(--g500);line-height:1.5">Lo score viene calcolato automaticamente. Il consulente BDZ riceverà il report completo e ti contatterà per pianificare la sessione in presenza.</div>
   </div>
-
   <div class="nav-btns">
     <button class="btn btn-o" onclick="goTo('s3')">← Indietro</button>
     <button class="btn btn-send" onclick="inviaAssessment()">📤 Invia al consulente BDZ</button>
   </div>
 </div>
 
-<!-- ===================== THANK YOU ===================== -->
+<!-- THANK YOU -->
 <div id="screen-thanks">
   <div class="thanks-card">
     <div class="thanks-ico">✅</div>
@@ -417,110 +368,128 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     <div class="thanks-code">
       <div class="thanks-code-lbl">Il tuo codice cliente</div>
       <div class="thanks-code-val" id="thanks-code">—</div>
-      <div style="font-size:11px;color:var(--g500);margin-top:6px">Conserva questo codice — ti servirà per eventuali integrazioni</div>
+      <div style="font-size:11px;color:var(--g500);margin-top:6px">Conserva questo codice per eventuali integrazioni future</div>
     </div>
     <div class="thanks-score" id="thanks-score"></div>
     <div style="margin-top:20px;font-size:13px;color:var(--g500)">Studio Associato Basso De Bortoli Zambelli<br>Viale Palladio 42 · 37138 Verona · Tel. 045 577694</div>
   </div>
 </div>
 
-<!-- SEND OVERLAY -->
 <div id="send-overlay">
   <div class="send-spinner"></div>
   <div class="send-lbl">Invio in corso...</div>
 </div>
-
-<!-- TOAST -->
 <div id="toast"></div>
 
 <script>
-// ============================================================
-// CONFIGURAZIONE — sostituisci con l'URL del tuo GAS
-// ============================================================
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbzJlExj0V_A5sByQz_aXlVKEaYtrsY10skxtfhkMD5P9tzLYvASLK6XnRcLugqz3_7e/exec';
 
 // ============================================================
-// DOMANDE (identiche all'app principale)
+// SCALE 8 — opzioni con testo descrittivo (non numeri)
+// ============================================================
+const SCALE8_OPTS = [
+  {v:0, lbl:'— Non selezionato —'},
+  {v:1, lbl:'❌  Non viene gestita'},
+  {v:2, lbl:'✋  Manualmente (carta, appunti)'},
+  {v:3, lbl:'📝  Con Word / documenti'},
+  {v:4, lbl:'📊  Con Excel / fogli di calcolo'},
+  {v:5, lbl:'💾  Software esterno (non collegato al gestionale)'},
+  {v:6, lbl:'🔗  Software collegato al gestionale'},
+  {v:7, lbl:'📈  Business Intelligence / dashboard'},
+  {v:8, lbl:'✅  Integrata nel gestionale / ERP'},
+];
+
+const SCALE8_ITEMS = [
+  {id:'s8_preventivi',    lbl:'Preventivi',              ico:'📋'},
+  {id:'s8_ordini',        lbl:'Ordini clienti',          ico:'🛒'},
+  {id:'s8_fatture_att',   lbl:'Fatture attive',          ico:'🧾'},
+  {id:'s8_incassi_pag',   lbl:'Incassi e Pagamenti',     ico:'💰'},
+  {id:'s8_cont_iva',      lbl:'Contabilità IVA',         ico:'📑'},
+  {id:'s8_cont_gen',      lbl:'Contabilità generale',    ico:'📒'},
+  {id:'s8_cespiti',       lbl:'Cespiti / beni aziendali',ico:'🏭'},
+  {id:'s8_cont_ana',      lbl:'Contabilità analitica',   ico:'📊'},
+  {id:'s8_produzione',    lbl:'Produzione',              ico:'⚙️'},
+  {id:'s8_magazzino',     lbl:'Magazzino',               ico:'📦'},
+  {id:'s8_qualita',       lbl:'Sistema Qualità (ISO)',   ico:'🏆'},
+  {id:'s8_crm',           lbl:'CRM / Gestione clienti',  ico:'🤝'},
+];
+
+// ============================================================
+// DOMANDE S2-S4
 // ============================================================
 const Q_S2_ORG = [
   {id:'s2_org_1',txt:'Esiste un organigramma aziendale formalizzato?',opts:['No, la struttura è informale','Esiste ma non formalizzato in un documento','Sì, esiste ed è aggiornato nell\'ultimo anno','Sì, viene regolarmente aggiornato e comunicato']},
-  {id:'s2_org_2',txt:'Come sono definiti i ruoli e le responsabilità?',opts:['In modo informale, basato su prassi consolidate','Esistono alcune indicazioni scritte ma non complete','Esiste un mansionario ma non aggiornato','Esiste un mansionario completo e aggiornato']},
-  {id:'s2_org_3',txt:'Sono presenti deleghe formalizzate?',opts:['No, tutto gestito dal vertice aziendale','Esistono deleghe verbali/informali','Alcune deleghe sono formalizzate','Esiste un sistema strutturato di deleghe']},
+  {id:'s2_org_2',txt:'Come sono definiti i ruoli e le responsabilità?',opts:['In modo informale, basato su prassi','Esistono alcune indicazioni scritte ma incomplete','Esiste un mansionario ma non aggiornato','Esiste un mansionario completo e aggiornato']},
+  {id:'s2_org_3',txt:'Sono presenti deleghe formalizzate?',opts:['No, tutto gestito dal vertice','Deleghe verbali/informali','Alcune deleghe sono formalizzate','Sistema strutturato di deleghe']},
 ];
 const Q_S2_PROC = [
-  {id:'s2_proc_1',txt:'Come sono gestiti i processi aziendali?',opts:['In base all\'esperienza, senza procedure scritte','Esistono alcune procedure informali','Le procedure principali sono documentate','Esiste un sistema completo di procedure']},
-  {id:'s2_proc_2',txt:'Come viene gestita la comunicazione interna?',opts:['In modo informale, principalmente verbale','Via email, senza procedure standard','Messaggistica interna/WhatsApp','Procedure di comunicazione strutturate e verificate']},
-  {id:'s2_proc_3',txt:'Come vengono conservati i documenti aziendali?',opts:['Non esiste un sistema organizzato','Sistema base di archiviazione','Sistema strutturato ma non completo','Sistema completo con backup e procedure']},
+  {id:'s2_proc_1',txt:'Come sono gestiti i processi aziendali?',opts:['In base all\'esperienza, senza procedure scritte','Alcune procedure informali','Le procedure principali sono documentate','Sistema completo di procedure']},
+  {id:'s2_proc_2',txt:'Come viene gestita la comunicazione interna?',opts:['In modo informale/verbale','Via email senza procedure standard','Messaggistica interna/WhatsApp','Procedure strutturate e verificate']},
+  {id:'s2_proc_3',txt:'Come vengono conservati i documenti aziendali?',opts:['Nessun sistema organizzato','Sistema base di archiviazione','Sistema strutturato ma non completo','Sistema completo con backup e procedure']},
 ];
 const Q_S2_CTRL = [
-  {id:'s2_ctrl_1',txt:'Esiste un sistema di obiettivi individuali o di team?',opts:['No','Solo per obiettivi individuali','Solo per obiettivi di team','Sia per obiettivi individuali che di team']},
-  {id:'s2_ctrl_2',txt:'Come viene verificato il raggiungimento degli obiettivi?',opts:['Non esistono verifiche formali','Verifiche saltuarie e non strutturate','Verifiche periodiche ma non sistematiche','Sistema strutturato di monitoraggio']},
-  {id:'s2_ctrl_3',txt:'La vostra azienda utilizza indicatori di performance (KPI)?',opts:['No','Solo indicatori finanziari di base','Alcuni KPI principali','Un sistema completo di KPI']},
-  {id:'s2_ctrl_4',txt:'Come vengono gestite le non conformità/problemi?',opts:['In modo reattivo quando si presentano','Esistono alcune procedure informali','Procedure definite per i problemi principali','Sistema strutturato di gestione problemi']},
+  {id:'s2_ctrl_1',txt:'Esiste un sistema di obiettivi individuali o di team?',opts:['No','Solo per obiettivi individuali','Solo per obiettivi di team','Sia individuali che di team']},
+  {id:'s2_ctrl_2',txt:'Come viene verificato il raggiungimento degli obiettivi?',opts:['Nessuna verifica formale','Verifiche saltuarie e non strutturate','Verifiche periodiche ma non sistematiche','Sistema strutturato di monitoraggio']},
+  {id:'s2_ctrl_3',txt:'Utilizzate indicatori di performance (KPI)?',opts:['No','Solo indicatori finanziari di base','Alcuni KPI principali','Sistema completo di KPI']},
+  {id:'s2_ctrl_4',txt:'Come vengono gestite le non conformità/problemi?',opts:['In modo reattivo','Alcune procedure informali','Procedure per i problemi principali','Sistema strutturato di gestione problemi']},
 ];
 const Q_S2_HR = [
   {id:'s2_hr_1',txt:'Come vengono definiti i fabbisogni di personale?',opts:['In base alle necessità immediate','Pianificazione informale','Pianificazione strutturata ma non documentata','Sistema strutturato di workforce planning']},
-  {id:'s2_hr_2',txt:'Come viene gestita la formazione del personale?',opts:['Non esiste un piano formativo','Formazione solo obbligatoria','Esistono alcuni percorsi formativi','Piano formativo strutturato e monitorato']},
-  {id:'s2_hr_3',txt:'Come viene valutato il personale?',opts:['Non esistono valutazioni formali','Valutazioni saltuarie non strutturate','Sistema di valutazione base','Sistema strutturato di performance management']},
+  {id:'s2_hr_2',txt:'Come viene gestita la formazione del personale?',opts:['Nessun piano formativo','Formazione solo obbligatoria','Alcuni percorsi formativi','Piano formativo strutturato e monitorato']},
+  {id:'s2_hr_3',txt:'Come viene valutato il personale?',opts:['Nessuna valutazione formale','Valutazioni saltuarie non strutturate','Sistema di valutazione base','Sistema strutturato di performance management']},
 ];
 const Q_S2_GOV = [
-  {id:'s2_gov_1',txt:'Come vengono prese le decisioni strategiche?',opts:['Dal vertice in modo autonomo','Consultazione informale dei responsabili','Processo decisionale semi-strutturato','Processo decisionale strutturato e documentato']},
-  {id:'s2_gov_2',txt:'Come viene gestita la compliance normativa?',opts:['Gestione reattiva quando necessario','Verifica base delle principali normative','Sistema di compliance parzialmente strutturato','Sistema strutturato di compliance management']},
+  {id:'s2_gov_1',txt:'Come vengono prese le decisioni strategiche?',opts:['Dal vertice in modo autonomo','Consultazione informale','Processo decisionale semi-strutturato','Processo decisionale strutturato e documentato']},
+  {id:'s2_gov_2',txt:'Come viene gestita la compliance normativa?',opts:['Gestione reattiva','Verifica base delle normative principali','Sistema di compliance parziale','Sistema strutturato di compliance management']},
   {id:'s2_gov_3',txt:'Esistono meccanismi di controllo interno?',opts:['No','Controlli base non strutturati','Sistema di controllo parziale','Sistema di controllo interno strutturato']},
 ];
 const Q_S3_BASE = [
-  {id:'s3_base_1',txt:'Come è strutturato il sistema amministrativo?',opts:['Non esiste una struttura formale','Gestione base solo per obblighi di legge','Sistema strutturato ma non completo','Sistema completo e integrato']},
+  {id:'s3_base_1',txt:'Come è strutturato il sistema amministrativo?',opts:['Nessuna struttura formale','Gestione base per obblighi di legge','Sistema strutturato ma non completo','Sistema completo e integrato']},
   {id:'s3_base_2',txt:'L\'amministrazione si basa principalmente su:',opts:['Fogli di calcolo','Software base di contabilità','Gestionale integrato non completo','ERP completo e integrato']},
-  {id:'s3_base_3',txt:'Come sono strutturate le procedure amministrative?',opts:['Non esistono procedure scritte','Procedure informali','Procedure principali documentate','Sistema completo di procedure']},
-  {id:'s3_base_4',txt:'Livello di autonomia della funzione amministrativa (Bilancio)?',opts:['Completamente affidata a terzi','Prevalentemente a terzi','Parzialmente autonoma','Completamente autonoma']},
+  {id:'s3_base_3',txt:'Come sono strutturate le procedure amministrative?',opts:['Nessuna procedura scritta','Procedure informali','Procedure principali documentate','Sistema completo di procedure']},
+  {id:'s3_base_4',txt:'Livello di autonomia nella produzione del Bilancio?',opts:['Completamente affidata a terzi','Prevalentemente a terzi','Parzialmente autonoma','Completamente autonoma']},
 ];
 const Q_S3_CTRL = [
-  {id:'s3_ctrl_1',txt:'Come viene gestito il processo di budgeting?',opts:['Non viene fatto budget','Budget annuale base','Budget dettagliato con revisioni periodiche','Sistema completo di pianificazione e controllo']},
-  {id:'s3_ctrl_2',txt:'Come viene gestita la tesoreria?',opts:['Gestione informale della cassa','Controllo base dei flussi di cassa','Sistema strutturato di tesoreria','Sistema integrato con pianificazione finanziaria']},
-  {id:'s3_ctrl_3',txt:'Come viene gestito il controllo di gestione?',opts:['Non esiste controllo di gestione','Controlli base su principali indicatori','Sistema strutturato di controllo','Sistema integrato con KPI e reporting']},
+  {id:'s3_ctrl_1',txt:'Come viene gestito il processo di budgeting?',opts:['Nessun budget','Budget annuale base','Budget dettagliato con revisioni periodiche','Sistema completo di pianificazione e controllo']},
+  {id:'s3_ctrl_2',txt:'Come viene gestita la tesoreria?',opts:['Gestione informale della cassa','Controllo base dei flussi','Sistema strutturato di tesoreria','Sistema integrato con pianificazione finanziaria']},
+  {id:'s3_ctrl_3',txt:'Come viene gestito il controllo di gestione?',opts:['Nessun controllo di gestione','Controlli base su indicatori principali','Sistema strutturato di controllo','Sistema integrato con KPI e reporting']},
   {id:'s3_ctrl_4',txt:'Strumento principale per il controllo di gestione?',opts:['Excel non collegato al gestionale','Excel collegato via Power Query','Applicazione su misura','Integrato nel sistema ERP']},
 ];
 const Q_S3_CICLO = [
-  {id:'s3_ciclo_1',txt:'Come viene gestito il ciclo attivo?',opts:['Gestione manuale senza procedure','Procedure base non formalizzate','Procedure strutturate ma non complete','Sistema completo e automatizzato']},
-  {id:'s3_ciclo_2',txt:'Come viene gestito il ciclo passivo?',opts:['Gestione manuale senza procedure','Procedure base non formalizzate','Procedure strutturate ma non complete','Sistema completo e automatizzato']},
-  {id:'s3_ciclo_3',txt:'Come viene gestito il credito?',opts:['Nessuna gestione del credito','Controllo base scadenze','Sistema strutturato di credit management','Sistema integrato con valutazione rischio']},
+  {id:'s3_ciclo_1',txt:'Come viene gestito il ciclo attivo (vendite/incassi)?',opts:['Gestione manuale senza procedure','Procedure base non formalizzate','Procedure strutturate ma non complete','Sistema completo e automatizzato']},
+  {id:'s3_ciclo_2',txt:'Come viene gestito il ciclo passivo (acquisti/pagamenti)?',opts:['Gestione manuale senza procedure','Procedure base non formalizzate','Procedure strutturate ma non complete','Sistema completo e automatizzato']},
+  {id:'s3_ciclo_3',txt:'Come viene gestito il credito verso clienti?',opts:['Nessuna gestione del credito','Controllo base scadenze','Sistema strutturato di credit management','Sistema integrato con valutazione rischio']},
 ];
 const Q_S3_REP = [
-  {id:'s3_rep_1',txt:'Come è strutturato il reporting?',opts:['Non esiste reporting periodico','Report base su richiesta','Sistema strutturato di reporting periodico','Dashboard integrata con KPI']},
-  {id:'s3_rep_2',txt:'Come vengono analizzati gli scostamenti?',opts:['Non vengono analizzati','Analisi base solo su grandi differenze','Analisi strutturata periodica','Sistema integrato di analisi e azione']},
-  {id:'s3_rep_3',txt:'Come vengono utilizzati i KPI?',opts:['Non vengono utilizzati KPI','KPI base solo finanziari','Set strutturato di KPI','Sistema completo di KPI con target/BSC']},
+  {id:'s3_rep_1',txt:'Come è strutturato il reporting?',opts:['Nessun reporting periodico','Report base su richiesta','Sistema strutturato di reporting periodico','Dashboard integrata con KPI']},
+  {id:'s3_rep_2',txt:'Come vengono analizzati gli scostamenti (budget vs consuntivo)?',opts:['Non vengono analizzati','Analisi base su grandi differenze','Analisi strutturata periodica','Sistema integrato di analisi e azione']},
+  {id:'s3_rep_3',txt:'Come vengono utilizzati i KPI?',opts:['Non vengono utilizzati','KPI base solo finanziari','Set strutturato di KPI','Sistema completo con target e BSC']},
 ];
 const Q_S4_BASE = [
-  {id:'s4_base_1',txt:'Quale sistema contabile utilizzate?',opts:['Gestione esterna completa tramite commercialista','Software di base per prima nota','Sistema gestionale con modulo contabile integrato','ERP completo con contabilità analitica/industriale']},
+  {id:'s4_base_1',txt:'Quale sistema contabile utilizzate?',opts:['Gestione esterna completa dal commercialista','Software di base per prima nota','Sistema gestionale con modulo contabile','ERP completo con contabilità analitica']},
   {id:'s4_base_2',txt:'Come è strutturato il piano dei conti?',opts:['Piano base fornito dal commercialista','Piano standard del software','Piano personalizzato ma non strutturato','Piano strutturato con contabilità analitica']},
-  {id:'s4_base_3',txt:'Con quale frequenza vengono eseguite le registrazioni contabili?',opts:['Registrazioni saltuarie cumulative','Registrazioni mensili','Registrazioni settimanali','Registrazioni giornaliere']},
-  {id:'s4_base_4',txt:'Come vengono eseguite le registrazioni?',opts:['Manualmente dall\'operatore','In parte automatizzate (SDI)','Completamente automatizzate (banca + SDI)','Automatiche tramite AI']},
+  {id:'s4_base_3',txt:'Con quale frequenza vengono eseguite le registrazioni?',opts:['Registrazioni saltuarie cumulative','Mensili','Settimanali','Giornaliere']},
+  {id:'s4_base_4',txt:'Come vengono eseguite le registrazioni contabili?',opts:['Manualmente dall\'operatore','In parte automatizzate (SDI)','Completamente automatizzate','Automatiche tramite AI']},
 ];
 const Q_S4_PROC = [
-  {id:'s4_proc_1',txt:'Come sono organizzate le procedure contabili?',opts:['Non esistono procedure scritte','Alcune procedure informali','Procedure principali documentate','Sistema completo di procedure documentate']},
-  {id:'s4_proc_2',txt:'Come vengono effettuate le riconciliazioni bancarie?',opts:['Non vengono effettuate regolarmente','Riconciliazione mensile base','Riconciliazione settimanale documentata','Riconciliazione giornaliera con procedure']},
+  {id:'s4_proc_1',txt:'Come sono organizzate le procedure contabili?',opts:['Nessuna procedura scritta','Alcune procedure informali','Procedure principali documentate','Sistema completo di procedure documentate']},
+  {id:'s4_proc_2',txt:'Come vengono effettuate le riconciliazioni bancarie?',opts:['Non regolarmente','Riconciliazione mensile base','Riconciliazione settimanale documentata','Riconciliazione giornaliera strutturata']},
   {id:'s4_proc_3',txt:'Come viene gestito il controllo delle registrazioni?',opts:['Nessun controllo sistematico','Controlli saltuari a campione','Controlli periodici programmati','Sistema strutturato con checklist']},
 ];
 const Q_S4_CICLO = [
-  {id:'s4_ciclo_1',txt:'Come viene gestita la fatturazione attiva?',opts:['Emissione manuale delle fatture','Software base di fatturazione','Sistema gestionale integrato con contabilità','Sistema automatizzato completo']},
+  {id:'s4_ciclo_1',txt:'Come viene gestita la fatturazione attiva?',opts:['Emissione manuale','Software base di fatturazione','Sistema gestionale integrato','Sistema automatizzato completo']},
   {id:'s4_ciclo_2',txt:'Come viene gestita la fatturazione passiva?',opts:['Registrazione manuale a fine mese','Registrazione periodica non strutturata','Registrazione settimanale organizzata','Sistema giornaliero con workflow approvativo']},
-  {id:'s4_ciclo_3',txt:'Come viene gestito lo scadenziario?',opts:['Non esiste uno scadenziario strutturato','Scadenziario base Excel','Scadenziario integrato nel gestionale','Sistema completo con previsionale tesoreria']},
+  {id:'s4_ciclo_3',txt:'Come viene gestito lo scadenziario?',opts:['Nessuno scadenziario strutturato','Scadenziario base Excel','Scadenziario integrato nel gestionale','Sistema completo con previsionale tesoreria']},
 ];
 const Q_S4_REP = [
   {id:'s4_rep_1',txt:'Come vengono gestite le chiusure periodiche?',opts:['Solo chiusura annuale per bilancio','Chiusure trimestrali base','Chiusure mensili strutturate','Sistema di chiusure con checklist']},
-  {id:'s4_rep_2',txt:'Quale reportistica viene prodotta?',opts:['Solo bilancio annuale','Situazioni contabili trimestrali','Report mensili con analisi principali','Sistema completo con indici di bilancio']},
+  {id:'s4_rep_2',txt:'Quale reportistica contabile viene prodotta?',opts:['Solo bilancio annuale','Situazioni trimestrali','Report mensili con analisi principali','Sistema completo con indici di bilancio']},
   {id:'s4_rep_3',txt:'Come vengono gestiti ratei, risconti e assestamenti?',opts:['Solo in sede di bilancio annuale','Calcolo trimestrale approssimativo','Calcolo mensile strutturato','Sistema automatico di calcolo']},
 ];
 const Q_S4_CONF = [
-  {id:'s4_conf_1',txt:'Come viene gestita la conservazione documentale?',opts:['Archiviazione cartacea base','Scansione documenti non strutturata','Sistema di archiviazione digitale','Sistema completo di conservazione a norma']},
+  {id:'s4_conf_1',txt:'Come viene gestita la conservazione documentale?',opts:['Archiviazione cartacea base','Scansione documenti non strutturata','Archiviazione digitale organizzata','Sistema completo di conservazione a norma']},
   {id:'s4_conf_2',txt:'Come viene gestita la conformità fiscale?',opts:['Gestita interamente dal commercialista','Verifiche base interne','Sistema strutturato di controlli periodici','Sistema completo con scadenzario e verifiche']},
-  {id:'s4_conf_3',txt:'Come viene gestita l\'analisi di bilancio?',opts:['Nessuna analisi strutturata','Analisi base dei principali indicatori','Analisi periodica con set di indicatori','Sistema completo con benchmark']},
-];
-const SCALE8_ITEMS = [
-  {id:'s8_preventivi',lbl:'Preventivi'},{id:'s8_ordini',lbl:'Ordini'},{id:'s8_fatture_att',lbl:'Fatture attive'},
-  {id:'s8_incassi_pag',lbl:'Incassi e Pagamenti'},{id:'s8_cont_iva',lbl:'Contabilità IVA'},{id:'s8_cont_gen',lbl:'Contabilità generale'},
-  {id:'s8_cespiti',lbl:'Cespiti'},{id:'s8_cont_ana',lbl:'Contabilità analitica'},{id:'s8_produzione',lbl:'Produzione'},
-  {id:'s8_magazzino',lbl:'Magazzino'},{id:'s8_qualita',lbl:'Sistema Qualità'},{id:'s8_crm',lbl:'CRM'},
+  {id:'s4_conf_3',txt:'Come viene gestita l\'analisi di bilancio?',opts:['Nessuna analisi strutturata','Analisi base dei principali indicatori','Analisi periodica con set di indicatori','Sistema completo con benchmark settoriale']},
 ];
 
 // ============================================================
@@ -528,50 +497,63 @@ const SCALE8_ITEMS = [
 // ============================================================
 let D = { anagrafica:{}, s2:{}, s3:{}, s4:{}, autovalOrg:5, autovalAmm:5, autovalCont:5 };
 let codiceCliente = '';
-let currentScreen = 'intro';
 
 // ============================================================
 // INIT
 // ============================================================
 function init(){
   buildScale8();
-  buildQuestions('q-s2-org', Q_S2_ORG, 's2');
+  buildQuestions('q-s2-org',  Q_S2_ORG,  's2');
   buildQuestions('q-s2-proc', Q_S2_PROC, 's2');
   buildQuestions('q-s2-ctrl', Q_S2_CTRL, 's2');
-  buildQuestions('q-s2-hr', Q_S2_HR, 's2');
-  buildQuestions('q-s2-gov', Q_S2_GOV, 's2');
+  buildQuestions('q-s2-hr',   Q_S2_HR,   's2');
+  buildQuestions('q-s2-gov',  Q_S2_GOV,  's2');
   buildQuestions('q-s3-base', Q_S3_BASE, 's3');
   buildQuestions('q-s3-ctrl', Q_S3_CTRL, 's3');
-  buildQuestions('q-s3-ciclo', Q_S3_CICLO, 's3');
-  buildQuestions('q-s3-rep', Q_S3_REP, 's3');
+  buildQuestions('q-s3-ciclo',Q_S3_CICLO,'s3');
+  buildQuestions('q-s3-rep',  Q_S3_REP,  's3');
   buildQuestions('q-s4-base', Q_S4_BASE, 's4');
   buildQuestions('q-s4-proc', Q_S4_PROC, 's4');
-  buildQuestions('q-s4-ciclo', Q_S4_CICLO, 's4');
-  buildQuestions('q-s4-rep', Q_S4_REP, 's4');
+  buildQuestions('q-s4-ciclo',Q_S4_CICLO,'s4');
+  buildQuestions('q-s4-rep',  Q_S4_REP,  's4');
   buildQuestions('q-s4-conf', Q_S4_CONF, 's4');
   loadLocal();
 }
 
+// ============================================================
+// SCALE 8 — build con select dropdown descrittivo
+// ============================================================
 function buildScale8(){
   const c = document.getElementById('scale8-container');
+  const opts = SCALE8_OPTS.map(o=>`<option value="${o.v}">${o.lbl}</option>`).join('');
   c.innerHTML = SCALE8_ITEMS.map(item=>`
-    <div class="s8-row">
-      <span class="s8-lbl">${item.lbl}</span>
-      <div class="scale8-wrap" id="${item.id}-wrap">
-        ${[1,2,3,4,5,6,7,8].map(v=>`<button class="s8-btn" type="button" onclick="setScale8('${item.id}',${v})" id="${item.id}-${v}">${v}</button>`).join('')}
+    <div class="s8-item" id="s8item-${item.id}">
+      <div class="s8-item-ico">${item.ico}</div>
+      <div class="s8-item-lbl">${item.lbl}</div>
+      <div class="s8-item-select">
+        <select id="${item.id}" onchange="setScale8('${item.id}',+this.value,this)">
+          ${opts}
+        </select>
       </div>
     </div>
   `).join('');
 }
-function setScale8(id,val){
+
+function setScale8(id, val, sel){
   if(!D.anagrafica.scale8) D.anagrafica.scale8={};
-  D.anagrafica.scale8[id]=val;
-  [1,2,3,4,5,6,7,8].forEach(v=>{ const b=document.getElementById(`${id}-${v}`); if(b) b.classList.toggle('sel',v===val); });
+  D.anagrafica.scale8[id] = val;
+  if(sel){
+    sel.classList.toggle('chosen', val > 0);
+    document.getElementById('s8item-'+id)?.classList.toggle('filled', val > 0);
+  }
   autoSave();
 }
 
+// ============================================================
+// DOMANDE — build con radio verticali
+// ============================================================
 function buildQuestions(cid, qs, sec){
-  const c=document.getElementById(cid); if(!c) return;
+  const c = document.getElementById(cid); if(!c) return;
   c.innerHTML = qs.map((q,qi)=>`
     <div class="level-q" id="lq-${q.id}">
       <div class="level-q-num">Domanda ${qi+1}</div>
@@ -588,39 +570,44 @@ function buildQuestions(cid, qs, sec){
     </div>
   `).join('');
 }
+
 function setAnswer(sec, qid, val){
-  D[sec][qid]=val;
+  D[sec][qid] = val;
   [0,1,2,3].forEach(i=>{
-    const el=document.getElementById(`lo-${qid}-${i}`);
-    if(el){ el.className='level-opt'; if(i===val) el.classList.add(`sel-${i}`); }
+    const el = document.getElementById(`lo-${qid}-${i}`);
+    if(el){ el.className = 'level-opt'; if(i===val) el.classList.add(`sel-${i}`); }
   });
   document.getElementById('lq-'+qid)?.classList.add('answered');
   updateScorePreview();
   autoSave();
 }
 
+function calcScore(sec){
+  const qMap = {
+    s2:[...Q_S2_ORG,...Q_S2_PROC,...Q_S2_CTRL,...Q_S2_HR,...Q_S2_GOV],
+    s3:[...Q_S3_BASE,...Q_S3_CTRL,...Q_S3_CICLO,...Q_S3_REP],
+    s4:[...Q_S4_BASE,...Q_S4_PROC,...Q_S4_CICLO,...Q_S4_REP,...Q_S4_CONF]
+  };
+  const qs = qMap[sec]; if(!qs) return 0;
+  const answered = qs.filter(q=>D[sec][q.id]!==undefined);
+  if(!answered.length) return 0;
+  const total = answered.reduce((s,q)=>s+(D[sec][q.id]||0),0);
+  return Math.round(total/(answered.length*3)*100);
+}
+
 function updateScorePreview(){
   ['s2','s3','s4'].forEach(sec=>{
-    const s=calcScore(sec);
-    const el=document.getElementById(`sp-${sec}`);
+    const s = calcScore(sec);
+    const el = document.getElementById(`sp-${sec}`);
     if(el){ el.textContent=s+'%'; el.style.color=s>=70?'#10b981':s>=40?'#f59e0b':'#ef4444'; }
   });
 }
 
-function calcScore(sec){
-  const qMap={s2:[...Q_S2_ORG,...Q_S2_PROC,...Q_S2_CTRL,...Q_S2_HR,...Q_S2_GOV],s3:[...Q_S3_BASE,...Q_S3_CTRL,...Q_S3_CICLO,...Q_S3_REP],s4:[...Q_S4_BASE,...Q_S4_PROC,...Q_S4_CICLO,...Q_S4_REP,...Q_S4_CONF]};
-  const qs=qMap[sec]; if(!qs) return 0;
-  const answered=qs.filter(q=>D[sec][q.id]!==undefined);
-  if(!answered.length) return 0;
-  const total=answered.reduce((s,q)=>s+(D[sec][q.id]||0),0);
-  return Math.round(total/(answered.length*3)*100);
-}
-
 // ============================================================
-// NAVIGATION
+// NAVIGAZIONE
 // ============================================================
 function startSurvey(){
-  const inp=document.getElementById('codice-input').value.trim().toUpperCase();
+  const inp = document.getElementById('codice-input').value.trim().toUpperCase();
   codiceCliente = inp || generaCodice();
   document.getElementById('screen-intro').style.display='none';
   document.getElementById('progress-wrap').style.display='block';
@@ -630,7 +617,6 @@ function startSurvey(){
 function goTo(id){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   document.getElementById('screen-s'+id.replace('s',''))?.classList.add('active');
-  currentScreen = id;
   updateProgress(id);
   window.scrollTo({top:0,behavior:'smooth'});
 }
@@ -641,48 +627,39 @@ function next(current, nextId){
 }
 
 function updateProgress(id){
-  const steps=['s1','s2','s3','s4','send'];
-  const idx=steps.indexOf(id);
-  const pct=Math.round((idx/(steps.length-1))*100);
+  const steps = ['s1','s2','s3','s4','send'];
+  const idx = steps.indexOf(id);
+  const pct = Math.round((idx/(steps.length-1))*100);
   document.getElementById('prog-fill').style.width=pct+'%';
   document.getElementById('hdr-step').textContent=`Sezione ${idx+1} di 5`;
   steps.forEach((s,i)=>{
-    const el=document.getElementById('ps-'+s); if(!el) return;
-    el.className='ps'+(i<idx?' done':i===idx?' active':'');
+    const el = document.getElementById('ps-'+s); if(!el) return;
+    el.className = 'ps'+(i<idx?' done':i===idx?' active':'');
   });
   if(id==='s4') updateScorePreview();
 }
 
 // ============================================================
-// INVIO AL GAS
+// INVIO — FIX: nessun header Content-Type con no-cors
 // ============================================================
 async function inviaAssessment(){
   if(!D.anagrafica.nome){ toast('Compila almeno il nome dell\'azienda','err'); goTo('s1'); return; }
-
   document.getElementById('send-overlay').style.display='flex';
 
-  const payload = {
-    codiceCliente,
-    data: { ...D, anagrafica: { ...D.anagrafica } }
-  };
+  const payload = { codiceCliente, data:{ ...D, anagrafica:{...D.anagrafica} } };
 
   try {
-    const resp = await fetch(GAS_URL, {
+    await fetch(GAS_URL, {
       method: 'POST',
-      mode: 'no-cors',  // GAS non supporta CORS preflight
-      headers: { 'Content-Type': 'application/json' },
+      mode: 'no-cors',
+      // ⚠️ NO headers: il browser invia senza preflight CORS e il GAS riceve il body
       body: JSON.stringify(payload)
     });
-
-    // no-cors → response.type='opaque', non possiamo leggere il body
-    // consideriamo inviato se non ci sono eccezioni
     document.getElementById('send-overlay').style.display='none';
-    mostraThankYou();
     localStorage.removeItem('bdz_survey_draft');
-
-  } catch(err) {
+    mostraThankYou();
+  } catch(err){
     document.getElementById('send-overlay').style.display='none';
-    // Fallback: salva JSON localmente e mostra link download
     fallbackDownload();
   }
 }
@@ -693,56 +670,62 @@ function mostraThankYou(){
   document.getElementById('screen-thanks').style.display='block';
   document.getElementById('thanks-code').textContent = codiceCliente;
   document.getElementById('hdr-step').textContent = 'Completato ✓';
-
-  const s2=calcScore('s2'), s3=calcScore('s3'), s4=calcScore('s4');
-  const scoreColor = v => v>=70?'#10b981':v>=40?'#f59e0b':'#ef4444';
-  document.getElementById('thanks-score').innerHTML = [
-    {lbl:'Organizzativo',v:s2},{lbl:'Amministrativo',v:s3},{lbl:'Contabile',v:s4}
-  ].map(x=>`<div class="ts-item"><div class="ts-val" style="color:${scoreColor(x.v)}">${x.v}%</div><div class="ts-lbl">${x.lbl}</div></div>`).join('');
-
+  const s2=calcScore('s2'),s3=calcScore('s3'),s4=calcScore('s4');
+  const col = v=>v>=70?'#10b981':v>=40?'#f59e0b':'#ef4444';
+  document.getElementById('thanks-score').innerHTML =
+    [{lbl:'Organizzativo',v:s2},{lbl:'Amministrativo',v:s3},{lbl:'Contabile',v:s4}]
+    .map(x=>`<div class="ts-item"><div class="ts-val" style="color:${col(x.v)}">${x.v}%</div><div class="ts-lbl">${x.lbl}</div></div>`).join('');
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
 function fallbackDownload(){
-  // Se il GAS non è raggiungibile, scarica il JSON per inviarlo manualmente
-  const blob=new Blob([JSON.stringify({codiceCliente,data:D},null,2)],{type:'application/json'});
-  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
-  a.download=`assessment_${D.anagrafica.nome||'bdz'}_${codiceCliente}.json`;
+  const blob = new Blob([JSON.stringify({codiceCliente,data:D},null,2)],{type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `assessment_${D.anagrafica.nome||'bdz'}_${codiceCliente}.json`;
   a.click();
-  toast('⚠️ Invio automatico non disponibile. File JSON scaricato — inviarlo al consulente.','info');
+  toast('⚠️ Invio automatico non disponibile — file JSON scaricato. Inviarlo al consulente.','info');
+  setTimeout(mostraThankYou, 2000);
 }
 
 function generaCodice(){
-  const chars='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-  return Array.from({length:8},()=>chars[Math.floor(Math.random()*chars.length)]).join('');
+  const c='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  return Array.from({length:8},()=>c[Math.floor(Math.random()*c.length)]).join('');
 }
 
 // ============================================================
-// AUTO-SAVE (localStorage draft)
+// AUTO-SAVE
 // ============================================================
 function autoSave(){
-  try{ localStorage.setItem('bdz_survey_draft', JSON.stringify({codiceCliente, D})); }catch(e){}
+  try{ localStorage.setItem('bdz_survey_draft',JSON.stringify({codiceCliente,D})); }catch(e){}
 }
+
 function loadLocal(){
   try{
-    const s=localStorage.getItem('bdz_survey_draft');
+    const s = localStorage.getItem('bdz_survey_draft');
     if(!s) return;
-    const saved=JSON.parse(s);
-    if(saved.D) D=saved.D;
-    if(saved.codiceCliente) codiceCliente=saved.codiceCliente;
-    // Ripopola campi visibili
-    const a=D.anagrafica||{};
-    ['nome','email','ateco1','ateco2'].forEach(k=>{ const el=document.getElementById('az-'+k); if(el&&a[k]) el.value=a[k]; });
-    if(a.siTipo1) document.getElementById('si-tipo1').value=a.siTipo1;
-    if(a.siTipo2) document.getElementById('si-tipo2').value=a.siTipo2;
-    if(a.siSw) document.getElementById('si-sw').value=a.siSw;
-    if(a.strMission) document.getElementById('str-mission').value=a.strMission;
-    if(a.strVision) document.getElementById('str-vision').value=a.strVision;
-    if(a.swF) document.getElementById('sw-f').value=a.swF;
-    if(a.swD) document.getElementById('sw-d').value=a.swD;
+    const saved = JSON.parse(s);
+    if(saved.D) D = saved.D;
+    if(saved.codiceCliente) codiceCliente = saved.codiceCliente;
+    const a = D.anagrafica||{};
+    if(a.nome)      document.getElementById('az-nome').value    = a.nome;
+    if(a.email)     document.getElementById('az-email').value   = a.email;
+    if(a.ateco1)    document.getElementById('az-ateco1').value  = a.ateco1;
+    if(a.ateco2)    document.getElementById('az-ateco2').value  = a.ateco2;
+    if(a.professionista) document.getElementById('az-prof').value = a.professionista;
+    if(a.siTipo1)   document.getElementById('si-tipo1').value   = a.siTipo1;
+    if(a.siTipo2)   document.getElementById('si-tipo2').value   = a.siTipo2;
+    if(a.siSw)      document.getElementById('si-sw').value      = a.siSw;
+    if(a.strMission)document.getElementById('str-mission').value= a.strMission;
+    if(a.strVision) document.getElementById('str-vision').value = a.strVision;
+    if(a.swF)       document.getElementById('sw-f').value       = a.swF;
+    if(a.swD)       document.getElementById('sw-d').value       = a.swD;
     // Scale 8
-    Object.entries(a.scale8||{}).forEach(([id,val])=>setScale8(id,val));
-    // Risposte questionari
+    Object.entries(a.scale8||{}).forEach(([id,val])=>{
+      const sel = document.getElementById(id);
+      if(sel){ sel.value=val; setScale8(id,val,sel); }
+    });
+    // Questionari
     ['s2','s3','s4'].forEach(sec=>Object.entries(D[sec]||{}).forEach(([qid,val])=>setAnswer(sec,qid,val)));
   }catch(e){}
 }
