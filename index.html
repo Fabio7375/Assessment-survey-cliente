@@ -169,6 +169,9 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     <div class="ps" id="ps-s2"><div class="ps-dot"></div>Organizzativo</div>
     <div class="ps" id="ps-s3"><div class="ps-dot"></div>Amministrativo</div>
     <div class="ps" id="ps-s4"><div class="ps-dot"></div>Contabile</div>
+    <div class="ps" id="ps-s5"><div class="ps-dot"></div>Strategia</div>
+    <div class="ps" id="ps-s6"><div class="ps-dot"></div>Clima</div>
+    <div class="ps" id="ps-s7"><div class="ps-dot"></div>ESG</div>
     <div class="ps" id="ps-send"><div class="ps-dot"></div>Invio</div>
   </div>
 </div>
@@ -178,12 +181,14 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
   <div class="intro-card">
     <div class="intro-logo">🏛️</div>
     <div class="intro-title">Assessment Adeguatezza Assetti</div>
-    <div class="intro-sub">Questionario di valutazione dell'adeguatezza organizzativa, amministrativa e contabile.<br>Richiede circa <strong>15–20 minuti</strong>.</div>
+    <div class="intro-sub">Questionario di valutazione dell'adeguatezza organizzativa, amministrativa e contabile.<br>Include anche una verifica rapida di strategia, clima e sostenibilità.<br>Richiede circa <strong>20–25 minuti</strong>.</div>
     <div class="intro-features">
       <div class="feat"><div class="feat-ico">🏗️</div><div class="feat-txt"><strong>Assetto Organizzativo</strong>Struttura, processi, HR, governance</div></div>
       <div class="feat"><div class="feat-ico">📋</div><div class="feat-txt"><strong>Assetto Amministrativo</strong>Budget, tesoreria, reporting, KPI</div></div>
       <div class="feat"><div class="feat-ico">📒</div><div class="feat-txt"><strong>Assetto Contabile</strong>Sistema contabile, procedure, conformità</div></div>
-      <div class="feat"><div class="feat-ico">🔒</div><div class="feat-txt"><strong>Dati riservati</strong>Solo il tuo consulente BDZ può accedervi</div></div>
+      <div class="feat"><div class="feat-ico">🎯</div><div class="feat-txt"><strong>Maturità Strategica</strong>Vision, pianificazione, obiettivi</div></div>
+      <div class="feat"><div class="feat-ico">😊</div><div class="feat-txt"><strong>Clima Aziendale</strong>Engagement, feedback, benessere</div></div>
+      <div class="feat"><div class="feat-ico">🌿</div><div class="feat-txt"><strong>Consapevolezza ESG</strong>Sostenibilità, impatto, governance</div></div>
     </div>
     <div class="codice-wrap">
       <div class="codice-lbl">Codice Cliente (fornito da Studio BDZ)</div>
@@ -355,6 +360,78 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
   </div>
   <div class="nav-btns">
     <button class="btn btn-o" onclick="goTo('s3')">← Indietro</button>
+    <button class="btn btn-p" onclick="next('s4','s5')">Sezione successiva →</button>
+  </div>
+</div>
+
+<!-- S5: MATURITÀ STRATEGICA -->
+<div class="screen" id="screen-s5">
+  <div class="sec-hdr">
+    <div class="sec-tag">Sezione 5 di 7</div>
+    <div class="sec-title">Maturità Strategica</div>
+    <div class="sec-desc">4 domande rapide per capire quanto l'azienda ha strutturato il suo orientamento strategico. Non esistono risposte giuste o sbagliate.</div>
+  </div>
+  <div class="card" style="border-left:4px solid #4f46e5">
+    <div style="background:#eef2ff;border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:12.5px;color:#3730a3">
+      🎯 <strong>Perché queste domande?</strong> La pianificazione strategica strutturata è uno degli indicatori di adeguatezza organizzativa previsti da UNI/PdR 167:2025. Le risposte ci aiutano a capire se e come supportarvi in questo percorso.
+    </div>
+    <div id="q-s5"></div>
+  </div>
+  <div class="nav-btns">
+    <button class="btn btn-o" onclick="goTo('s4')">← Indietro</button>
+    <button class="btn btn-p" onclick="next('s5','s6')">Sezione successiva →</button>
+  </div>
+</div>
+
+<!-- S6: CLIMA AZIENDALE -->
+<div class="screen" id="screen-s6">
+  <div class="sec-hdr">
+    <div class="sec-tag">Sezione 6 di 7</div>
+    <div class="sec-title">Clima Aziendale</div>
+    <div class="sec-desc">3 domande sul livello di attenzione al benessere e all'engagement delle persone in azienda.</div>
+  </div>
+  <div class="card" style="border-left:4px solid #16a34a">
+    <div style="background:#f0fdf4;border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:12.5px;color:#166534">
+      😊 <strong>Perché queste domande?</strong> Il clima aziendale influisce direttamente su produttività, turnover e capacità di attrarre talenti. Studio BDZ offre un sistema di rilevazione anonima del clima (survey digitale) che fornisce dati oggettivi su 8 dimensioni organizzative.
+    </div>
+    <div id="q-s6"></div>
+  </div>
+  <div class="nav-btns">
+    <button class="btn btn-o" onclick="goTo('s5')">← Indietro</button>
+    <button class="btn btn-p" onclick="next('s6','s7')">Sezione successiva →</button>
+  </div>
+</div>
+
+<!-- S7: CONSAPEVOLEZZA ESG -->
+<div class="screen" id="screen-s7">
+  <div class="sec-hdr">
+    <div class="sec-tag">Sezione 7 di 7</div>
+    <div class="sec-title">Consapevolezza ESG e Sostenibilità</div>
+    <div class="sec-desc">4 domande per capire il livello di attenzione ai temi ambientali, sociali e di governance (ESG).</div>
+  </div>
+  <div class="card" style="border-left:4px solid #d97706">
+    <div style="background:#fefce8;border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:12.5px;color:#92400e">
+      🌿 <strong>Perché queste domande?</strong> La normativa CSRD/VSME sta estendendo gli obblighi di rendicontazione sostenibilità anche alle PMI. Studio BDZ supporta le aziende nell'assessment ESG e nella predisposizione del report VSME (EFRAG).
+    </div>
+    <div id="q-s7"></div>
+  </div>
+
+  <!-- SCORE PREVIEW COMPLETO -->
+  <div class="card">
+    <div class="ct"><span class="ico">🎯</span> Riepilogo score — tutte le aree</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px">
+      <div class="sp-item"><div class="sp-val" id="sp-s2">—</div><div class="sp-lbl">Organizzativo</div></div>
+      <div class="sp-item"><div class="sp-val" id="sp-s3">—</div><div class="sp-lbl">Amministrativo</div></div>
+      <div class="sp-item"><div class="sp-val" id="sp-s4">—</div><div class="sp-lbl">Contabile</div></div>
+      <div class="sp-item" style="background:#eef2ff;border-color:#c7d2fe"><div class="sp-val" id="sp-s5">—</div><div class="sp-lbl">Strategia</div></div>
+      <div class="sp-item" style="background:#f0fdf4;border-color:#bbf7d0"><div class="sp-val" id="sp-s6">—</div><div class="sp-lbl">Clima</div></div>
+      <div class="sp-item" style="background:#fefce8;border-color:#fde68a"><div class="sp-val" id="sp-s7">—</div><div class="sp-lbl">ESG</div></div>
+    </div>
+    <div style="margin-top:12px;font-size:12px;color:var(--g500);line-height:1.5">Il tuo consulente BDZ riceverà il report completo e ti contatterà per pianificare la sessione di analisi.</div>
+  </div>
+
+  <div class="nav-btns">
+    <button class="btn btn-o" onclick="goTo('s6')">← Indietro</button>
     <button class="btn btn-send" onclick="inviaAssessment()">📤 Invia al consulente BDZ</button>
   </div>
 </div>
@@ -370,7 +447,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
       <div class="thanks-code-val" id="thanks-code">—</div>
       <div style="font-size:11px;color:var(--g500);margin-top:6px">Conserva questo codice per eventuali integrazioni future</div>
     </div>
-    <div class="thanks-score" id="thanks-score"></div>
+    <div class="thanks-score" id="thanks-score" style="grid-template-columns:repeat(3,1fr)"></div>
     <div style="margin-top:20px;font-size:13px;color:var(--g500)">Studio Associato Basso De Bortoli Zambelli<br>Viale Palladio 42 · 37138 Verona · Tel. 045 577694</div>
   </div>
 </div>
@@ -492,10 +569,39 @@ const Q_S4_CONF = [
   {id:'s4_conf_3',txt:'Come viene gestita l\'analisi di bilancio?',opts:['Nessuna analisi strutturata','Analisi base dei principali indicatori','Analisi periodica con set di indicatori','Sistema completo con benchmark settoriale']},
 ];
 
-// ============================================================
-// DATA MODEL
-// ============================================================
-let D = { anagrafica:{}, s2:{}, s3:{}, s4:{}, autovalOrg:5, autovalAmm:5, autovalCont:5 };
+// ── NUOVE DOMANDE AWARENESS ──────────────────────────────────
+const Q_S5 = [
+  {id:'s5_str_1',txt:'Avete formalizzato Vision, Mission e valori aziendali?',
+   opts:['No, non sono mai stati definiti','Sì, ma solo verbalmente — non è scritto','Esiste un documento ma non aggiornato né comunicato','Documentato, condiviso con il team e aggiornato']},
+  {id:'s5_str_2',txt:'Fate un\'analisi strutturata del mercato e dei concorrenti?',
+   opts:['No, ci basiamo sull\'esperienza','In modo informale, senza documentazione','Periodicamente, ma non in modo sistematico','Sì, con analisi documentate e aggiornate regolarmente']},
+  {id:'s5_str_3',txt:'Avete un piano strategico con obiettivi misurabili?',
+   opts:['No, la strategia è in testa al titolare','Esiste un\'idea di direzione ma non documentata','Piano parziale, non sempre aggiornato','Piano strutturato con KPI, scadenze e responsabili']},
+  {id:'s5_str_4',txt:'Monitorate i risultati rispetto agli obiettivi strategici?',
+   opts:['No, non abbiamo un sistema di monitoraggio','Solo saltuariamente e in modo informale','Periodicamente, senza un sistema strutturato','Sì, con riunioni periodiche, dashboard o BSC/OKR']},
+];
+const Q_S6 = [
+  {id:'s6_cli_1',txt:'Avete mai rilevato il clima o la soddisfazione dei vostri dipendenti?',
+   opts:['No, non lo abbiamo mai fatto','Solo informalmente, parlando con le persone','Una volta, senza un metodo strutturato','Sì, periodicamente con questionari o strumenti dedicati']},
+  {id:'s6_cli_2',txt:'I dipendenti hanno canali strutturati per dare feedback e segnalare problemi?',
+   opts:['No, tutto passa verbalmente dal titolare','Possono parlare, ma senza strumenti dedicati','Alcune modalità esistono ma non sistematiche','Sì, esistono strumenti o processi formalizzati di feedback']},
+  {id:'s6_cli_3',txt:'Conoscete il livello di engagement e i potenziali rischi di turnover?',
+   opts:['No, lo percepiamo ma senza dati','Abbiamo una percezione informale','Alcune misurazioni occasionali','Sì, monitoriamo continuamente con indicatori definiti']},
+];
+const Q_S7 = [
+  {id:'s7_esg_1',txt:'Conoscete la normativa CSRD/VSME sulla rendicontazione di sostenibilità?',
+   opts:['No, non ne abbiamo mai sentito parlare','Ne abbiamo sentito parlare ma non sappiamo cosa implica','Conoscenza base, stiamo valutando l\'impatto','La conosciamo bene e abbiamo già avviato un percorso']},
+  {id:'s7_esg_2',txt:'Monitorate indicatori ambientali (energia, rifiuti, emissioni CO2)?',
+   opts:['No, non monitoriamo nulla','Solo ciò che è obbligatorio per legge','Alcuni indicatori, senza un sistema strutturato','Sì, con un sistema strutturato di raccolta e analisi']},
+  {id:'s7_esg_3',txt:'Avete politiche sociali documentate (welfare, diversità, sicurezza oltre gli obblighi)?',
+   opts:['No, facciamo solo il minimo di legge','Alcune iniziative informali non documentate','Alcune politiche definite ma non sistematizzate','Politiche strutturate e documentate']},
+  {id:'s7_esg_4',txt:'La sostenibilità è un tema rilevante per i vostri clienti o stakeholder?',
+   opts:['No, i nostri clienti non lo richiedono','Marginalmente — solo qualche cliente lo menziona','Sì, è sempre più presente nelle richieste','Sì, è già un requisito esplicito in gare/contratti']},
+];
+
+// ── DATA MODEL ───────────────────────────────────────────────
+let D = { anagrafica:{}, s2:{}, s3:{}, s4:{}, s5:{}, s6:{}, s7:{},
+          autovalOrg:5, autovalAmm:5, autovalCont:5 };
 let codiceCliente = '';
 
 // ============================================================
@@ -517,6 +623,9 @@ function init(){
   buildQuestions('q-s4-ciclo',Q_S4_CICLO,'s4');
   buildQuestions('q-s4-rep',  Q_S4_REP,  's4');
   buildQuestions('q-s4-conf', Q_S4_CONF, 's4');
+  buildQuestions('q-s5',      Q_S5,      's5');  // NUOVO
+  buildQuestions('q-s6',      Q_S6,      's6');  // NUOVO
+  buildQuestions('q-s7',      Q_S7,      's7');  // NUOVO
   loadLocal();
 }
 
@@ -586,7 +695,10 @@ function calcScore(sec){
   const qMap = {
     s2:[...Q_S2_ORG,...Q_S2_PROC,...Q_S2_CTRL,...Q_S2_HR,...Q_S2_GOV],
     s3:[...Q_S3_BASE,...Q_S3_CTRL,...Q_S3_CICLO,...Q_S3_REP],
-    s4:[...Q_S4_BASE,...Q_S4_PROC,...Q_S4_CICLO,...Q_S4_REP,...Q_S4_CONF]
+    s4:[...Q_S4_BASE,...Q_S4_PROC,...Q_S4_CICLO,...Q_S4_REP,...Q_S4_CONF],
+    s5: Q_S5,
+    s6: Q_S6,
+    s7: Q_S7
   };
   const qs = qMap[sec]; if(!qs) return 0;
   const answered = qs.filter(q=>D[sec][q.id]!==undefined);
@@ -596,7 +708,7 @@ function calcScore(sec){
 }
 
 function updateScorePreview(){
-  ['s2','s3','s4'].forEach(sec=>{
+  ['s2','s3','s4','s5','s6','s7'].forEach(sec=>{
     const s = calcScore(sec);
     const el = document.getElementById(`sp-${sec}`);
     if(el){ el.textContent=s+'%'; el.style.color=s>=70?'#10b981':s>=40?'#f59e0b':'#ef4444'; }
@@ -627,16 +739,16 @@ function next(current, nextId){
 }
 
 function updateProgress(id){
-  const steps = ['s1','s2','s3','s4','send'];
+  const steps = ['s1','s2','s3','s4','s5','s6','s7','send'];
   const idx = steps.indexOf(id);
   const pct = Math.round((idx/(steps.length-1))*100);
   document.getElementById('prog-fill').style.width=pct+'%';
-  document.getElementById('hdr-step').textContent=`Sezione ${idx+1} di 5`;
+  document.getElementById('hdr-step').textContent=`Sezione ${idx+1} di 8`;
   steps.forEach((s,i)=>{
     const el = document.getElementById('ps-'+s); if(!el) return;
     el.className = 'ps'+(i<idx?' done':i===idx?' active':'');
   });
-  if(id==='s4') updateScorePreview();
+  if(id==='s7') updateScorePreview();
 }
 
 // ============================================================
@@ -670,11 +782,15 @@ function mostraThankYou(){
   document.getElementById('screen-thanks').style.display='block';
   document.getElementById('thanks-code').textContent = codiceCliente;
   document.getElementById('hdr-step').textContent = 'Completato ✓';
-  const s2=calcScore('s2'),s3=calcScore('s3'),s4=calcScore('s4');
   const col = v=>v>=70?'#10b981':v>=40?'#f59e0b':'#ef4444';
-  document.getElementById('thanks-score').innerHTML =
-    [{lbl:'Organizzativo',v:s2},{lbl:'Amministrativo',v:s3},{lbl:'Contabile',v:s4}]
-    .map(x=>`<div class="ts-item"><div class="ts-val" style="color:${col(x.v)}">${x.v}%</div><div class="ts-lbl">${x.lbl}</div></div>`).join('');
+  document.getElementById('thanks-score').innerHTML = [
+    {lbl:'Organizzativo',v:calcScore('s2')},
+    {lbl:'Amministrativo',v:calcScore('s3')},
+    {lbl:'Contabile',v:calcScore('s4')},
+    {lbl:'Strategia',v:calcScore('s5')},
+    {lbl:'Clima',v:calcScore('s6')},
+    {lbl:'ESG',v:calcScore('s7')}
+  ].map(x=>`<div class="ts-item"><div class="ts-val" style="color:${col(x.v)}">${x.v}%</div><div class="ts-lbl">${x.lbl}</div></div>`).join('');
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
@@ -725,8 +841,8 @@ function loadLocal(){
       const sel = document.getElementById(id);
       if(sel){ sel.value=val; setScale8(id,val,sel); }
     });
-    // Questionari
-    ['s2','s3','s4'].forEach(sec=>Object.entries(D[sec]||{}).forEach(([qid,val])=>setAnswer(sec,qid,val)));
+    // Questionari — incluso S5/S6/S7
+    ['s2','s3','s4','s5','s6','s7'].forEach(sec=>Object.entries(D[sec]||{}).forEach(([qid,val])=>setAnswer(sec,qid,val)));
   }catch(e){}
 }
 
