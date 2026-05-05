@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Assessment Aziendale — Studio BDZ</title>
+<title>Assessment Aziendale v4.0 — Studio BDZ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
 <style>
@@ -27,7 +27,7 @@ body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;backgroun
 .progress-bar{height:4px;background:rgba(255,255,255,.15);border-radius:4px;overflow:hidden}
 .progress-fill{height:100%;background:var(--gd);border-radius:4px;transition:width .5s ease;width:0%}
 .progress-steps{display:flex;justify-content:space-between;margin-top:8px}
-.ps{font-size:10.5px;color:rgba(255,255,255,.4);cursor:pointer;transition:var(--tr);display:flex;flex-direction:column;align-items:center;gap:3px}
+.ps{font-size:9.5px;color:rgba(255,255,255,.4);cursor:pointer;transition:var(--tr);display:flex;flex-direction:column;align-items:center;gap:3px}
 .ps.done{color:var(--ok)}.ps.active{color:var(--gd2);font-weight:600}
 .ps-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.2)}
 .ps.done .ps-dot{background:var(--ok)}.ps.active .ps-dot{background:var(--gd)}
@@ -58,6 +58,24 @@ body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;backgroun
 .sec-title{font-size:20px;font-weight:700;color:var(--nv);margin-bottom:4px}
 .sec-desc{font-size:13px;color:var(--g500);line-height:1.5}
 
+/* ── TEORIA BOX ── */
+.teoria-box{border-radius:10px;margin-bottom:16px;border:1.5px solid;overflow:hidden}
+.teoria-hdr{display:flex;align-items:center;gap:10px;padding:12px 14px;cursor:pointer;user-select:none;font-size:13px;font-weight:600}
+.teoria-hdr .t-ico{font-size:18px;flex-shrink:0}
+.teoria-hdr .t-arr{margin-left:auto;font-size:12px;transition:transform .2s}
+.teoria-hdr.open .t-arr{transform:rotate(180deg)}
+.teoria-body{padding:14px 14px 16px;font-size:12.5px;line-height:1.7;display:none}
+.teoria-body.show{display:block}
+.teoria-body p{margin-bottom:8px}
+.teoria-body ul{padding-left:18px;margin-bottom:8px}
+.teoria-body li{margin-bottom:4px}
+.teoria-box.teoria-law{border-color:#c7d2fe;background:#eef2ff}
+.teoria-box.teoria-law .teoria-hdr{background:#e0e7ff;color:#3730a3}
+.teoria-box.teoria-law .teoria-body{color:#374151}
+.teoria-box.teoria-risk{border-color:#fca5a5;background:#fef2f2}
+.teoria-box.teoria-risk .teoria-hdr{background:#fee2e2;color:#991b1b}
+.teoria-box.teoria-risk .teoria-body{color:#374151}
+
 .card{background:var(--wh);border-radius:var(--r);padding:18px;margin-bottom:14px;border:1px solid var(--g200);box-shadow:var(--sh)}
 .ct{font-size:13px;font-weight:700;color:var(--nv);margin-bottom:14px;display:flex;align-items:center;gap:7px}
 .ct .ico{color:var(--gd)}
@@ -71,12 +89,9 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media(max-width:500px){.grid2{grid-template-columns:1fr}}
 
-/* ============================================================
-   SCALE 8 — NUOVO DESIGN con select dropdown
-   ============================================================ */
+/* SCALE 8 */
 .s8-intro{background:var(--g50);border:1px solid var(--g200);border-radius:8px;padding:12px 14px;margin-bottom:16px;font-size:12.5px;color:var(--g700);line-height:1.6}
 .s8-intro strong{color:var(--nv);display:block;margin-bottom:6px;font-size:13px}
-
 .s8-item{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:8px;border:1.5px solid var(--g200);margin-bottom:8px;background:var(--wh);transition:var(--tr)}
 .s8-item:hover{border-color:var(--g300);background:var(--g50)}
 .s8-item.filled{border-color:rgba(15,31,61,.25);background:rgba(15,31,61,.02)}
@@ -85,11 +100,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 .s8-item-select{flex:0 0 auto;width:220px}
 .s8-item-select select{font-size:12.5px;padding:7px 28px 7px 10px;border-color:var(--g200)}
 .s8-item-select select.chosen{border-color:var(--nv);background-color:rgba(15,31,61,.03);font-weight:600;color:var(--nv)}
-@media(max-width:560px){
-  .s8-item{flex-wrap:wrap;gap:8px}
-  .s8-item-select{width:100%}
-  .s8-item-select select{font-size:13px}
-}
+@media(max-width:560px){.s8-item{flex-wrap:wrap;gap:8px}.s8-item-select{width:100%}.s8-item-select select{font-size:13px}}
 
 /* LEVEL SELECTOR */
 .level-q{margin-bottom:10px;padding:12px 14px;border:1.5px solid var(--g200);border-radius:8px;background:var(--wh)}
@@ -108,6 +119,35 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 .level-opt.sel-2 .lo-badge{background:#10b981;border-color:#10b981;color:#fff}
 .level-opt.sel-3{background:#eff6ff;border-color:#93c5fd}
 .level-opt.sel-3 .lo-badge{background:#3b82f6;border-color:#3b82f6;color:#fff}
+
+/* ── INDICATORI S8 ── */
+.ind-card{background:var(--wh);border-radius:12px;border:1.5px solid var(--g200);padding:18px;margin-bottom:16px;box-shadow:var(--sh)}
+.ind-card-hdr{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px}
+.ind-ico{font-size:28px;flex-shrink:0}
+.ind-name{font-size:15px;font-weight:700;color:var(--nv);margin-bottom:2px}
+.ind-formula{font-size:11.5px;color:var(--g500);font-style:italic}
+.ind-why{background:var(--g50);border-left:3px solid var(--gd);border-radius:0 8px 8px 0;padding:10px 12px;margin-bottom:14px;font-size:12.5px;color:var(--g700);line-height:1.6}
+.ind-knowl{margin-bottom:14px}
+.ind-knowl-lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--g500);margin-bottom:8px}
+.ind-val-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.ind-val-row label{font-size:12.5px;color:var(--g700);font-weight:600;min-width:180px;flex-shrink:0}
+.ind-val-row input[type=number]{width:110px;text-align:right;padding:8px 10px}
+.ind-val-row .unit{font-size:13px;color:var(--g500);white-space:nowrap}
+.ind-val-row select{width:auto;min-width:180px}
+.semaforo{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid transparent;transition:all .3s}
+.sem-green{background:var(--ok-bg);border-color:#86efac;color:#065f46}
+.sem-yellow{background:var(--warn-bg);border-color:#fcd34d;color:#92400e}
+.sem-red{background:var(--err-bg);border-color:#fca5a5;color:#991b1b}
+.sem-neutral{background:var(--g100);border-color:var(--g300);color:var(--g500)}
+.sem-dot{width:10px;height:10px;border-radius:50%}
+.sem-green .sem-dot{background:var(--ok)}
+.sem-yellow .sem-dot{background:var(--warn)}
+.sem-red .sem-dot{background:var(--err)}
+.sem-neutral .sem-dot{background:var(--g400)}
+.ind-soglie{font-size:11.5px;color:var(--g500);margin-top:8px;line-height:1.6}
+.ind-soglie span{display:inline-block;margin-right:10px}
+.ind-soglie .sg{font-weight:600}
+.ind-sep{border:none;border-top:1px solid var(--g100);margin:14px 0}
 
 .pct-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
 .pct-row label{font-size:13px;color:var(--g700);min-width:120px;font-weight:500}
@@ -166,12 +206,13 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
   <div class="progress-bar"><div class="progress-fill" id="prog-fill"></div></div>
   <div class="progress-steps">
     <div class="ps active" id="ps-s1"><div class="ps-dot"></div>Anagrafica</div>
-    <div class="ps" id="ps-s2"><div class="ps-dot"></div>Organizzativo</div>
-    <div class="ps" id="ps-s3"><div class="ps-dot"></div>Amministrativo</div>
+    <div class="ps" id="ps-s2"><div class="ps-dot"></div>Organiz.</div>
+    <div class="ps" id="ps-s3"><div class="ps-dot"></div>Amminist.</div>
     <div class="ps" id="ps-s4"><div class="ps-dot"></div>Contabile</div>
     <div class="ps" id="ps-s5"><div class="ps-dot"></div>Strategia</div>
     <div class="ps" id="ps-s6"><div class="ps-dot"></div>Clima</div>
     <div class="ps" id="ps-s7"><div class="ps-dot"></div>ESG</div>
+    <div class="ps" id="ps-s8"><div class="ps-dot"></div>Indicatori</div>
     <div class="ps" id="ps-send"><div class="ps-dot"></div>Invio</div>
   </div>
 </div>
@@ -181,14 +222,14 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
   <div class="intro-card">
     <div class="intro-logo">🏛️</div>
     <div class="intro-title">Assessment Adeguatezza Assetti</div>
-    <div class="intro-sub">Questionario di valutazione dell'adeguatezza organizzativa, amministrativa e contabile.<br>Include anche una verifica rapida di strategia, clima e sostenibilità.<br>Richiede circa <strong>20–25 minuti</strong>.</div>
+    <div class="intro-sub">Questionario di valutazione dell'adeguatezza organizzativa, amministrativa e contabile (art. 2086 c.c. e CCII).<br>Include anche strategia, clima, ESG e <strong>indicatori gestionali quantitativi</strong>.<br>Richiede circa <strong>25–30 minuti</strong>.</div>
     <div class="intro-features">
       <div class="feat"><div class="feat-ico">🏗️</div><div class="feat-txt"><strong>Assetto Organizzativo</strong>Struttura, processi, HR, governance</div></div>
       <div class="feat"><div class="feat-ico">📋</div><div class="feat-txt"><strong>Assetto Amministrativo</strong>Budget, tesoreria, reporting, KPI</div></div>
       <div class="feat"><div class="feat-ico">📒</div><div class="feat-txt"><strong>Assetto Contabile</strong>Sistema contabile, procedure, conformità</div></div>
       <div class="feat"><div class="feat-ico">🎯</div><div class="feat-txt"><strong>Maturità Strategica</strong>Vision, pianificazione, obiettivi</div></div>
       <div class="feat"><div class="feat-ico">😊</div><div class="feat-txt"><strong>Clima Aziendale</strong>Engagement, feedback, benessere</div></div>
-      <div class="feat"><div class="feat-ico">🌿</div><div class="feat-txt"><strong>Consapevolezza ESG</strong>Sostenibilità, impatto, governance</div></div>
+      <div class="feat"><div class="feat-ico">📊</div><div class="feat-txt"><strong>Indicatori Gestionali</strong>MC, leverage, DSO, current ratio…</div></div>
     </div>
     <div class="codice-wrap">
       <div class="codice-lbl">Codice Cliente (fornito da Studio BDZ)</div>
@@ -203,11 +244,10 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 <!-- S1: ANAGRAFICA -->
 <div class="screen" id="screen-s1">
   <div class="sec-hdr">
-    <div class="sec-tag">Sezione 1 di 4</div>
+    <div class="sec-tag">Sezione 1 di 9</div>
     <div class="sec-title">Anagrafica Aziendale</div>
     <div class="sec-desc">Dati identificativi, sistema informativo e strategia aziendale.</div>
   </div>
-
   <div class="card">
     <div class="ct"><span class="ico">🏢</span> Dati Azienda</div>
     <div class="grid2">
@@ -218,14 +258,12 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     </div>
     <div class="fg"><label>Referente Studio BDZ</label><input type="text" id="az-prof" placeholder="es. Dott. Basso" oninput="D.anagrafica.professionista=this.value;autoSave()"></div>
   </div>
-
   <div class="card">
     <div class="ct"><span class="ico">📊</span> Composizione dell'attività (%)</div>
     <div class="pct-row"><label>Manifatturiero</label><input type="number" id="pct-mani" min="0" max="100" value="0" oninput="D.anagrafica.pctMani=+this.value;autoSave()"><span>%</span></div>
     <div class="pct-row"><label>Commerciale</label><input type="number" id="pct-comm" min="0" max="100" value="0" oninput="D.anagrafica.pctComm=+this.value;autoSave()"><span>%</span></div>
     <div class="pct-row"><label>Servizi</label><input type="number" id="pct-serv" min="0" max="100" value="0" oninput="D.anagrafica.pctServ=+this.value;autoSave()"><span>%</span></div>
   </div>
-
   <div class="card">
     <div class="ct"><span class="ico">💻</span> Sistema Informativo</div>
     <div class="grid2">
@@ -244,8 +282,6 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
       <input type="text" id="si-sw" placeholder="es. TeamSystem, Zucchetti, SAP, Danea..." oninput="D.anagrafica.siSw=this.value;autoSave()">
     </div>
   </div>
-
-  <!-- SCALE 8 — NUOVO DESIGN -->
   <div class="card">
     <div class="ct"><span class="ico">🔢</span> Come vengono gestite queste attività in azienda?</div>
     <div class="s8-intro">
@@ -254,7 +290,6 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     </div>
     <div id="scale8-container"></div>
   </div>
-
   <div class="card">
     <div class="ct"><span class="ico">🎯</span> Strategia Aziendale</div>
     <div class="fg"><label>Mission — perché esiste la vostra azienda</label>
@@ -272,7 +307,6 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
       </div>
     </div>
   </div>
-
   <div class="nav-btns">
     <button class="btn btn-p" onclick="next('s1','s2')">Sezione successiva →</button>
   </div>
@@ -281,10 +315,45 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 <!-- S2: ORGANIZZATIVO -->
 <div class="screen" id="screen-s2">
   <div class="sec-hdr">
-    <div class="sec-tag">Sezione 2 di 4</div>
+    <div class="sec-tag">Sezione 2 di 9</div>
     <div class="sec-title">Assetto Organizzativo</div>
-    <div class="sec-desc">Seleziona la risposta che meglio descrive la situazione attuale. Non esistono risposte giuste o sbagliate.</div>
+    <div class="sec-desc">Seleziona la risposta che meglio descrive la situazione attuale.</div>
   </div>
+
+  <div class="teoria-box teoria-law">
+    <div class="teoria-hdr" onclick="toggleTeoria(this)">
+      <span class="t-ico">⚖️</span>
+      <span>Cosa chiede la legge — art. 2086 c.c. e CCII</span>
+      <span class="t-arr">▼</span>
+    </div>
+    <div class="teoria-body">
+      <p>L'<strong>art. 2086 c.c.</strong> (modificato dal D.Lgs. 14/2019) obbliga l'imprenditore a istituire un <em>assetto organizzativo adeguato</em> alla natura e alle dimensioni dell'impresa, con particolare riguardo alla <strong>rilevazione tempestiva della crisi</strong> e alla <strong>verifica della continuità aziendale</strong>.</p>
+      <p>La norma distingue due livelli di adeguatezza:</p>
+      <ul>
+        <li><strong>Formale:</strong> esistenza di documenti, organigrammi, mansionari, deleghe, procedure scritte. È il requisito minimo — <em>ma non sufficiente</em>.</li>
+        <li><strong>Sostanziale:</strong> i documenti vengono effettivamente usati, aggiornati e producono effetti reali sull'organizzazione. La giurisprudenza valuta <em>entrambi</em>.</li>
+      </ul>
+      <p>Lo standard tecnico <strong>UNI/PdR 167:2025</strong> definisce i requisiti minimi degli assetti e funge da riferimento peritale in caso di controversie.</p>
+    </div>
+  </div>
+
+  <div class="teoria-box teoria-risk">
+    <div class="teoria-hdr" onclick="toggleTeoria(this)">
+      <span class="t-ico">🔴</span>
+      <span>Rischio di addebito giudiziale — cosa può succedere</span>
+      <span class="t-arr">▼</span>
+    </div>
+    <div class="teoria-body">
+      <p>In caso di crisi o insolvenza, il giudice (o il curatore) verifica se l'imprenditore aveva assetti adeguati. La responsabilità può essere:</p>
+      <ul>
+        <li><strong>Civile (art. 2394 c.c.):</strong> risarcimento danni verso creditori per aggravamento del dissesto causato da mancata organizzazione adeguata.</li>
+        <li><strong>Penale (art. 217 L.F. / art. 323 c.c.):</strong> bancarotta per aver omesso di rilevare tempestivamente lo stato di crisi disponendo di strumenti adeguati.</li>
+        <li><strong>Responsabilità degli organi di controllo</strong> (sindaci, revisori) per omessa vigilanza.</li>
+      </ul>
+      <p>La <em>"prova pronta"</em> di adeguatezza — cioè la capacità di dimostrare in giudizio cosa esisteva e come funzionava — è il vero obiettivo di questo assessment.</p>
+    </div>
+  </div>
+
   <div class="card"><div class="ct"><span class="ico">🏗️</span> Struttura Organizzativa</div><div id="q-s2-org"></div></div>
   <div class="card"><div class="ct"><span class="ico">⚙️</span> Processi e Procedure</div><div id="q-s2-proc"></div></div>
   <div class="card"><div class="ct"><span class="ico">🎯</span> Controllo e Monitoraggio</div><div id="q-s2-ctrl"></div></div>
@@ -307,10 +376,29 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 <!-- S3: AMMINISTRATIVO -->
 <div class="screen" id="screen-s3">
   <div class="sec-hdr">
-    <div class="sec-tag">Sezione 3 di 4</div>
+    <div class="sec-tag">Sezione 3 di 9</div>
     <div class="sec-title">Assetto Amministrativo</div>
     <div class="sec-desc">Sistema amministrativo, budgeting, tesoreria, ciclo attivo/passivo e reporting.</div>
   </div>
+
+  <div class="teoria-box teoria-law">
+    <div class="teoria-hdr" onclick="toggleTeoria(this)">
+      <span class="t-ico">⚖️</span>
+      <span>Cosa chiede la legge — l'assetto amministrativo ex art. 3 CCII</span>
+      <span class="t-arr">▼</span>
+    </div>
+    <div class="teoria-body">
+      <p>L'<strong>art. 3 del Codice della Crisi (D.Lgs. 14/2019)</strong> specifica che l'assetto amministrativo deve consentire:</p>
+      <ul>
+        <li>La <strong>verifica dell'equilibrio economico-finanziario</strong> dell'impresa.</li>
+        <li>La <strong>costruzione di previsioni di flusso di cassa</strong> almeno su 12 mesi prospettici.</li>
+        <li>Il <strong>monitoraggio del debito</strong> e dei covenant bancari.</li>
+        <li>Il rilevamento dei segnali di crisi con tempestività sufficiente a permettere interventi correttivi.</li>
+      </ul>
+      <p>Formale vs Sostanziale: un budget esistente ma mai aggiornato, o previsioni di cassa prodotte solo per la banca e non monitorate internamente, non soddisfano il requisito <em>sostanziale</em>.</p>
+    </div>
+  </div>
+
   <div class="card"><div class="ct"><span class="ico">🏛️</span> Sistema Amministrativo di Base</div><div id="q-s3-base"></div></div>
   <div class="card"><div class="ct"><span class="ico">📅</span> Pianificazione e Controllo</div><div id="q-s3-ctrl"></div></div>
   <div class="card"><div class="ct"><span class="ico">🔄</span> Ciclo Attivo e Passivo</div><div id="q-s3-ciclo"></div></div>
@@ -332,10 +420,29 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 <!-- S4: CONTABILE -->
 <div class="screen" id="screen-s4">
   <div class="sec-hdr">
-    <div class="sec-tag">Sezione 4 di 4</div>
+    <div class="sec-tag">Sezione 4 di 9</div>
     <div class="sec-title">Assetto Contabile</div>
     <div class="sec-desc">Sistema contabile, procedure, registrazioni, chiusure e conformità fiscale.</div>
   </div>
+
+  <div class="teoria-box teoria-law">
+    <div class="teoria-hdr" onclick="toggleTeoria(this)">
+      <span class="t-ico">⚖️</span>
+      <span>Cosa chiede la legge — l'assetto contabile ex UNI/PdR 167:2025</span>
+      <span class="t-arr">▼</span>
+    </div>
+    <div class="teoria-body">
+      <p>Lo standard <strong>UNI/PdR 167:2025</strong> — adottato come riferimento tecnico da CNDCEC — richiede che l'assetto contabile garantisca:</p>
+      <ul>
+        <li><strong>Registrazione tempestiva</strong> e completa di tutte le operazioni aziendali.</li>
+        <li><strong>Procedure di riconciliazione</strong> bancaria e di controllo delle partite aperte.</li>
+        <li><strong>Chiusure periodiche</strong> (almeno trimestrali) con analisi degli scostamenti.</li>
+        <li><strong>Conservazione documentale a norma</strong> (digitale, con firma elettronica ove richiesta).</li>
+      </ul>
+      <p>La distinzione formale/sostanziale è particolarmente critica qui: avere un piano dei conti strutturato ma registrazioni saltuarie e riconciliazioni solo annuali espone a responsabilità per omessa tenuta ordinata della contabilità (art. 217 L.F.).</p>
+    </div>
+  </div>
+
   <div class="card"><div class="ct"><span class="ico">📒</span> Sistema Contabile di Base</div><div id="q-s4-base"></div></div>
   <div class="card"><div class="ct"><span class="ico">✅</span> Procedure e Controlli</div><div id="q-s4-proc"></div></div>
   <div class="card"><div class="ct"><span class="ico">🔄</span> Ciclo Attivo e Passivo</div><div id="q-s4-ciclo"></div></div>
@@ -349,6 +456,14 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
       <div class="autoval-labels"><span>0 — Inadeguato</span><span>10 — Perfettamente adeguato</span></div>
     </div>
   </div>
+  <div class="card">
+    <div class="ct"><span class="ico">🎯</span> Riepilogo score</div>
+    <div class="score-preview">
+      <div class="sp-item"><div class="sp-val" id="sp-s2">—</div><div class="sp-lbl">Organizzativo</div></div>
+      <div class="sp-item"><div class="sp-val" id="sp-s3">—</div><div class="sp-lbl">Amministrativo</div></div>
+      <div class="sp-item"><div class="sp-val" id="sp-s4">—</div><div class="sp-lbl">Contabile</div></div>
+    </div>
+  </div>
   <div class="nav-btns">
     <button class="btn btn-o" onclick="goTo('s3')">← Indietro</button>
     <button class="btn btn-p" onclick="next('s4','s5')">Sezione successiva →</button>
@@ -358,9 +473,9 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 <!-- S5: MATURITÀ STRATEGICA -->
 <div class="screen" id="screen-s5">
   <div class="sec-hdr">
-    <div class="sec-tag">Sezione 5 di 7</div>
+    <div class="sec-tag">Sezione 5 di 9</div>
     <div class="sec-title">Maturità Strategica</div>
-    <div class="sec-desc">4 domande rapide per capire quanto l'azienda ha strutturato il suo orientamento strategico. Non esistono risposte giuste o sbagliate.</div>
+    <div class="sec-desc">4 domande rapide per capire quanto l'azienda ha strutturato il suo orientamento strategico.</div>
   </div>
   <div class="card" style="border-left:4px solid #4f46e5">
     <div style="background:#eef2ff;border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:12.5px;color:#3730a3">
@@ -377,13 +492,13 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 <!-- S6: CLIMA AZIENDALE -->
 <div class="screen" id="screen-s6">
   <div class="sec-hdr">
-    <div class="sec-tag">Sezione 6 di 7</div>
+    <div class="sec-tag">Sezione 6 di 9</div>
     <div class="sec-title">Clima Aziendale</div>
     <div class="sec-desc">3 domande sul livello di attenzione al benessere e all'engagement delle persone in azienda.</div>
   </div>
   <div class="card" style="border-left:4px solid #16a34a">
     <div style="background:#f0fdf4;border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:12.5px;color:#166534">
-      😊 <strong>Perché queste domande?</strong> Il clima aziendale influisce direttamente su produttività, turnover e capacità di attrarre talenti. Studio BDZ offre un sistema di rilevazione anonima del clima (survey digitale) che fornisce dati oggettivi su 8 dimensioni organizzative.
+      😊 <strong>Perché queste domande?</strong> Il clima aziendale influisce direttamente su produttività, turnover e capacità di attrarre talenti. Studio BDZ offre un sistema di rilevazione anonima del clima che fornisce dati oggettivi su 8 dimensioni organizzative.
     </div>
     <div id="q-s6"></div>
   </div>
@@ -396,7 +511,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 <!-- S7: CONSAPEVOLEZZA ESG -->
 <div class="screen" id="screen-s7">
   <div class="sec-hdr">
-    <div class="sec-tag">Sezione 7 di 7</div>
+    <div class="sec-tag">Sezione 7 di 9</div>
     <div class="sec-title">Consapevolezza ESG e Sostenibilità</div>
     <div class="sec-desc">4 domande per capire il livello di attenzione ai temi ambientali, sociali e di governance (ESG).</div>
   </div>
@@ -406,23 +521,277 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     </div>
     <div id="q-s7"></div>
   </div>
+  <div class="nav-btns">
+    <button class="btn btn-o" onclick="goTo('s6')">← Indietro</button>
+    <button class="btn btn-p" onclick="next('s7','s8')">Sezione successiva →</button>
+  </div>
+</div>
 
-  <!-- SCORE PREVIEW COMPLETO -->
-  <div class="card">
-    <div class="ct"><span class="ico">🎯</span> Riepilogo score — tutte le aree</div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px">
-      <div class="sp-item"><div class="sp-val" id="sp-s2">—</div><div class="sp-lbl">Organizzativo</div></div>
-      <div class="sp-item"><div class="sp-val" id="sp-s3">—</div><div class="sp-lbl">Amministrativo</div></div>
-      <div class="sp-item"><div class="sp-val" id="sp-s4">—</div><div class="sp-lbl">Contabile</div></div>
-      <div class="sp-item" style="background:#eef2ff;border-color:#c7d2fe"><div class="sp-val" id="sp-s5">—</div><div class="sp-lbl">Strategia</div></div>
-      <div class="sp-item" style="background:#f0fdf4;border-color:#bbf7d0"><div class="sp-val" id="sp-s6">—</div><div class="sp-lbl">Clima</div></div>
-      <div class="sp-item" style="background:#fefce8;border-color:#fde68a"><div class="sp-val" id="sp-s7">—</div><div class="sp-lbl">ESG</div></div>
+<!-- S8: INDICATORI DI GESTIONE -->
+<div class="screen" id="screen-s8">
+  <div class="sec-hdr">
+    <div class="sec-tag">Sezione 8 di 9</div>
+    <div class="sec-title">Indicatori di Gestione</div>
+    <div class="sec-desc">Domande su indicatori quantitativi chiave che la direzione dovrebbe conoscere e monitorare. Rispondere richiede circa 10 minuti — ma richiede ragionamento attivo.</div>
+  </div>
+
+  <div class="teoria-box teoria-law" style="margin-bottom:16px">
+    <div class="teoria-hdr" onclick="toggleTeoria(this)">
+      <span class="t-ico">📊</span>
+      <span>Perché questi indicatori sono importanti per la continuità aziendale</span>
+      <span class="t-arr">▼</span>
     </div>
-    <div style="margin-top:12px;font-size:12px;color:var(--g500);line-height:1.5">Il tuo consulente BDZ riceverà il report completo e ti contatterà per pianificare la sessione di analisi.</div>
+    <div class="teoria-body">
+      <p>L'art. 3 CCII richiede che l'imprenditore disponga di strumenti per <strong>rilevare tempestivamente squilibri economici, patrimoniali o finanziari</strong>. Gli indicatori che seguono sono esattamente gli strumenti che la giurisprudenza e i periti valuteranno in caso di crisi.</p>
+      <p>Per ogni indicatore vi chiediamo:</p>
+      <ul>
+        <li><strong>Se lo conoscete e come</strong> (0 = non lo conoscete; 3 = lo calcolate e monitoriate sistematicamente).</li>
+        <li><strong>Il valore attuale</strong>, che ci consente di posizionarlo sulla scala di allerta e offrirvi feedback immediato.</li>
+      </ul>
+      <p>Non è un test — è una fotografia della vostra consapevolezza gestionale. Il semaforo colorato vi dà subito una lettura di massima.</p>
+    </div>
+  </div>
+
+  <!-- INDICATORE 1: MC% -->
+  <div class="ind-card">
+    <div class="ind-card-hdr">
+      <div class="ind-ico">💰</div>
+      <div>
+        <div class="ind-name">Margine di Contribuzione (MC%)</div>
+        <div class="ind-formula">MC% = (Ricavi − Costi Variabili) / Ricavi × 100</div>
+      </div>
+    </div>
+    <div class="ind-why">Il MC% misura quanta parte del fatturato rimane dopo aver coperto i costi direttamente legati alla produzione/vendita. Con quel margine si coprono i costi fissi e si genera utile. Se il MC% è troppo basso, qualunque calo del fatturato porta rapidamente in perdita.</div>
+    <div class="ind-knowl">
+      <div class="ind-knowl-lbl">La direzione conosce il Margine di Contribuzione?</div>
+      <div id="q-ind-mc-knowl"></div>
+    </div>
+    <hr class="ind-sep">
+    <div class="ind-val-row">
+      <label>Valore attuale MC%</label>
+      <input type="number" id="ind-mc-val" min="0" max="100" step="0.1" placeholder="es. 38" oninput="D.indicatori.mc_valore=+this.value;updateSemaforo('mc');autoSave()">
+      <span class="unit">%</span>
+    </div>
+    <div id="sem-mc" class="semaforo sem-neutral"><span class="sem-dot"></span><span id="sem-mc-txt">Inserisci il valore</span></div>
+    <div class="ind-soglie">
+      <span class="sg" style="color:var(--err)">■ &lt;20%</span> Critico — i costi fissi difficilmente coperti &nbsp;
+      <span class="sg" style="color:var(--warn)">■ 20–40%</span> Attenzione — monitorare struttura dei costi &nbsp;
+      <span class="sg" style="color:var(--ok)">■ &gt;40%</span> Adeguato
+    </div>
+  </div>
+
+  <!-- INDICATORE 2: Incidenza Costo Lavoro -->
+  <div class="ind-card">
+    <div class="ind-card-hdr">
+      <div class="ind-ico">👥</div>
+      <div>
+        <div class="ind-name">Incidenza Costo del Lavoro sui Ricavi</div>
+        <div class="ind-formula">CL% = Costo Totale del Lavoro / Ricavi × 100</div>
+      </div>
+    </div>
+    <div class="ind-why">Un'incidenza del costo del lavoro troppo alta comprime i margini e rende fragile l'azienda davanti a cali di fatturato. Le soglie variano per settore (servizi tollerano valori più alti), ma superare il 50% è sempre un segnale di attenzione.</div>
+    <div class="ind-knowl">
+      <div class="ind-knowl-lbl">La direzione conosce l'incidenza del costo del lavoro?</div>
+      <div id="q-ind-cl-knowl"></div>
+    </div>
+    <hr class="ind-sep">
+    <div class="ind-val-row">
+      <label>Valore attuale CL%</label>
+      <input type="number" id="ind-cl-val" min="0" max="100" step="0.1" placeholder="es. 42" oninput="D.indicatori.cl_valore=+this.value;updateSemaforo('cl');autoSave()">
+      <span class="unit">%</span>
+    </div>
+    <div id="sem-cl" class="semaforo sem-neutral"><span class="sem-dot"></span><span id="sem-cl-txt">Inserisci il valore</span></div>
+    <div class="ind-soglie">
+      <span class="sg" style="color:var(--ok)">■ &lt;35%</span> Adeguato &nbsp;
+      <span class="sg" style="color:var(--warn)">■ 35–50%</span> Monitorare &nbsp;
+      <span class="sg" style="color:var(--err)">■ &gt;50%</span> Critico — struttura dei costi rigida
+    </div>
+  </div>
+
+  <!-- INDICATORE 3: Leverage -->
+  <div class="ind-card">
+    <div class="ind-card-hdr">
+      <div class="ind-ico">🏦</div>
+      <div>
+        <div class="ind-name">Leverage — Grado di Indebitamento</div>
+        <div class="ind-formula">Leverage = Debiti Totali / Totale Attivo × 100</div>
+      </div>
+    </div>
+    <div class="ind-why">Il leverage misura quanto dell'attivo aziendale è finanziato con debito. Un leverage elevato riduce la capacità di accesso al credito, aumenta il rischio finanziario e, in caso di crisi, limita le soluzioni percorribili. Le banche usano questo indicatore come covenant.</div>
+    <div class="ind-knowl">
+      <div class="ind-knowl-lbl">La direzione conosce il grado di indebitamento (leverage)?</div>
+      <div id="q-ind-lev-knowl"></div>
+    </div>
+    <hr class="ind-sep">
+    <div class="ind-val-row">
+      <label>Valore attuale Leverage</label>
+      <input type="number" id="ind-lev-val" min="0" max="100" step="0.1" placeholder="es. 62" oninput="D.indicatori.lev_valore=+this.value;updateSemaforo('lev');autoSave()">
+      <span class="unit">%</span>
+    </div>
+    <div id="sem-lev" class="semaforo sem-neutral"><span class="sem-dot"></span><span id="sem-lev-txt">Inserisci il valore</span></div>
+    <div class="ind-soglie">
+      <span class="sg" style="color:var(--ok)">■ &lt;50%</span> Equilibrato &nbsp;
+      <span class="sg" style="color:var(--warn)">■ 50–70%</span> Attenzione &nbsp;
+      <span class="sg" style="color:var(--err)">■ &gt;70%</span> Critico — eccessiva dipendenza dal debito
+    </div>
+  </div>
+
+  <!-- INDICATORE 4: MASA -->
+  <div class="ind-card">
+    <div class="ind-card-hdr">
+      <div class="ind-ico">🏗️</div>
+      <div>
+        <div class="ind-name">MASA — Margine di Struttura Allargato</div>
+        <div class="ind-formula">MASA = (Patrimonio Netto + Passività Consolidate) − Attivo Immobilizzato</div>
+      </div>
+    </div>
+    <div class="ind-why">Il MASA positivo significa che le immobilizzazioni sono interamente coperte da fonti stabili (PN + debiti a lungo termine). Questo è il presupposto per cui il circolante sia positivo e la liquidità a breve superiore ai debiti a breve — condizione di continuità aziendale per art. 3 CCII. Un MASA negativo è un segnale di allarme strutturale immediato.</div>
+    <div class="ind-knowl">
+      <div class="ind-knowl-lbl">La direzione conosce il Margine di Struttura Allargato?</div>
+      <div id="q-ind-masa-knowl"></div>
+    </div>
+    <hr class="ind-sep">
+    <div class="ind-val-row">
+      <label>Stato attuale MASA</label>
+      <select id="ind-masa-stato" onchange="D.indicatori.masa_stato=this.value;updateSemaforo('masa');autoSave()">
+        <option value="">Seleziona...</option>
+        <option value="positivo">MASA Positivo — buona copertura strutturale</option>
+        <option value="nullo">MASA circa Zero — situazione di equilibrio</option>
+        <option value="negativo">MASA Negativo — immobilizzazioni non coperte da fonti stabili</option>
+        <option value="nd">Non disponibile / non calcolato</option>
+      </select>
+    </div>
+    <div id="sem-masa" class="semaforo sem-neutral"><span class="sem-dot"></span><span id="sem-masa-txt">Seleziona il valore</span></div>
+  </div>
+
+  <!-- INDICATORE 5: Ore Formazione Dipendenti -->
+  <div class="ind-card">
+    <div class="ind-card-hdr">
+      <div class="ind-ico">📚</div>
+      <div>
+        <div class="ind-name">Ore di Formazione — Dipendenti</div>
+        <div class="ind-formula">Ore/mese medie per dipendente</div>
+      </div>
+    </div>
+    <div class="ind-why">La formazione riduce gli errori operativi, abbassa il turnover (strettamente legato al clima aziendale) e aumenta la produttività. È anche un requisito ISO 9001 e un indicatore ESG sociale. Aziende con formazione sistematica mostrano maggiore resilienza nelle fasi di crisi.</div>
+    <div class="ind-knowl">
+      <div class="ind-knowl-lbl">Vengono monitorate le ore di formazione dei dipendenti?</div>
+      <div id="q-ind-formdip-knowl"></div>
+    </div>
+    <hr class="ind-sep">
+    <div class="ind-val-row">
+      <label>Ore/mese medie per dipendente</label>
+      <input type="number" id="ind-formdip-val" min="0" max="100" step="0.5" placeholder="es. 4" oninput="D.indicatori.form_dip=+this.value;updateSemaforo('formdip');autoSave()">
+      <span class="unit">ore/mese</span>
+    </div>
+    <div id="sem-formdip" class="semaforo sem-neutral"><span class="sem-dot"></span><span id="sem-formdip-txt">Inserisci il valore</span></div>
+    <div class="ind-soglie">
+      <span class="sg" style="color:var(--err)">■ &lt;4h</span> Insufficiente &nbsp;
+      <span class="sg" style="color:var(--warn)">■ 4–8h</span> Accettabile &nbsp;
+      <span class="sg" style="color:var(--ok)">■ &gt;8h</span> Buona cultura della formazione
+    </div>
+  </div>
+
+  <!-- INDICATORE 6: Ore Formazione Management -->
+  <div class="ind-card">
+    <div class="ind-card-hdr">
+      <div class="ind-ico">🎓</div>
+      <div>
+        <div class="ind-name">Ore di Formazione — Management</div>
+        <div class="ind-formula">Ore/mese medie per ruolo manageriale/direzionale</div>
+      </div>
+    </div>
+    <div class="ind-why">La formazione manageriale è il moltiplicatore dell'intera organizzazione. Manager aggiornati su governance, finanza d'impresa e gestione del rischio sono la prima linea di difesa contro la crisi. È anche un segnale di qualità della governance percepito positivamente dai finanziatori.</div>
+    <div class="ind-knowl">
+      <div class="ind-knowl-lbl">Vengono monitorate le ore di formazione del management?</div>
+      <div id="q-ind-formmgmt-knowl"></div>
+    </div>
+    <hr class="ind-sep">
+    <div class="ind-val-row">
+      <label>Ore/mese medie per manager</label>
+      <input type="number" id="ind-formmgmt-val" min="0" max="100" step="0.5" placeholder="es. 6" oninput="D.indicatori.form_mgmt=+this.value;updateSemaforo('formmgmt');autoSave()">
+      <span class="unit">ore/mese</span>
+    </div>
+    <div id="sem-formmgmt" class="semaforo sem-neutral"><span class="sem-dot"></span><span id="sem-formmgmt-txt">Inserisci il valore</span></div>
+    <div class="ind-soglie">
+      <span class="sg" style="color:var(--err)">■ &lt;4h</span> Insufficiente &nbsp;
+      <span class="sg" style="color:var(--warn)">■ 4–8h</span> Accettabile &nbsp;
+      <span class="sg" style="color:var(--ok)">■ &gt;8h</span> Investimento adeguato
+    </div>
+  </div>
+
+  <!-- INDICATORE 7: DSO -->
+  <div class="ind-card">
+    <div class="ind-card-hdr">
+      <div class="ind-ico">📅</div>
+      <div>
+        <div class="ind-name">DSO — Days Sales Outstanding</div>
+        <div class="ind-formula">DSO = (Crediti Commerciali / Ricavi) × 365</div>
+      </div>
+    </div>
+    <div class="ind-why">Il DSO misura quanti giorni in media i clienti impiegano a pagare. Un DSO elevato segnala problemi di liquidità, rischio di crediti inesigibili e scarsa efficacia del ciclo attivo. È uno degli indicatori previsti dall'art. 3 CCII per la verifica della continuità.</div>
+    <div class="ind-knowl">
+      <div class="ind-knowl-lbl">La direzione conosce i giorni medi di incasso (DSO)?</div>
+      <div id="q-ind-dso-knowl"></div>
+    </div>
+    <hr class="ind-sep">
+    <div class="ind-val-row">
+      <label>Valore attuale DSO</label>
+      <input type="number" id="ind-dso-val" min="0" max="365" step="1" placeholder="es. 75" oninput="D.indicatori.dso_valore=+this.value;updateSemaforo('dso');autoSave()">
+      <span class="unit">giorni</span>
+    </div>
+    <div id="sem-dso" class="semaforo sem-neutral"><span class="sem-dot"></span><span id="sem-dso-txt">Inserisci il valore</span></div>
+    <div class="ind-soglie">
+      <span class="sg" style="color:var(--ok)">■ &lt;60gg</span> Buona gestione del credito &nbsp;
+      <span class="sg" style="color:var(--warn)">■ 60–90gg</span> Attenzione — verifica politiche di incasso &nbsp;
+      <span class="sg" style="color:var(--err)">■ &gt;90gg</span> Critico — rischio liquidità
+    </div>
+  </div>
+
+  <!-- INDICATORE 8: Current Ratio -->
+  <div class="ind-card">
+    <div class="ind-card-hdr">
+      <div class="ind-ico">⚖️</div>
+      <div>
+        <div class="ind-name">Current Ratio — Indice di Liquidità Corrente</div>
+        <div class="ind-formula">Current Ratio = Attivo Corrente / Passivo Corrente</div>
+      </div>
+    </div>
+    <div class="ind-why">Il Current Ratio misura la capacità dell'azienda di far fronte agli impegni a breve (entro 12 mesi) con le risorse a breve (cassa, crediti, magazzino). Un valore inferiore a 1 indica che i debiti a breve superano le attività correnti — segnale di allarme per continuità aziendale ex art. 3 CCII. Insieme al MASA, è il principale indicatore di equilibrio finanziario a breve.</div>
+    <div class="ind-knowl">
+      <div class="ind-knowl-lbl">La direzione conosce e monitora il Current Ratio?</div>
+      <div id="q-ind-cr-knowl"></div>
+    </div>
+    <hr class="ind-sep">
+    <div class="ind-val-row">
+      <label>Valore attuale Current Ratio</label>
+      <input type="number" id="ind-cr-val" min="0" max="10" step="0.01" placeholder="es. 1.35" oninput="D.indicatori.cr_valore=+this.value;updateSemaforo('cr');autoSave()">
+      <span class="unit">x</span>
+    </div>
+    <div id="sem-cr" class="semaforo sem-neutral"><span class="sem-dot"></span><span id="sem-cr-txt">Inserisci il valore</span></div>
+    <div class="ind-soglie">
+      <span class="sg" style="color:var(--err)">■ &lt;1</span> Critico — debiti breve &gt; attivo corrente &nbsp;
+      <span class="sg" style="color:var(--warn)">■ 1–1.5</span> Attenzione — margine ridotto &nbsp;
+      <span class="sg" style="color:var(--ok)">■ &gt;1.5</span> Adeguato
+    </div>
+  </div>
+
+  <!-- SCORE INDICATORI -->
+  <div class="card">
+    <div class="ct"><span class="ico">🎯</span> Riepilogo — tutte le aree</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px">
+      <div class="sp-item"><div class="sp-val" id="sp-s2b">—</div><div class="sp-lbl">Organizzativo</div></div>
+      <div class="sp-item"><div class="sp-val" id="sp-s3b">—</div><div class="sp-lbl">Amministrativo</div></div>
+      <div class="sp-item"><div class="sp-val" id="sp-s4b">—</div><div class="sp-lbl">Contabile</div></div>
+      <div class="sp-item" style="background:#eef2ff;border-color:#c7d2fe"><div class="sp-val" id="sp-s5b">—</div><div class="sp-lbl">Strategia</div></div>
+      <div class="sp-item" style="background:#f0fdf4;border-color:#bbf7d0"><div class="sp-val" id="sp-s6b">—</div><div class="sp-lbl">Clima</div></div>
+      <div class="sp-item" style="background:#fefce8;border-color:#fde68a"><div class="sp-val" id="sp-s7b">—</div><div class="sp-lbl">ESG</div></div>
+    </div>
+    <div style="margin-top:12px;font-size:12px;color:var(--g500);line-height:1.5">Il tuo consulente BDZ riceverà tutti i dati e ti contatterà per pianificare la sessione di analisi.</div>
   </div>
 
   <div class="nav-btns">
-    <button class="btn btn-o" onclick="goTo('s6')">← Indietro</button>
+    <button class="btn btn-o" onclick="goTo('s7')">← Indietro</button>
     <button class="btn btn-send" onclick="inviaAssessment()">📤 Invia al consulente BDZ</button>
   </div>
 </div>
@@ -438,7 +807,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
       <div class="thanks-code-val" id="thanks-code">—</div>
       <div style="font-size:11px;color:var(--g500);margin-top:6px">Conserva questo codice per eventuali integrazioni future</div>
     </div>
-    <div class="thanks-score" id="thanks-score" style="grid-template-columns:repeat(3,1fr)"></div>
+    <div class="thanks-score" id="thanks-score"></div>
     <div style="margin-top:20px;font-size:13px;color:var(--g500)">Studio Associato Basso De Bortoli Zambelli<br>Viale Palladio 42 · 37138 Verona · Tel. 045 577694</div>
   </div>
 </div>
@@ -452,147 +821,75 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 <script>
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbzJlExj0V_A5sByQz_aXlVKEaYtrsY10skxtfhkMD5P9tzLYvASLK6XnRcLugqz3_7e/exec';
 
-// ============================================================
-// SCALE 8 — opzioni con testo descrittivo (non numeri)
-// ============================================================
 const SCALE8_OPTS = [
-  {v:0, lbl:'— Non selezionato —'},
-  {v:1, lbl:'❌  Non viene gestita'},
-  {v:2, lbl:'✋  Manualmente (carta, appunti)'},
-  {v:3, lbl:'📝  Con Word / documenti'},
-  {v:4, lbl:'📊  Con Excel / fogli di calcolo'},
-  {v:5, lbl:'💾  Software esterno (non collegato al gestionale)'},
-  {v:6, lbl:'🔗  Software collegato al gestionale'},
-  {v:7, lbl:'📈  Business Intelligence / dashboard'},
-  {v:8, lbl:'✅  Integrata nel gestionale / ERP'},
+  {v:0,lbl:'— Non selezionato —'},
+  {v:1,lbl:'❌  Non viene gestita'},
+  {v:2,lbl:'✋  Manualmente (carta, appunti)'},
+  {v:3,lbl:'📝  Con Word / documenti'},
+  {v:4,lbl:'📊  Con Excel / fogli di calcolo'},
+  {v:5,lbl:'💾  Software esterno (non collegato al gestionale)'},
+  {v:6,lbl:'🔗  Software collegato al gestionale'},
+  {v:7,lbl:'📈  Business Intelligence / dashboard'},
+  {v:8,lbl:'✅  Integrata nel gestionale / ERP'},
 ];
-
 const SCALE8_ITEMS = [
-  {id:'s8_preventivi',    lbl:'Preventivi',              ico:'📋'},
-  {id:'s8_ordini',        lbl:'Ordini clienti',          ico:'🛒'},
-  {id:'s8_fatture_att',   lbl:'Fatture attive',          ico:'🧾'},
-  {id:'s8_incassi_pag',   lbl:'Incassi e Pagamenti',     ico:'💰'},
-  {id:'s8_cont_iva',      lbl:'Contabilità IVA',         ico:'📑'},
-  {id:'s8_cont_gen',      lbl:'Contabilità generale',    ico:'📒'},
-  {id:'s8_cespiti',       lbl:'Cespiti / beni aziendali',ico:'🏭'},
-  {id:'s8_cont_ana',      lbl:'Contabilità analitica',   ico:'📊'},
-  {id:'s8_produzione',    lbl:'Produzione',              ico:'⚙️'},
-  {id:'s8_magazzino',     lbl:'Magazzino',               ico:'📦'},
-  {id:'s8_qualita',       lbl:'Sistema Qualità (ISO)',   ico:'🏆'},
-  {id:'s8_crm',           lbl:'CRM / Gestione clienti',  ico:'🤝'},
+  {id:'s8_preventivi',    lbl:'Preventivi',               ico:'📋'},
+  {id:'s8_ordini',        lbl:'Ordini clienti',           ico:'🛒'},
+  {id:'s8_fatture_att',   lbl:'Fatture attive',           ico:'🧾'},
+  {id:'s8_incassi_pag',   lbl:'Incassi e Pagamenti',      ico:'💰'},
+  {id:'s8_cont_iva',      lbl:'Contabilità IVA',          ico:'📑'},
+  {id:'s8_cont_gen',      lbl:'Contabilità generale',     ico:'📒'},
+  {id:'s8_cespiti',       lbl:'Cespiti / beni aziendali', ico:'🏭'},
+  {id:'s8_cont_ana',      lbl:'Contabilità analitica',    ico:'📊'},
+  {id:'s8_produzione',    lbl:'Produzione',               ico:'⚙️'},
+  {id:'s8_magazzino',     lbl:'Magazzino',                ico:'📦'},
+  {id:'s8_qualita',       lbl:'Sistema Qualità (ISO)',    ico:'🏆'},
+  {id:'s8_crm',           lbl:'CRM / Gestione clienti',   ico:'🤝'},
 ];
 
-// ============================================================
-// DOMANDE S2-S4
-// ============================================================
-const Q_S2_ORG = [
-  {id:'s2_org_1',txt:'Esiste un organigramma aziendale formalizzato?',opts:['No, la struttura è informale','Esiste ma non formalizzato in un documento','Sì, esiste ed è aggiornato nell\'ultimo anno','Sì, viene regolarmente aggiornato e comunicato']},
-  {id:'s2_org_2',txt:'Come sono definiti i ruoli e le responsabilità?',opts:['In modo informale, basato su prassi','Esistono alcune indicazioni scritte ma incomplete','Esiste un mansionario ma non aggiornato','Esiste un mansionario completo e aggiornato']},
-  {id:'s2_org_3',txt:'Sono presenti deleghe formalizzate?',opts:['No, tutto gestito dal vertice','Deleghe verbali/informali','Alcune deleghe sono formalizzate','Sistema strutturato di deleghe']},
+// Domande conoscenza indicatori (0-3)
+const IND_KNOWL_OPTS = [
+  'Non lo conosciamo / non lo calcoliamo',
+  'Ne abbiamo sentito parlare ma non lo calcoliamo',
+  'Lo calcoliamo saltuariamente, senza un sistema',
+  'Lo calcoliamo e monitoriamo sistematicamente'
 ];
-const Q_S2_PROC = [
-  {id:'s2_proc_1',txt:'Come sono gestiti i processi aziendali?',opts:['In base all\'esperienza, senza procedure scritte','Alcune procedure informali','Le procedure principali sono documentate','Sistema completo di procedure']},
-  {id:'s2_proc_2',txt:'Come viene gestita la comunicazione interna?',opts:['In modo informale/verbale','Via email senza procedure standard','Messaggistica interna/WhatsApp','Procedure strutturate e verificate']},
-  {id:'s2_proc_3',txt:'Come vengono conservati i documenti aziendali?',opts:['Nessun sistema organizzato','Sistema base di archiviazione','Sistema strutturato ma non completo','Sistema completo con backup e procedure']},
-];
-const Q_S2_CTRL = [
-  {id:'s2_ctrl_1',txt:'Esiste un sistema di obiettivi individuali o di team?',opts:['No','Solo per obiettivi individuali','Solo per obiettivi di team','Sia individuali che di team']},
-  {id:'s2_ctrl_2',txt:'Come viene verificato il raggiungimento degli obiettivi?',opts:['Nessuna verifica formale','Verifiche saltuarie e non strutturate','Verifiche periodiche ma non sistematiche','Sistema strutturato di monitoraggio']},
-  {id:'s2_ctrl_3',txt:'Utilizzate indicatori di performance (KPI)?',opts:['No','Solo indicatori finanziari di base','Alcuni KPI principali','Sistema completo di KPI']},
-  {id:'s2_ctrl_4',txt:'Come vengono gestite le non conformità/problemi?',opts:['In modo reattivo','Alcune procedure informali','Procedure per i problemi principali','Sistema strutturato di gestione problemi']},
-];
-const Q_S2_HR = [
-  {id:'s2_hr_1',txt:'Come vengono definiti i fabbisogni di personale?',opts:['In base alle necessità immediate','Pianificazione informale','Pianificazione strutturata ma non documentata','Sistema strutturato di workforce planning']},
-  {id:'s2_hr_2',txt:'Come viene gestita la formazione del personale?',opts:['Nessun piano formativo','Formazione solo obbligatoria','Alcuni percorsi formativi','Piano formativo strutturato e monitorato']},
-  {id:'s2_hr_3',txt:'Come viene valutato il personale?',opts:['Nessuna valutazione formale','Valutazioni saltuarie non strutturate','Sistema di valutazione base','Sistema strutturato di performance management']},
-];
-const Q_S2_GOV = [
-  {id:'s2_gov_1',txt:'Come vengono prese le decisioni strategiche?',opts:['Dal vertice in modo autonomo','Consultazione informale','Processo decisionale semi-strutturato','Processo decisionale strutturato e documentato']},
-  {id:'s2_gov_2',txt:'Come viene gestita la compliance normativa?',opts:['Gestione reattiva','Verifica base delle normative principali','Sistema di compliance parziale','Sistema strutturato di compliance management']},
-  {id:'s2_gov_3',txt:'Esistono meccanismi di controllo interno?',opts:['No','Controlli base non strutturati','Sistema di controllo parziale','Sistema di controllo interno strutturato']},
-];
-const Q_S3_BASE = [
-  {id:'s3_base_1',txt:'Come è strutturato il sistema amministrativo?',opts:['Nessuna struttura formale','Gestione base per obblighi di legge','Sistema strutturato ma non completo','Sistema completo e integrato']},
-  {id:'s3_base_2',txt:'L\'amministrazione si basa principalmente su:',opts:['Fogli di calcolo','Software base di contabilità','Gestionale integrato non completo','ERP completo e integrato']},
-  {id:'s3_base_3',txt:'Come sono strutturate le procedure amministrative?',opts:['Nessuna procedura scritta','Procedure informali','Procedure principali documentate','Sistema completo di procedure']},
-  {id:'s3_base_4',txt:'Livello di autonomia nella produzione del Bilancio?',opts:['Completamente affidata a terzi','Prevalentemente a terzi','Parzialmente autonoma','Completamente autonoma']},
-];
-const Q_S3_CTRL = [
-  {id:'s3_ctrl_1',txt:'Come viene gestito il processo di budgeting?',opts:['Nessun budget','Budget annuale base','Budget dettagliato con revisioni periodiche','Sistema completo di pianificazione e controllo']},
-  {id:'s3_ctrl_2',txt:'Come viene gestita la tesoreria?',opts:['Gestione informale della cassa','Controllo base dei flussi','Sistema strutturato di tesoreria','Sistema integrato con pianificazione finanziaria']},
-  {id:'s3_ctrl_3',txt:'Come viene gestito il controllo di gestione?',opts:['Nessun controllo di gestione','Controlli base su indicatori principali','Sistema strutturato di controllo','Sistema integrato con KPI e reporting']},
-  {id:'s3_ctrl_4',txt:'Strumento principale per il controllo di gestione?',opts:['Excel non collegato al gestionale','Excel collegato via Power Query','Applicazione su misura','Integrato nel sistema ERP']},
-];
-const Q_S3_CICLO = [
-  {id:'s3_ciclo_1',txt:'Come viene gestito il ciclo attivo (vendite/incassi)?',opts:['Gestione manuale senza procedure','Procedure base non formalizzate','Procedure strutturate ma non complete','Sistema completo e automatizzato']},
-  {id:'s3_ciclo_2',txt:'Come viene gestito il ciclo passivo (acquisti/pagamenti)?',opts:['Gestione manuale senza procedure','Procedure base non formalizzate','Procedure strutturate ma non complete','Sistema completo e automatizzato']},
-  {id:'s3_ciclo_3',txt:'Come viene gestito il credito verso clienti?',opts:['Nessuna gestione del credito','Controllo base scadenze','Sistema strutturato di credit management','Sistema integrato con valutazione rischio']},
-];
-const Q_S3_REP = [
-  {id:'s3_rep_1',txt:'Come è strutturato il reporting?',opts:['Nessun reporting periodico','Report base su richiesta','Sistema strutturato di reporting periodico','Dashboard integrata con KPI']},
-  {id:'s3_rep_2',txt:'Come vengono analizzati gli scostamenti (budget vs consuntivo)?',opts:['Non vengono analizzati','Analisi base su grandi differenze','Analisi strutturata periodica','Sistema integrato di analisi e azione']},
-  {id:'s3_rep_3',txt:'Come vengono utilizzati i KPI?',opts:['Non vengono utilizzati','KPI base solo finanziari','Set strutturato di KPI','Sistema completo con target e BSC']},
-];
-const Q_S4_BASE = [
-  {id:'s4_base_1',txt:'Quale sistema contabile utilizzate?',opts:['Gestione esterna completa dal commercialista','Software di base per prima nota','Sistema gestionale con modulo contabile','ERP completo con contabilità analitica']},
-  {id:'s4_base_2',txt:'Come è strutturato il piano dei conti?',opts:['Piano base fornito dal commercialista','Piano standard del software','Piano personalizzato ma non strutturato','Piano strutturato con contabilità analitica']},
-  {id:'s4_base_3',txt:'Con quale frequenza vengono eseguite le registrazioni?',opts:['Registrazioni saltuarie cumulative','Mensili','Settimanali','Giornaliere']},
-  {id:'s4_base_4',txt:'Come vengono eseguite le registrazioni contabili?',opts:['Manualmente dall\'operatore','In parte automatizzate (SDI)','Completamente automatizzate','Automatiche tramite AI']},
-];
-const Q_S4_PROC = [
-  {id:'s4_proc_1',txt:'Come sono organizzate le procedure contabili?',opts:['Nessuna procedura scritta','Alcune procedure informali','Procedure principali documentate','Sistema completo di procedure documentate']},
-  {id:'s4_proc_2',txt:'Come vengono effettuate le riconciliazioni bancarie?',opts:['Non regolarmente','Riconciliazione mensile base','Riconciliazione settimanale documentata','Riconciliazione giornaliera strutturata']},
-  {id:'s4_proc_3',txt:'Come viene gestito il controllo delle registrazioni?',opts:['Nessun controllo sistematico','Controlli saltuari a campione','Controlli periodici programmati','Sistema strutturato con checklist']},
-];
-const Q_S4_CICLO = [
-  {id:'s4_ciclo_1',txt:'Come viene gestita la fatturazione attiva?',opts:['Emissione manuale','Software base di fatturazione','Sistema gestionale integrato','Sistema automatizzato completo']},
-  {id:'s4_ciclo_2',txt:'Come viene gestita la fatturazione passiva?',opts:['Registrazione manuale a fine mese','Registrazione periodica non strutturata','Registrazione settimanale organizzata','Sistema giornaliero con workflow approvativo']},
-  {id:'s4_ciclo_3',txt:'Come viene gestito lo scadenziario?',opts:['Nessuno scadenziario strutturato','Scadenziario base Excel','Scadenziario integrato nel gestionale','Sistema completo con previsionale tesoreria']},
-];
-const Q_S4_REP = [
-  {id:'s4_rep_1',txt:'Come vengono gestite le chiusure periodiche?',opts:['Solo chiusura annuale per bilancio','Chiusure trimestrali base','Chiusure mensili strutturate','Sistema di chiusure con checklist']},
-  {id:'s4_rep_2',txt:'Quale reportistica contabile viene prodotta?',opts:['Solo bilancio annuale','Situazioni trimestrali','Report mensili con analisi principali','Sistema completo con indici di bilancio']},
-  {id:'s4_rep_3',txt:'Come vengono gestiti ratei, risconti e assestamenti?',opts:['Solo in sede di bilancio annuale','Calcolo trimestrale approssimativo','Calcolo mensile strutturato','Sistema automatico di calcolo']},
-];
-const Q_S4_CONF = [
-  {id:'s4_conf_1',txt:'Come viene gestita la conservazione documentale?',opts:['Archiviazione cartacea base','Scansione documenti non strutturata','Archiviazione digitale organizzata','Sistema completo di conservazione a norma']},
-  {id:'s4_conf_2',txt:'Come viene gestita la conformità fiscale?',opts:['Gestita interamente dal commercialista','Verifiche base interne','Sistema strutturato di controlli periodici','Sistema completo con scadenzario e verifiche']},
-  {id:'s4_conf_3',txt:'Come viene gestita l\'analisi di bilancio?',opts:['Nessuna analisi strutturata','Analisi base dei principali indicatori','Analisi periodica con set di indicatori','Sistema completo con benchmark settoriale']},
+const IND_KNOWL_IDS = [
+  {id:'ind_mc_conosce',   cid:'q-ind-mc-knowl',      key:'mc_conosce'},
+  {id:'ind_cl_conosce',   cid:'q-ind-cl-knowl',      key:'cl_conosce'},
+  {id:'ind_lev_conosce',  cid:'q-ind-lev-knowl',     key:'lev_conosce'},
+  {id:'ind_masa_conosce', cid:'q-ind-masa-knowl',    key:'masa_conosce'},
+  {id:'ind_formdip',      cid:'q-ind-formdip-knowl', key:'form_dip_conosce'},
+  {id:'ind_formmgmt',     cid:'q-ind-formmgmt-knowl',key:'form_mgmt_conosce'},
+  {id:'ind_dso_conosce',  cid:'q-ind-dso-knowl',     key:'dso_conosce'},
+  {id:'ind_cr_conosce',   cid:'q-ind-cr-knowl',      key:'cr_conosce'},
 ];
 
-// ── NUOVE DOMANDE AWARENESS ──────────────────────────────────
-const Q_S5 = [
-  {id:'s5_str_1',txt:'Avete formalizzato Vision, Mission e valori aziendali?',
-   opts:['No, non sono mai stati definiti','Sì, ma solo verbalmente — non è scritto','Esiste un documento ma non aggiornato né comunicato','Documentato, condiviso con il team e aggiornato']},
-  {id:'s5_str_2',txt:'Fate un\'analisi strutturata del mercato e dei concorrenti?',
-   opts:['No, ci basiamo sull\'esperienza','In modo informale, senza documentazione','Periodicamente, ma non in modo sistematico','Sì, con analisi documentate e aggiornate regolarmente']},
-  {id:'s5_str_3',txt:'Avete un piano strategico con obiettivi misurabili?',
-   opts:['No, la strategia è in testa al titolare','Esiste un\'idea di direzione ma non documentata','Piano parziale, non sempre aggiornato','Piano strutturato con KPI, scadenze e responsabili']},
-  {id:'s5_str_4',txt:'Monitorate i risultati rispetto agli obiettivi strategici?',
-   opts:['No, non abbiamo un sistema di monitoraggio','Solo saltuariamente e in modo informale','Periodicamente, senza un sistema strutturato','Sì, con riunioni periodiche, dashboard o BSC/OKR']},
-];
-const Q_S6 = [
-  {id:'s6_cli_1',txt:'Avete mai rilevato il clima o la soddisfazione dei vostri dipendenti?',
-   opts:['No, non lo abbiamo mai fatto','Solo informalmente, parlando con le persone','Una volta, senza un metodo strutturato','Sì, periodicamente con questionari o strumenti dedicati']},
-  {id:'s6_cli_2',txt:'I dipendenti hanno canali strutturati per dare feedback e segnalare problemi?',
-   opts:['No, tutto passa verbalmente dal titolare','Possono parlare, ma senza strumenti dedicati','Alcune modalità esistono ma non sistematiche','Sì, esistono strumenti o processi formalizzati di feedback']},
-  {id:'s6_cli_3',txt:'Conoscete il livello di engagement e i potenziali rischi di turnover?',
-   opts:['No, lo percepiamo ma senza dati','Abbiamo una percezione informale','Alcune misurazioni occasionali','Sì, monitoriamo continuamente con indicatori definiti']},
-];
-const Q_S7 = [
-  {id:'s7_esg_1',txt:'Conoscete la normativa CSRD/VSME sulla rendicontazione di sostenibilità?',
-   opts:['No, non ne abbiamo mai sentito parlare','Ne abbiamo sentito parlare ma non sappiamo cosa implica','Conoscenza base, stiamo valutando l\'impatto','La conosciamo bene e abbiamo già avviato un percorso']},
-  {id:'s7_esg_2',txt:'Monitorate indicatori ambientali (energia, rifiuti, emissioni CO2)?',
-   opts:['No, non monitoriamo nulla','Solo ciò che è obbligatorio per legge','Alcuni indicatori, senza un sistema strutturato','Sì, con un sistema strutturato di raccolta e analisi']},
-  {id:'s7_esg_3',txt:'Avete politiche sociali documentate (welfare, diversità, sicurezza oltre gli obblighi)?',
-   opts:['No, facciamo solo il minimo di legge','Alcune iniziative informali non documentate','Alcune politiche definite ma non sistematizzate','Politiche strutturate e documentate']},
-  {id:'s7_esg_4',txt:'La sostenibilità è un tema rilevante per i vostri clienti o stakeholder?',
-   opts:['No, i nostri clienti non lo richiedono','Marginalmente — solo qualche cliente lo menziona','Sì, è sempre più presente nelle richieste','Sì, è già un requisito esplicito in gare/contratti']},
-];
+// Domande S2–S7
+const Q_S2_ORG=[{id:'s2_org_1',txt:'Esiste un organigramma aziendale formalizzato?',opts:['No, la struttura è informale','Esiste ma non formalizzato in un documento','Sì, esiste ed è aggiornato nell\'ultimo anno','Sì, viene regolarmente aggiornato e comunicato']},{id:'s2_org_2',txt:'Come sono definiti i ruoli e le responsabilità?',opts:['In modo informale, basato su prassi','Esistono alcune indicazioni scritte ma incomplete','Esiste un mansionario ma non aggiornato','Esiste un mansionario completo e aggiornato']},{id:'s2_org_3',txt:'Sono presenti deleghe formalizzate?',opts:['No, tutto gestito dal vertice','Deleghe verbali/informali','Alcune deleghe sono formalizzate','Sistema strutturato di deleghe']}];
+const Q_S2_PROC=[{id:'s2_proc_1',txt:'Come sono gestiti i processi aziendali?',opts:['In base all\'esperienza, senza procedure scritte','Alcune procedure informali','Le procedure principali sono documentate','Sistema completo di procedure']},{id:'s2_proc_2',txt:'Come viene gestita la comunicazione interna?',opts:['In modo informale/verbale','Via email senza procedure standard','Messaggistica interna/WhatsApp','Procedure strutturate e verificate']},{id:'s2_proc_3',txt:'Come vengono conservati i documenti aziendali?',opts:['Nessun sistema organizzato','Sistema base di archiviazione','Sistema strutturato ma non completo','Sistema completo con backup e procedure']}];
+const Q_S2_CTRL=[{id:'s2_ctrl_1',txt:'Esiste un sistema di obiettivi individuali o di team?',opts:['No','Solo per obiettivi individuali','Solo per obiettivi di team','Sia individuali che di team']},{id:'s2_ctrl_2',txt:'Come viene verificato il raggiungimento degli obiettivi?',opts:['Nessuna verifica formale','Verifiche saltuarie e non strutturate','Verifiche periodiche ma non sistematiche','Sistema strutturato di monitoraggio']},{id:'s2_ctrl_3',txt:'Utilizzate indicatori di performance (KPI)?',opts:['No','Solo indicatori finanziari di base','Alcuni KPI principali','Sistema completo di KPI']},{id:'s2_ctrl_4',txt:'Come vengono gestite le non conformità/problemi?',opts:['In modo reattivo','Alcune procedure informali','Procedure per i problemi principali','Sistema strutturato di gestione problemi']}];
+const Q_S2_HR=[{id:'s2_hr_1',txt:'Come vengono definiti i fabbisogni di personale?',opts:['In base alle necessità immediate','Pianificazione informale','Pianificazione strutturata ma non documentata','Sistema strutturato di workforce planning']},{id:'s2_hr_2',txt:'Come viene gestita la formazione del personale?',opts:['Nessun piano formativo','Formazione solo obbligatoria','Alcuni percorsi formativi','Piano formativo strutturato e monitorato']},{id:'s2_hr_3',txt:'Come viene valutato il personale?',opts:['Nessuna valutazione formale','Valutazioni saltuarie non strutturate','Sistema di valutazione base','Sistema strutturato di performance management']}];
+const Q_S2_GOV=[{id:'s2_gov_1',txt:'Come vengono prese le decisioni strategiche?',opts:['Dal vertice in modo autonomo','Consultazione informale','Processo decisionale semi-strutturato','Processo decisionale strutturato e documentato']},{id:'s2_gov_2',txt:'Come viene gestita la compliance normativa?',opts:['Gestione reattiva','Verifica base delle normative principali','Sistema di compliance parziale','Sistema strutturato di compliance management']},{id:'s2_gov_3',txt:'Esistono meccanismi di controllo interno?',opts:['No','Controlli base non strutturati','Sistema di controllo parziale','Sistema di controllo interno strutturato']}];
+const Q_S3_BASE=[{id:'s3_base_1',txt:'Come è strutturato il sistema amministrativo?',opts:['Nessuna struttura formale','Gestione base per obblighi di legge','Sistema strutturato ma non completo','Sistema completo e integrato']},{id:'s3_base_2',txt:'L\'amministrazione si basa principalmente su:',opts:['Fogli di calcolo','Software base di contabilità','Gestionale integrato non completo','ERP completo e integrato']},{id:'s3_base_3',txt:'Come sono strutturate le procedure amministrative?',opts:['Nessuna procedura scritta','Procedure informali','Procedure principali documentate','Sistema completo di procedure']},{id:'s3_base_4',txt:'Livello di autonomia nella produzione del Bilancio?',opts:['Completamente affidata a terzi','Prevalentemente a terzi','Parzialmente autonoma','Completamente autonoma']}];
+const Q_S3_CTRL=[{id:'s3_ctrl_1',txt:'Come viene gestito il processo di budgeting?',opts:['Nessun budget','Budget annuale base','Budget dettagliato con revisioni periodiche','Sistema completo di pianificazione e controllo']},{id:'s3_ctrl_2',txt:'Come viene gestita la tesoreria?',opts:['Gestione informale della cassa','Controllo base dei flussi','Sistema strutturato di tesoreria','Sistema integrato con pianificazione finanziaria']},{id:'s3_ctrl_3',txt:'Come viene gestito il controllo di gestione?',opts:['Nessun controllo di gestione','Controlli base su indicatori principali','Sistema strutturato di controllo','Sistema integrato con KPI e reporting']},{id:'s3_ctrl_4',txt:'Strumento principale per il controllo di gestione?',opts:['Excel non collegato al gestionale','Excel collegato via Power Query','Applicazione su misura','Integrato nel sistema ERP']}];
+const Q_S3_CICLO=[{id:'s3_ciclo_1',txt:'Come viene gestito il ciclo attivo (vendite/incassi)?',opts:['Gestione manuale senza procedure','Procedure base non formalizzate','Procedure strutturate ma non complete','Sistema completo e automatizzato']},{id:'s3_ciclo_2',txt:'Come viene gestito il ciclo passivo (acquisti/pagamenti)?',opts:['Gestione manuale senza procedure','Procedure base non formalizzate','Procedure strutturate ma non complete','Sistema completo e automatizzato']},{id:'s3_ciclo_3',txt:'Come viene gestito il credito verso clienti?',opts:['Nessuna gestione del credito','Controllo base scadenze','Sistema strutturato di credit management','Sistema integrato con valutazione rischio']}];
+const Q_S3_REP=[{id:'s3_rep_1',txt:'Come è strutturato il reporting?',opts:['Nessun reporting periodico','Report base su richiesta','Sistema strutturato di reporting periodico','Dashboard integrata con KPI']},{id:'s3_rep_2',txt:'Come vengono analizzati gli scostamenti (budget vs consuntivo)?',opts:['Non vengono analizzati','Analisi base su grandi differenze','Analisi strutturata periodica','Sistema integrato di analisi e azione']},{id:'s3_rep_3',txt:'Come vengono utilizzati i KPI?',opts:['Non vengono utilizzati','KPI base solo finanziari','Set strutturato di KPI','Sistema completo con target e BSC']}];
+const Q_S4_BASE=[{id:'s4_base_1',txt:'Quale sistema contabile utilizzate?',opts:['Gestione esterna completa dal commercialista','Software di base per prima nota','Sistema gestionale con modulo contabile','ERP completo con contabilità analitica']},{id:'s4_base_2',txt:'Come è strutturato il piano dei conti?',opts:['Piano base fornito dal commercialista','Piano standard del software','Piano personalizzato ma non strutturato','Piano strutturato con contabilità analitica']},{id:'s4_base_3',txt:'Con quale frequenza vengono eseguite le registrazioni?',opts:['Registrazioni saltuarie cumulative','Mensili','Settimanali','Giornaliere']},{id:'s4_base_4',txt:'Come vengono eseguite le registrazioni contabili?',opts:['Manualmente dall\'operatore','In parte automatizzate (SDI)','Completamente automatizzate','Automatiche tramite AI']}];
+const Q_S4_PROC=[{id:'s4_proc_1',txt:'Come sono organizzate le procedure contabili?',opts:['Nessuna procedura scritta','Alcune procedure informali','Procedure principali documentate','Sistema completo di procedure documentate']},{id:'s4_proc_2',txt:'Come vengono effettuate le riconciliazioni bancarie?',opts:['Non regolarmente','Riconciliazione mensile base','Riconciliazione settimanale documentata','Riconciliazione giornaliera strutturata']},{id:'s4_proc_3',txt:'Come viene gestito il controllo delle registrazioni?',opts:['Nessun controllo sistematico','Controlli saltuari a campione','Controlli periodici programmati','Sistema strutturato con checklist']}];
+const Q_S4_CICLO=[{id:'s4_ciclo_1',txt:'Come viene gestita la fatturazione attiva?',opts:['Emissione manuale','Software base di fatturazione','Sistema gestionale integrato','Sistema automatizzato completo']},{id:'s4_ciclo_2',txt:'Come viene gestita la fatturazione passiva?',opts:['Registrazione manuale a fine mese','Registrazione periodica non strutturata','Registrazione settimanale organizzata','Sistema giornaliero con workflow approvativo']},{id:'s4_ciclo_3',txt:'Come viene gestito lo scadenziario?',opts:['Nessuno scadenziario strutturato','Scadenziario base Excel','Scadenziario integrato nel gestionale','Sistema completo con previsionale tesoreria']}];
+const Q_S4_REP=[{id:'s4_rep_1',txt:'Come vengono gestite le chiusure periodiche?',opts:['Solo chiusura annuale per bilancio','Chiusure trimestrali base','Chiusure mensili strutturate','Sistema di chiusure con checklist']},{id:'s4_rep_2',txt:'Quale reportistica contabile viene prodotta?',opts:['Solo bilancio annuale','Situazioni trimestrali','Report mensili con analisi principali','Sistema completo con indici di bilancio']},{id:'s4_rep_3',txt:'Come vengono gestiti ratei, risconti e assestamenti?',opts:['Solo in sede di bilancio annuale','Calcolo trimestrale approssimativo','Calcolo mensile strutturato','Sistema automatico di calcolo']}];
+const Q_S4_CONF=[{id:'s4_conf_1',txt:'Come viene gestita la conservazione documentale?',opts:['Archiviazione cartacea base','Scansione documenti non strutturata','Archiviazione digitale organizzata','Sistema completo di conservazione a norma']},{id:'s4_conf_2',txt:'Come viene gestita la conformità fiscale?',opts:['Gestita interamente dal commercialista','Verifiche base interne','Sistema strutturato di controlli periodici','Sistema completo con scadenzario e verifiche']},{id:'s4_conf_3',txt:'Come viene gestita l\'analisi di bilancio?',opts:['Nessuna analisi strutturata','Analisi base dei principali indicatori','Analisi periodica con set di indicatori','Sistema completo con benchmark settoriale']}];
+const Q_S5=[{id:'s5_str_1',txt:'Avete formalizzato Vision, Mission e valori aziendali?',opts:['No, non sono mai stati definiti','Sì, ma solo verbalmente','Esiste un documento ma non aggiornato né comunicato','Documentato, condiviso e aggiornato']},{id:'s5_str_2',txt:'Fate un\'analisi strutturata del mercato e dei concorrenti?',opts:['No, ci basiamo sull\'esperienza','In modo informale, senza documentazione','Periodicamente, ma non sistematicamente','Sì, con analisi documentate e aggiornate']},{id:'s5_str_3',txt:'Avete un piano strategico con obiettivi misurabili?',opts:['No, la strategia è in testa al titolare','Esiste un\'idea di direzione ma non documentata','Piano parziale, non sempre aggiornato','Piano strutturato con KPI, scadenze e responsabili']},{id:'s5_str_4',txt:'Monitorate i risultati rispetto agli obiettivi strategici?',opts:['No, non abbiamo un sistema di monitoraggio','Solo saltuariamente e in modo informale','Periodicamente, senza un sistema strutturato','Sì, con riunioni periodiche, dashboard o OKR']}];
+const Q_S6=[{id:'s6_cli_1',txt:'Avete mai rilevato il clima o la soddisfazione dei vostri dipendenti?',opts:['No, non lo abbiamo mai fatto','Solo informalmente, parlando con le persone','Una volta, senza un metodo strutturato','Sì, periodicamente con questionari dedicati']},{id:'s6_cli_2',txt:'I dipendenti hanno canali strutturati per dare feedback?',opts:['No, tutto passa verbalmente dal titolare','Possono parlare, ma senza strumenti dedicati','Alcune modalità esistono ma non sistematiche','Sì, esistono strumenti o processi formalizzati']},{id:'s6_cli_3',txt:'Conoscete il livello di engagement e i potenziali rischi di turnover?',opts:['No, lo percepiamo ma senza dati','Abbiamo una percezione informale','Alcune misurazioni occasionali','Sì, monitoriamo continuamente con indicatori']}];
+const Q_S7=[{id:'s7_esg_1',txt:'Conoscete la normativa CSRD/VSME sulla rendicontazione sostenibilità?',opts:['No, non ne abbiamo mai sentito parlare','Ne abbiamo sentito parlare ma non sappiamo cosa implica','Conoscenza base, stiamo valutando l\'impatto','La conosciamo bene e abbiamo già avviato un percorso']},{id:'s7_esg_2',txt:'Monitorate indicatori ambientali (energia, rifiuti, emissioni CO2)?',opts:['No, non monitoriamo nulla','Solo ciò che è obbligatorio per legge','Alcuni indicatori, senza un sistema strutturato','Sì, con un sistema strutturato di raccolta e analisi']},{id:'s7_esg_3',txt:'Avete politiche sociali documentate (welfare, diversità, sicurezza)?',opts:['No, facciamo solo il minimo di legge','Alcune iniziative informali non documentate','Alcune politiche definite ma non sistematizzate','Politiche strutturate e documentate']},{id:'s7_esg_4',txt:'La sostenibilità è un tema rilevante per i vostri clienti o stakeholder?',opts:['No, i nostri clienti non lo richiedono','Marginalmente — solo qualche cliente lo menziona','Sì, è sempre più presente nelle richieste','Sì, è già un requisito esplicito in gare/contratti']}];
 
-// ── DATA MODEL ───────────────────────────────────────────────
-let D = { anagrafica:{}, s2:{}, s3:{}, s4:{}, s5:{}, s6:{}, s7:{},
-          autovalOrg:5, autovalAmm:5, autovalCont:5 };
+// ── DATA MODEL ──
+let D = {
+  anagrafica:{}, s2:{}, s3:{}, s4:{}, s5:{}, s6:{}, s7:{},
+  indicatori:{},
+  autovalOrg:5, autovalAmm:5, autovalCont:5
+};
 let codiceCliente = '';
 
 // ============================================================
@@ -614,14 +911,15 @@ function init(){
   buildQuestions('q-s4-ciclo',Q_S4_CICLO,'s4');
   buildQuestions('q-s4-rep',  Q_S4_REP,  's4');
   buildQuestions('q-s4-conf', Q_S4_CONF, 's4');
-  buildQuestions('q-s5',      Q_S5,      's5');  // NUOVO
-  buildQuestions('q-s6',      Q_S6,      's6');  // NUOVO
-  buildQuestions('q-s7',      Q_S7,      's7');  // NUOVO
+  buildQuestions('q-s5',      Q_S5,      's5');
+  buildQuestions('q-s6',      Q_S6,      's6');
+  buildQuestions('q-s7',      Q_S7,      's7');
+  buildIndicatoriKnowl();
   loadLocal();
 }
 
 // ============================================================
-// SCALE 8 — build con select dropdown descrittivo
+// SCALE 8
 // ============================================================
 function buildScale8(){
   const c = document.getElementById('scale8-container');
@@ -638,23 +936,19 @@ function buildScale8(){
     </div>
   `).join('');
 }
-
-function setScale8(id, val, sel){
+function setScale8(id,val,sel){
   if(!D.anagrafica.scale8) D.anagrafica.scale8={};
-  D.anagrafica.scale8[id] = val;
-  if(sel){
-    sel.classList.toggle('chosen', val > 0);
-    document.getElementById('s8item-'+id)?.classList.toggle('filled', val > 0);
-  }
+  D.anagrafica.scale8[id]=val;
+  if(sel){ sel.classList.toggle('chosen',val>0); document.getElementById('s8item-'+id)?.classList.toggle('filled',val>0); }
   autoSave();
 }
 
 // ============================================================
-// DOMANDE — build con radio verticali
+// DOMANDE STANDARD
 // ============================================================
-function buildQuestions(cid, qs, sec){
-  const c = document.getElementById(cid); if(!c) return;
-  c.innerHTML = qs.map((q,qi)=>`
+function buildQuestions(cid,qs,sec){
+  const c=document.getElementById(cid); if(!c) return;
+  c.innerHTML=qs.map((q,qi)=>`
     <div class="level-q" id="lq-${q.id}">
       <div class="level-q-num">Domanda ${qi+1}</div>
       <div class="level-q-txt">${q.txt}</div>
@@ -670,111 +964,155 @@ function buildQuestions(cid, qs, sec){
     </div>
   `).join('');
 }
-
-function setAnswer(sec, qid, val){
-  D[sec][qid] = val;
-  [0,1,2,3].forEach(i=>{
-    const el = document.getElementById(`lo-${qid}-${i}`);
-    if(el){ el.className = 'level-opt'; if(i===val) el.classList.add(`sel-${i}`); }
-  });
+function setAnswer(sec,qid,val){
+  D[sec][qid]=val;
+  [0,1,2,3].forEach(i=>{ const el=document.getElementById(`lo-${qid}-${i}`); if(el){ el.className='level-opt'; if(i===val) el.classList.add(`sel-${i}`); } });
   document.getElementById('lq-'+qid)?.classList.add('answered');
   updateScorePreview();
   autoSave();
 }
-
 function calcScore(sec){
-  const qMap = {
+  const qMap={
     s2:[...Q_S2_ORG,...Q_S2_PROC,...Q_S2_CTRL,...Q_S2_HR,...Q_S2_GOV],
     s3:[...Q_S3_BASE,...Q_S3_CTRL,...Q_S3_CICLO,...Q_S3_REP],
     s4:[...Q_S4_BASE,...Q_S4_PROC,...Q_S4_CICLO,...Q_S4_REP,...Q_S4_CONF],
-    s5: Q_S5,
-    s6: Q_S6,
-    s7: Q_S7
+    s5:Q_S5, s6:Q_S6, s7:Q_S7
   };
-  const qs = qMap[sec]; if(!qs) return 0;
-  const answered = qs.filter(q=>D[sec][q.id]!==undefined);
+  const qs=qMap[sec]; if(!qs) return 0;
+  const answered=qs.filter(q=>D[sec][q.id]!==undefined);
   if(!answered.length) return 0;
-  const total = answered.reduce((s,q)=>s+(D[sec][q.id]||0),0);
-  return Math.round(total/(answered.length*3)*100);
+  return Math.round(answered.reduce((s,q)=>s+(D[sec][q.id]||0),0)/(answered.length*3)*100);
 }
-
 function updateScorePreview(){
   ['s2','s3','s4','s5','s6','s7'].forEach(sec=>{
-    const s = calcScore(sec);
-    const el = document.getElementById(`sp-${sec}`);
-    if(el){ el.textContent=s+'%'; el.style.color=s>=70?'#10b981':s>=40?'#f59e0b':'#ef4444'; }
+    const s=calcScore(sec);
+    ['sp-'+sec,'sp-'+sec+'b'].forEach(id=>{ const el=document.getElementById(id); if(el){ el.textContent=s+'%'; el.style.color=s>=70?'#10b981':s>=40?'#f59e0b':'#ef4444'; } });
   });
+}
+
+// ============================================================
+// INDICATORI GESTIONALI — knowledge (0-3)
+// ============================================================
+function buildIndicatoriKnowl(){
+  IND_KNOWL_IDS.forEach(({id,cid,key})=>{
+    const c=document.getElementById(cid); if(!c) return;
+    c.innerHTML=`<div class="level-opts">${IND_KNOWL_OPTS.map((opt,i)=>`
+      <label class="level-opt" id="lo-${id}-${i}" onclick="setIndKnowl('${key}','${id}',${i})">
+        <input type="radio" name="${id}" value="${i}">
+        <div class="lo-badge">${i}</div>
+        <span>${opt}</span>
+      </label>`).join('')}</div>`;
+  });
+}
+function setIndKnowl(key,id,val){
+  D.indicatori[key]=val;
+  [0,1,2,3].forEach(i=>{ const el=document.getElementById(`lo-${id}-${i}`); if(el){ el.className='level-opt'; if(i===val) el.classList.add(`sel-${i}`); } });
+  autoSave();
+}
+
+// ============================================================
+// SEMAFORO — logica per ogni indicatore
+// ============================================================
+const SEMAFORO_CFG = {
+  mc:   {fn:v=>v>=40?'green':v>=20?'yellow':'red', labels:{green:'Adeguato (MC ≥ 40%)',yellow:'Attenzione (MC 20–40%)',red:'Critico (MC < 20%)'}},
+  cl:   {fn:v=>v<=35?'green':v<=50?'yellow':'red', labels:{green:'Adeguato (CL ≤ 35%)',yellow:'Monitorare (CL 35–50%)',red:'Critico (CL > 50%)'}},
+  lev:  {fn:v=>v<=50?'green':v<=70?'yellow':'red', labels:{green:'Equilibrato (≤ 50%)',yellow:'Attenzione (50–70%)',red:'Critico (> 70%)'}},
+  dso:  {fn:v=>v<60?'green':v<=90?'yellow':'red',  labels:{green:'Buono (< 60 gg)',yellow:'Attenzione (60–90 gg)',red:'Critico (> 90 gg)'}},
+  cr:   {fn:v=>v>=1.5?'green':v>=1?'yellow':'red', labels:{green:'Adeguato (≥ 1.5)',yellow:'Attenzione (1–1.5)',red:'Critico (< 1)'}},
+  formdip:  {fn:v=>v>=8?'green':v>=4?'yellow':'red', labels:{green:'Buona cultura formativa (≥ 8h)',yellow:'Accettabile (4–8h)',red:'Insufficiente (< 4h)'}},
+  formmgmt: {fn:v=>v>=8?'green':v>=4?'yellow':'red', labels:{green:'Investimento adeguato (≥ 8h)',yellow:'Accettabile (4–8h)',red:'Insufficiente (< 4h)'}},
+};
+const MASA_SEM = {positivo:'green',nullo:'yellow',negativo:'red',nd:'neutral'};
+const MASA_LABELS = {positivo:'MASA Positivo — copertura strutturale ok',nullo:'MASA circa zero — equilibrio da monitorare',negativo:'MASA Negativo — segnale di allarme strutturale',nd:'Non disponibile',green:'',yellow:'',red:'',neutral:''};
+
+function updateSemaforo(ind){
+  if(ind==='masa'){
+    const val=D.indicatori.masa_stato;
+    const col=MASA_SEM[val]||'neutral';
+    const lbl=MASA_LABELS[val]||'Seleziona il valore';
+    setSem('sem-masa',col,lbl);
+    return;
+  }
+  const cfg=SEMAFORO_CFG[ind]; if(!cfg) return;
+  const inputId='ind-'+ind+'-val';
+  const rawVal=document.getElementById(inputId)?.value;
+  if(rawVal===''||rawVal===null||rawVal===undefined){ setSem('sem-'+ind,'neutral','Inserisci il valore'); return; }
+  const v=parseFloat(rawVal);
+  if(isNaN(v)){ setSem('sem-'+ind,'neutral','Valore non valido'); return; }
+  const col=cfg.fn(v);
+  setSem('sem-'+ind,col,cfg.labels[col]);
+}
+function setSem(semId,col,txt){
+  const el=document.getElementById(semId); if(!el) return;
+  el.className='semaforo sem-'+col;
+  const dot=el.querySelector('.sem-dot'); if(dot) dot.className='sem-dot';
+  const span=el.querySelector('span:last-child'); if(span) span.textContent=txt;
+}
+
+// ============================================================
+// TEORIA BOX — toggle
+// ============================================================
+function toggleTeoria(hdr){
+  hdr.classList.toggle('open');
+  const body=hdr.nextElementSibling;
+  if(body) body.classList.toggle('show');
 }
 
 // ============================================================
 // NAVIGAZIONE
 // ============================================================
 function startSurvey(){
-  const inp = document.getElementById('codice-input').value.trim().toUpperCase();
-  codiceCliente = inp || generaCodice();
+  const inp=document.getElementById('codice-input').value.trim().toUpperCase();
+  codiceCliente=inp||generaCodice();
   document.getElementById('screen-intro').style.display='none';
   document.getElementById('progress-wrap').style.display='block';
   goTo('s1');
 }
-
 function goTo(id){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   document.getElementById('screen-s'+id.replace('s',''))?.classList.add('active');
   updateProgress(id);
   window.scrollTo({top:0,behavior:'smooth'});
 }
-
-function next(current, nextId){
-  if(current==='s1' && !D.anagrafica.nome){ toast('Inserisci il nome dell\'azienda','err'); return; }
+function next(current,nextId){
+  if(current==='s1'&&!D.anagrafica.nome){ toast('Inserisci il nome dell\'azienda','err'); return; }
   goTo(nextId);
 }
-
 function updateProgress(id){
-  const steps = ['s1','s2','s3','s4','s5','s6','s7','send'];
-  const idx = steps.indexOf(id);
-  const pct = Math.round((idx/(steps.length-1))*100);
+  const steps=['s1','s2','s3','s4','s5','s6','s7','s8','send'];
+  const idx=steps.indexOf(id);
+  const pct=Math.round((idx/(steps.length-1))*100);
   document.getElementById('prog-fill').style.width=pct+'%';
-  document.getElementById('hdr-step').textContent=`Sezione ${idx+1} di 8`;
-  steps.forEach((s,i)=>{
-    const el = document.getElementById('ps-'+s); if(!el) return;
-    el.className = 'ps'+(i<idx?' done':i===idx?' active':'');
-  });
-  if(id==='s7') updateScorePreview();
+  document.getElementById('hdr-step').textContent=`Sezione ${idx+1} di 9`;
+  steps.forEach((s,i)=>{ const el=document.getElementById('ps-'+s); if(!el) return; el.className='ps'+(i<idx?' done':i===idx?' active':''); });
+  if(id==='s8') updateScorePreview();
 }
 
 // ============================================================
-// INVIO — FIX: nessun header Content-Type con no-cors
+// INVIO
 // ============================================================
 async function inviaAssessment(){
   if(!D.anagrafica.nome){ toast('Compila almeno il nome dell\'azienda','err'); goTo('s1'); return; }
   document.getElementById('send-overlay').style.display='flex';
-
-  const payload = { codiceCliente, data:{ ...D, anagrafica:{...D.anagrafica} } };
-
-  try {
-    await fetch(GAS_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      // ⚠️ NO headers: il browser invia senza preflight CORS e il GAS riceve il body
-      body: JSON.stringify(payload)
-    });
+  const payload={ codiceCliente, data:{...D, anagrafica:{...D.anagrafica}, indicatori:{...D.indicatori}} };
+  try{
+    await fetch(GAS_URL,{method:'POST',mode:'no-cors',body:JSON.stringify(payload)});
     document.getElementById('send-overlay').style.display='none';
     localStorage.removeItem('bdz_survey_draft');
     mostraThankYou();
-  } catch(err){
+  }catch(err){
     document.getElementById('send-overlay').style.display='none';
     fallbackDownload();
   }
 }
-
 function mostraThankYou(){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   document.getElementById('progress-wrap').style.display='none';
   document.getElementById('screen-thanks').style.display='block';
-  document.getElementById('thanks-code').textContent = codiceCliente;
-  document.getElementById('hdr-step').textContent = 'Completato ✓';
-  const col = v=>v>=70?'#10b981':v>=40?'#f59e0b':'#ef4444';
-  document.getElementById('thanks-score').innerHTML = [
+  document.getElementById('thanks-code').textContent=codiceCliente;
+  document.getElementById('hdr-step').textContent='Completato ✓';
+  const col=v=>v>=70?'#10b981':v>=40?'#f59e0b':'#ef4444';
+  document.getElementById('thanks-score').innerHTML=[
     {lbl:'Organizzativo',v:calcScore('s2')},
     {lbl:'Amministrativo',v:calcScore('s3')},
     {lbl:'Contabile',v:calcScore('s4')},
@@ -784,56 +1122,62 @@ function mostraThankYou(){
   ].map(x=>`<div class="ts-item"><div class="ts-val" style="color:${col(x.v)}">${x.v}%</div><div class="ts-lbl">${x.lbl}</div></div>`).join('');
   window.scrollTo({top:0,behavior:'smooth'});
 }
-
 function fallbackDownload(){
-  const blob = new Blob([JSON.stringify({codiceCliente,data:D},null,2)],{type:'application/json'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = `assessment_${D.anagrafica.nome||'bdz'}_${codiceCliente}.json`;
+  const blob=new Blob([JSON.stringify({codiceCliente,data:D},null,2)],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=`assessment_${D.anagrafica.nome||'bdz'}_${codiceCliente}.json`;
   a.click();
   toast('⚠️ Invio automatico non disponibile — file JSON scaricato. Inviarlo al consulente.','info');
-  setTimeout(mostraThankYou, 2000);
+  setTimeout(mostraThankYou,2000);
 }
-
 function generaCodice(){
   const c='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
   return Array.from({length:8},()=>c[Math.floor(Math.random()*c.length)]).join('');
 }
 
 // ============================================================
-// AUTO-SAVE
+// AUTO-SAVE & LOAD
 // ============================================================
 function autoSave(){
   try{ localStorage.setItem('bdz_survey_draft',JSON.stringify({codiceCliente,D})); }catch(e){}
 }
-
 function loadLocal(){
   try{
-    const s = localStorage.getItem('bdz_survey_draft');
-    if(!s) return;
-    const saved = JSON.parse(s);
-    if(saved.D) D = saved.D;
-    if(saved.codiceCliente) codiceCliente = saved.codiceCliente;
-    const a = D.anagrafica||{};
-    if(a.nome)      document.getElementById('az-nome').value    = a.nome;
-    if(a.email)     document.getElementById('az-email').value   = a.email;
-    if(a.ateco1)    document.getElementById('az-ateco1').value  = a.ateco1;
-    if(a.ateco2)    document.getElementById('az-ateco2').value  = a.ateco2;
-    if(a.professionista) document.getElementById('az-prof').value = a.professionista;
-    if(a.siTipo1)   document.getElementById('si-tipo1').value   = a.siTipo1;
-    if(a.siTipo2)   document.getElementById('si-tipo2').value   = a.siTipo2;
-    if(a.siSw)      document.getElementById('si-sw').value      = a.siSw;
-    if(a.strMission)document.getElementById('str-mission').value= a.strMission;
-    if(a.strVision) document.getElementById('str-vision').value = a.strVision;
-    if(a.swF)       document.getElementById('sw-f').value       = a.swF;
-    if(a.swD)       document.getElementById('sw-d').value       = a.swD;
-    // Scale 8
-    Object.entries(a.scale8||{}).forEach(([id,val])=>{
-      const sel = document.getElementById(id);
-      if(sel){ sel.value=val; setScale8(id,val,sel); }
-    });
-    // Questionari — incluso S5/S6/S7
+    const s=localStorage.getItem('bdz_survey_draft'); if(!s) return;
+    const saved=JSON.parse(s);
+    if(saved.D) D=saved.D;
+    if(saved.codiceCliente) codiceCliente=saved.codiceCliente;
+    const a=D.anagrafica||{};
+    if(a.nome)       document.getElementById('az-nome').value=a.nome;
+    if(a.email)      document.getElementById('az-email').value=a.email;
+    if(a.ateco1)     document.getElementById('az-ateco1').value=a.ateco1;
+    if(a.ateco2)     document.getElementById('az-ateco2').value=a.ateco2;
+    if(a.professionista) document.getElementById('az-prof').value=a.professionista;
+    if(a.siTipo1)    document.getElementById('si-tipo1').value=a.siTipo1;
+    if(a.siTipo2)    document.getElementById('si-tipo2').value=a.siTipo2;
+    if(a.siSw)       document.getElementById('si-sw').value=a.siSw;
+    if(a.strMission) document.getElementById('str-mission').value=a.strMission;
+    if(a.strVision)  document.getElementById('str-vision').value=a.strVision;
+    if(a.swF)        document.getElementById('sw-f').value=a.swF;
+    if(a.swD)        document.getElementById('sw-d').value=a.swD;
+    Object.entries(a.scale8||{}).forEach(([id,val])=>{ const sel=document.getElementById(id); if(sel){ sel.value=val; setScale8(id,val,sel); } });
     ['s2','s3','s4','s5','s6','s7'].forEach(sec=>Object.entries(D[sec]||{}).forEach(([qid,val])=>setAnswer(sec,qid,val)));
+    // Ripristina indicatori knowledge
+    IND_KNOWL_IDS.forEach(({id,key})=>{
+      const val=D.indicatori?.[key];
+      if(val!==undefined) setIndKnowl(key,id,val);
+    });
+    // Ripristina valori numerici indicatori
+    const ind=D.indicatori||{};
+    if(ind.mc_valore!==undefined)     { document.getElementById('ind-mc-val').value=ind.mc_valore;         updateSemaforo('mc'); }
+    if(ind.cl_valore!==undefined)     { document.getElementById('ind-cl-val').value=ind.cl_valore;         updateSemaforo('cl'); }
+    if(ind.lev_valore!==undefined)    { document.getElementById('ind-lev-val').value=ind.lev_valore;        updateSemaforo('lev'); }
+    if(ind.masa_stato)                { document.getElementById('ind-masa-stato').value=ind.masa_stato;     updateSemaforo('masa'); }
+    if(ind.form_dip!==undefined)      { document.getElementById('ind-formdip-val').value=ind.form_dip;      updateSemaforo('formdip'); }
+    if(ind.form_mgmt!==undefined)     { document.getElementById('ind-formmgmt-val').value=ind.form_mgmt;   updateSemaforo('formmgmt'); }
+    if(ind.dso_valore!==undefined)    { document.getElementById('ind-dso-val').value=ind.dso_valore;        updateSemaforo('dso'); }
+    if(ind.cr_valore!==undefined)     { document.getElementById('ind-cr-val').value=ind.cr_valore;          updateSemaforo('cr'); }
   }catch(e){}
 }
 
