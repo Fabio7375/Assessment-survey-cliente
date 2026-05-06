@@ -76,6 +76,18 @@ body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;backgroun
 .teoria-box.teoria-risk .teoria-hdr{background:#fee2e2;color:#991b1b}
 .teoria-box.teoria-risk .teoria-body{color:#374151}
 
+/* v4.0 — GLOSSARIO box */
+.gloss-box{border:1.5px solid #b8973a;background:#fffbeb;border-radius:10px;margin-bottom:16px;overflow:hidden}
+.gloss-hdr{display:flex;align-items:center;gap:10px;padding:11px 14px;cursor:pointer;user-select:none;font-size:13px;font-weight:600;color:#78350f}
+.gloss-hdr .g-arr{margin-left:auto;font-size:11px;transition:transform .2s}
+.gloss-hdr.open .g-arr{transform:rotate(180deg)}
+.gloss-body{padding:0 14px 14px;font-size:12px;line-height:1.65;display:none;color:#451a03}
+.gloss-body.show{display:block}
+.gloss-body dl{margin:0;padding:0}
+.gloss-body dt{font-weight:700;color:#92400e;margin-top:8px;font-size:12px}
+.gloss-body dd{margin:2px 0 0 0;padding:0;color:#78350f}
+.gloss-body dt:first-child{margin-top:0}
+
 .card{background:var(--wh);border-radius:var(--r);padding:18px;margin-bottom:14px;border:1px solid var(--g200);box-shadow:var(--sh)}
 .ct{font-size:13px;font-weight:700;color:var(--nv);margin-bottom:14px;display:flex;align-items:center;gap:7px}
 .ct .ico{color:var(--gd)}
@@ -369,6 +381,36 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     </div>
   </div>
 
+  <div class="gloss-box">
+    <div class="gloss-hdr" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">
+      <span style="font-size:18px">💡</span>
+      <span>Glossario rapido — cosa significano i termini delle risposte</span>
+      <span class="g-arr">▼</span>
+    </div>
+    <div class="gloss-body">
+      <p style="margin-bottom:8px">Le opzioni di risposta usano alcuni termini tecnici. Eccone il significato secondo lo standard <strong>UNI/PdR 167:2025</strong>:</p>
+      <dl>
+        <dt>📝 Strutturato</dt>
+        <dd>Esistono <strong>regole e criteri scritti</strong>, ruoli e responsabilità chiari, periodicità definita. <em>Es. "controllo strutturato" = c'è una procedura, un responsabile, una cadenza.</em></dd>
+        <dt>✅ Completo</dt>
+        <dd>Copre <strong>tutti gli aspetti</strong> del processo dalla raccolta dati all'output, senza lacune. Opposto di "parziale".</dd>
+        <dt>📋 Formalizzato</dt>
+        <dd>Con <strong>documentazione ufficiale</strong>: verbale CdA, procura, procedura scritta, firma digitale. Ha data certa.</dd>
+        <dt>🔁 Sistematico / Periodico</dt>
+        <dd>Applicato con <strong>regolarità secondo cadenza definita</strong> (settimanale, mensile, trimestrale). Opposto di "saltuario / ad hoc".</dd>
+        <dt>🔄 Aggiornato</dt>
+        <dd>Revisionato periodicamente, riflette <strong>la situazione attuale</strong> dell'azienda (non un documento fermo da anni).</dd>
+        <dt>📁 Documentato</dt>
+        <dd>Esistono <strong>evidenze scritte</strong> (carta o digitale), conservate e accessibili.</dd>
+        <dt>📚 Procedure</dt>
+        <dd>Istruzioni scritte che descrivono <strong>come</strong> si svolge un'attività e <strong>chi</strong> la svolge.</dd>
+        <dt>🔗 Sistema integrato</dt>
+        <dd>Diverse funzioni (vendite, magazzino, contabilità) <strong>collegate tra loro</strong> che condividono dati senza riconciliazioni manuali.</dd>
+      </dl>
+      <p style="margin-top:8px;font-size:11px;font-style:italic;color:#92400e">⚠️ Se non sei sicuro, scegli l'opzione che descrive <strong>realisticamente</strong> la tua azienda, anche se "imbarazzante". Una valutazione onesta è più utile di una compiacente.</p>
+    </div>
+  </div>
+
   <div class="card"><div class="ct"><span class="ico">🏗️</span> Struttura Organizzativa</div><div id="q-s2-org"></div></div>
   <div class="card"><div class="ct"><span class="ico">⚙️</span> Processi e Procedure</div><div id="q-s2-proc"></div></div>
   <div class="card"><div class="ct"><span class="ico">🎯</span> Controllo e Monitoraggio</div><div id="q-s2-ctrl"></div></div>
@@ -411,6 +453,34 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         <li>Il rilevamento dei segnali di crisi con tempestività sufficiente a permettere interventi correttivi.</li>
       </ul>
       <p>Formale vs Sostanziale: un budget esistente ma mai aggiornato, o previsioni di cassa prodotte solo per la banca e non monitorate internamente, non soddisfano il requisito <em>sostanziale</em>.</p>
+    </div>
+  </div>
+
+  <div class="gloss-box">
+    <div class="gloss-hdr" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">
+      <span style="font-size:18px">💡</span>
+      <span>Glossario rapido — termini specifici dell'assetto amministrativo</span>
+      <span class="g-arr">▼</span>
+    </div>
+    <div class="gloss-body">
+      <dl>
+        <dt>💰 Budget</dt>
+        <dd>Previsione economica annuale dei ricavi e costi, articolata per voci, mese e/o area di business.</dd>
+        <dt>🔁 Budget rolling / forecast</dt>
+        <dd>Budget aggiornato continuamente (es. ogni mese si proietta sui 12 mesi successivi), non bloccato a inizio anno.</dd>
+        <dt>📈 Cash flow previsionale</dt>
+        <dd>Previsione delle entrate e uscite di cassa, di solito a 12 mesi. Richiesto da art. 3 CCII per la continuità.</dd>
+        <dt>🏦 Tesoreria</dt>
+        <dd>Gestione attiva di liquidità, conti bancari, scadenze, affidamenti e fido.</dd>
+        <dt>📊 Controllo di gestione strutturato</dt>
+        <dd>Sistema con KPI definiti, report periodici, analisi degli scostamenti budget vs consuntivo, azioni correttive documentate.</dd>
+        <dt>↔️ Scostamenti</dt>
+        <dd>Differenze tra budget previsto e dato consuntivo. "Analisi strutturata" = avviene a cadenza fissa con cause individuate.</dd>
+        <dt>💳 Credit management</dt>
+        <dd>Gestione attiva del credito clienti: fidi, scoring, solleciti, recupero, valutazione del rischio di insolvenza.</dd>
+        <dt>📋 Set strutturato di KPI</dt>
+        <dd>Insieme di indicatori (almeno 5-10) economici, finanziari, operativi, monitorati con frequenza definita e con target.</dd>
+      </dl>
     </div>
   </div>
 
@@ -458,6 +528,36 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     </div>
   </div>
 
+  <div class="gloss-box">
+    <div class="gloss-hdr" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">
+      <span style="font-size:18px">💡</span>
+      <span>Glossario rapido — termini specifici dell'assetto contabile</span>
+      <span class="g-arr">▼</span>
+    </div>
+    <div class="gloss-body">
+      <dl>
+        <dt>📒 Piano dei conti</dt>
+        <dd>Elenco strutturato dei conti contabili usati per registrare le operazioni. "Strutturato con contabilità analitica" = consente analisi per cliente/prodotto/commessa, non solo per natura.</dd>
+        <dt>🏭 Contabilità analitica/industriale</dt>
+        <dd>Estensione della contabilità che attribuisce costi e ricavi a centri di costo, prodotti, clienti, commesse. Permette di calcolare il margine per oggetto.</dd>
+        <dt>🏦 Riconciliazione bancaria</dt>
+        <dd>Confronto tra estratto conto bancario e contabilità per verificare la corrispondenza. "Documentata" = registro scritto delle differenze e correzioni.</dd>
+        <dt>📅 Chiusure periodiche</dt>
+        <dd>Predisposizione di Conto Economico + Stato Patrimoniale a fine periodo (mese/trimestre). "Strutturate" = secondo procedura, con scadenze fisse e checklist.</dd>
+        <dt>⚖️ Ratei, risconti, assestamenti</dt>
+        <dd>Scritture per attribuire correttamente costi/ricavi al periodo di competenza (es. canone affitto a cavallo di due esercizi).</dd>
+        <dt>🤖 Registrazioni automatizzate</dt>
+        <dd>Es: con SDI (fatturazione elettronica) le fatture si importano da sole; con cassetto fiscale i movimenti bancari si scaricano in automatico.</dd>
+        <dt>📋 Sistema completo di procedure</dt>
+        <dd>Insieme di istruzioni scritte che coprono <strong>tutti</strong> i processi contabili (acquisti, vendite, banche, magazzino, paghe, ecc.).</dd>
+        <dt>🔒 Conservazione a norma</dt>
+        <dd>Archiviazione digitale conforme al CAD (Codice Amministrazione Digitale) con firma e marca temporale. Non basta scannerizzare e salvare in cartelle.</dd>
+        <dt>📊 Indici di bilancio</dt>
+        <dd>Indicatori calcolati sul bilancio (es. ROI, ROE, current ratio, leverage). "Sistema completo" = calcolo periodico con confronto temporale e benchmark.</dd>
+      </dl>
+    </div>
+  </div>
+
   <div class="card"><div class="ct"><span class="ico">📒</span> Sistema Contabile di Base</div><div id="q-s4-base"></div></div>
   <div class="card"><div class="ct"><span class="ico">✅</span> Procedure e Controlli</div><div id="q-s4-proc"></div></div>
   <div class="card"><div class="ct"><span class="ico">🔄</span> Ciclo Attivo e Passivo</div><div id="q-s4-ciclo"></div></div>
@@ -496,6 +596,35 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     <div style="background:#eef2ff;border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:12.5px;color:#3730a3">
       🎯 <strong>Perché queste domande?</strong> La pianificazione strategica strutturata è uno degli indicatori di adeguatezza organizzativa previsti da UNI/PdR 167:2025. Le risposte ci aiutano a capire se e come supportarvi in questo percorso.
     </div>
+
+    <div class="gloss-box">
+      <div class="gloss-hdr" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">
+        <span style="font-size:18px">💡</span>
+        <span>Glossario rapido — strategia d'impresa</span>
+        <span class="g-arr">▼</span>
+      </div>
+      <div class="gloss-body">
+        <dl>
+          <dt>🎯 Mission</dt>
+          <dd>Ragione d'essere dell'azienda, ciò che fa <em>oggi</em>: chi serve, con quali prodotti/servizi, con quale promessa di valore.</dd>
+          <dt>🔭 Vision</dt>
+          <dd>Aspirazione a medio-lungo termine: dove vuole arrivare l'azienda nei prossimi 3-5 anni; immagine ambiziosa ma raggiungibile.</dd>
+          <dt>📋 Piano strategico documentato</dt>
+          <dd>Documento scritto con obiettivi misurabili, scadenze e responsabili, condiviso con il management. Non un appunto del titolare.</dd>
+          <dt>📊 KPI strategici</dt>
+          <dd>Indicatori chiave di performance collegati agli obiettivi strategici (es. quota di mercato, % nuovi clienti, EBITDA margin), con target e cadenza di monitoraggio.</dd>
+          <dt>🎯 OKR (Objective and Key Results)</dt>
+          <dd>Metodologia di gestione obiettivi: per ogni obiettivo qualitativo si definiscono 3-5 risultati chiave quantitativi, rivisti trimestralmente.</dd>
+          <dt>🔍 Analisi PESTEL</dt>
+          <dd>Studio strutturato del contesto esterno: fattori Politici, Economici, Sociali, Tecnologici, Ambientali, Legali che possono influenzare l'azienda.</dd>
+          <dt>⚔️ Analisi competitiva (Porter)</dt>
+          <dd>Analisi delle 5 forze di Porter: concorrenti, nuovi entranti, sostituti, potere fornitori, potere clienti.</dd>
+          <dt>📈 Dashboard strategica</dt>
+          <dd>Pannello di controllo con i principali KPI strategici, aggiornato periodicamente, accessibile alla direzione.</dd>
+        </dl>
+      </div>
+    </div>
+
     <div id="q-s5"></div>
   </div>
   <div class="nav-btns">
@@ -515,6 +644,35 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     <div style="background:#f0fdf4;border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:12.5px;color:#166534">
       😊 <strong>Perché queste domande?</strong> Il clima aziendale influisce direttamente su produttività, turnover e capacità di attrarre talenti. Studio BDZ offre un sistema di rilevazione anonima del clima che fornisce dati oggettivi su 8 dimensioni organizzative.
     </div>
+
+    <div class="gloss-box">
+      <div class="gloss-hdr" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">
+        <span style="font-size:18px">💡</span>
+        <span>Glossario rapido — clima e benessere organizzativo</span>
+        <span class="g-arr">▼</span>
+      </div>
+      <div class="gloss-body">
+        <dl>
+          <dt>🌡️ Clima aziendale</dt>
+          <dd>Percezione collettiva dei dipendenti rispetto all'organizzazione, alle relazioni, alla leadership, all'autonomia. Diverso dalla "cultura aziendale" (più stabile e profonda).</dd>
+          <dt>🔥 Engagement</dt>
+          <dd>Livello di coinvolgimento emotivo e motivazionale dei dipendenti verso l'azienda. Si misura con dimensioni come energia, dedizione, focus sul lavoro.</dd>
+          <dt>🚪 Turnover</dt>
+          <dd>Tasso di uscite di personale dall'azienda nell'arco di un anno. Turnover alto = costi di reclutamento/formazione, perdita di know-how, segnale di problemi organizzativi.</dd>
+          <dt>📋 Survey anonima clima</dt>
+          <dd>Questionario somministrato a tutto il personale in forma <strong>anonima</strong>, con domande standardizzate su 6-8 dimensioni. Garanzia di anonimato = risposte sincere.</dd>
+          <dt>💬 Feedback strutturato</dt>
+          <dd>Canale formalizzato per raccogliere osservazioni dei dipendenti (es. one-to-one periodici, cassetta suggerimenti, survey, focus group). Non basta "porta aperta del titolare".</dd>
+          <dt>📐 ISO 45003</dt>
+          <dd>Standard internazionale sulla gestione del benessere psicosociale e organizzativo. Indica linee guida per identificare, prevenire e gestire rischi psicosociali.</dd>
+          <dt>⚖️ Modello JD-R (Job Demands-Resources)</dt>
+          <dd>Framework che bilancia "domande" (carichi, stress) e "risorse" (autonomia, supporto, formazione). Equilibrio = buon clima; squilibrio = burnout o apatia.</dd>
+          <dt>🎁 Welfare aziendale</dt>
+          <dd>Insieme di benefit non monetari (formazione, asilo nido, smart working, salute) che migliorano la qualità della vita dei dipendenti. Vantaggio fiscale per l'azienda.</dd>
+        </dl>
+      </div>
+    </div>
+
     <div id="q-s6"></div>
   </div>
   <div class="nav-btns">
@@ -534,6 +692,37 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     <div style="background:#fefce8;border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:12.5px;color:#92400e">
       🌿 <strong>Perché queste domande?</strong> La normativa CSRD/VSME sta estendendo gli obblighi di rendicontazione sostenibilità anche alle PMI. Studio BDZ supporta le aziende nell'assessment ESG e nella predisposizione del report VSME (EFRAG).
     </div>
+
+    <div class="gloss-box">
+      <div class="gloss-hdr" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">
+        <span style="font-size:18px">💡</span>
+        <span>Glossario rapido — sostenibilità ESG e normativa</span>
+        <span class="g-arr">▼</span>
+      </div>
+      <div class="gloss-body">
+        <dl>
+          <dt>🌿 ESG</dt>
+          <dd>Acronimo per <strong>Environmental</strong> (ambientale: emissioni, energia, rifiuti), <strong>Social</strong> (sociale: lavoratori, comunità, sicurezza) e <strong>Governance</strong> (governo d'impresa: etica, trasparenza, struttura). Tre pilastri della sostenibilità d'impresa.</dd>
+          <dt>📜 CSRD (Corporate Sustainability Reporting Directive)</dt>
+          <dd>Direttiva UE 2022/2464: obbligo di rendicontazione di sostenibilità per grandi imprese e PMI quotate. Recepita in Italia con D.lgs. 125/2024.</dd>
+          <dt>📋 VSME (Voluntary Standard for SMEs)</dt>
+          <dd>Standard volontario semplificato per le PMI non obbligate, sviluppato da EFRAG. Base modulare: BASIC + COMPREHENSIVE. Permette di rendicontare in modo proporzionato alle dimensioni.</dd>
+          <dt>🏛️ EFRAG</dt>
+          <dd>European Financial Reporting Advisory Group: ente tecnico UE che sviluppa gli standard di rendicontazione di sostenibilità (ESRS per CSRD, VSME per PMI).</dd>
+          <dt>🎯 Materialità</dt>
+          <dd>Principio chiave: si rendicontano solo i temi di sostenibilità <strong>rilevanti</strong> per l'impresa e i suoi stakeholder (analisi di doppia materialità per CSRD).</dd>
+          <dt>📊 Indicatori ESG (KPI sostenibilità)</dt>
+          <dd>Misure quantitative tipo: kWh consumati, t CO2 emesse, % rifiuti riciclati, ore formazione su sicurezza, % donne nei ruoli manageriali, ore di volontariato erogate.</dd>
+          <dt>🤝 Stakeholder ESG</dt>
+          <dd>Soggetti interessati alle performance di sostenibilità: dipendenti, clienti, fornitori, banche, comunità locali, autorità. Vanno coinvolti per identificare i temi materiali.</dd>
+          <dt>🔍 Due diligence ESG di filiera</dt>
+          <dd>Verifica che i propri fornitori rispettino criteri ESG (es. lavoro minorile, impatti ambientali, diritti umani). Sempre più richiesta in gare e contratti B2B.</dd>
+          <dt>💼 ESG come requisito contrattuale</dt>
+          <dd>Sempre più capitolati di gara (PA e privati), bandi e contratti di filiera includono criteri ESG come fattore di selezione o premialità.</dd>
+        </dl>
+      </div>
+    </div>
+
     <div id="q-s7"></div>
   </div>
   <div class="nav-btns">
