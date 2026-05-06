@@ -105,6 +105,10 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 /* LEVEL SELECTOR */
 .level-q{margin-bottom:10px;padding:12px 14px;border:1.5px solid var(--g200);border-radius:8px;background:var(--wh)}
 .level-q.answered{border-color:rgba(16,185,129,.35);background:rgba(16,185,129,.02)}
+.level-q.missing,.ind-card.missing{border:2px solid #dc2626!important;background:#fef2f2!important;animation:wiggle .5s ease}
+.fg.missing input,.fg.missing select,.fg.missing textarea{border-color:#dc2626!important;box-shadow:0 0 0 3px rgba(220,38,38,.15)!important}
+.ind-val-row.missing input,.ind-val-row.missing select{border-color:#dc2626!important;box-shadow:0 0 0 3px rgba(220,38,38,.15)!important}
+@keyframes wiggle{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
 .level-q-num{font-size:10px;font-weight:700;color:var(--gd);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
 .level-q-txt{font-size:13.5px;color:var(--g700);margin-bottom:10px;font-weight:500;line-height:1.4}
 .level-opts{display:flex;flex-direction:column;gap:6px}
@@ -223,6 +227,17 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     <div class="intro-logo">🏛️</div>
     <div class="intro-title">Assessment Adeguatezza Assetti</div>
     <div class="intro-sub">Questionario di valutazione dell'adeguatezza organizzativa, amministrativa e contabile (art. 2086 c.c. e CCII).<br>Include anche strategia, clima, ESG e <strong>indicatori gestionali quantitativi</strong>.<br>Richiede circa <strong>25–30 minuti</strong>.</div>
+
+    <!-- v4.0 — Banner bozza in corso (visibile solo se localStorage contiene una bozza) -->
+    <div id="draft-banner" style="display:none;background:#fef3c7;border:1.5px solid #fcd34d;border-radius:12px;padding:14px 16px;margin-bottom:20px;text-align:left">
+      <div style="font-size:13.5px;font-weight:700;color:#92400e;margin-bottom:6px">📝 Bozza in corso trovata</div>
+      <div id="draft-banner-info" style="font-size:12.5px;color:#78350f;margin-bottom:12px;line-height:1.55"></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn" style="background:#92400e;color:#fff;flex:1;font-size:13px;padding:10px 14px;border:none;border-radius:8px;font-weight:600;cursor:pointer" onclick="continueDraft()">▶ Continua bozza</button>
+        <button class="btn" style="background:#fff;color:#92400e;border:1.5px solid #92400e;flex:1;font-size:13px;padding:10px 14px;border-radius:8px;font-weight:600;cursor:pointer" onclick="discardDraft()">🆕 Inizia nuovo (cancella bozza)</button>
+      </div>
+    </div>
+
     <div class="intro-features">
       <div class="feat"><div class="feat-ico">🏗️</div><div class="feat-txt"><strong>Assetto Organizzativo</strong>Struttura, processi, HR, governance</div></div>
       <div class="feat"><div class="feat-ico">📋</div><div class="feat-txt"><strong>Assetto Amministrativo</strong>Budget, tesoreria, reporting, KPI</div></div>
@@ -915,7 +930,18 @@ function init(){
   buildQuestions('q-s6',      Q_S6,      's6');
   buildQuestions('q-s7',      Q_S7,      's7');
   buildIndicatoriKnowl();
-  loadLocal();
+  checkDraftAndShowBanner();   // v4.0 — non carica automaticamente; mostra banner se c'è bozza
+  // v4.0 — clear validation highlight on input/change
+  document.addEventListener('input', e=>{
+    const t=e.target;
+    if(!t.id) return;
+    if(t.id.startsWith('ind-')) t.closest('.ind-val-row')?.classList.remove('missing');
+    if(t.id==='az-nome') t.closest('.fg')?.classList.remove('missing');
+  });
+  document.addEventListener('change', e=>{
+    const t=e.target;
+    if(t.id==='ind-masa-stato') t.closest('.ind-val-row')?.classList.remove('missing');
+  });
 }
 
 // ============================================================
@@ -967,7 +993,8 @@ function buildQuestions(cid,qs,sec){
 function setAnswer(sec,qid,val){
   D[sec][qid]=val;
   [0,1,2,3].forEach(i=>{ const el=document.getElementById(`lo-${qid}-${i}`); if(el){ el.className='level-opt'; if(i===val) el.classList.add(`sel-${i}`); } });
-  document.getElementById('lq-'+qid)?.classList.add('answered');
+  const lq=document.getElementById('lq-'+qid);
+  if(lq){ lq.classList.add('answered'); lq.classList.remove('missing'); }
   updateScorePreview();
   autoSave();
 }
@@ -1007,6 +1034,10 @@ function buildIndicatoriKnowl(){
 function setIndKnowl(key,id,val){
   D.indicatori[key]=val;
   [0,1,2,3].forEach(i=>{ const el=document.getElementById(`lo-${id}-${i}`); if(el){ el.className='level-opt'; if(i===val) el.classList.add(`sel-${i}`); } });
+  // v4.0 — clear validation highlight on the parent ind-card
+  const anyLabel=document.getElementById(`lo-${id}-0`);
+  const card=anyLabel?.closest('.ind-card');
+  if(card) card.classList.remove('missing');
   autoSave();
 }
 
@@ -1075,8 +1106,91 @@ function goTo(id){
   window.scrollTo({top:0,behavior:'smooth'});
 }
 function next(current,nextId){
-  if(current==='s1'&&!D.anagrafica.nome){ toast('Inserisci il nome dell\'azienda','err'); return; }
+  const v = validateSection(current);
+  if(!v.valid){
+    highlightMissing(v.missing);
+    toast(`⚠️ ${v.missing.length} risposta/e mancanti in questa sezione`,'err');
+    if(v.firstScrollId){
+      const el = document.getElementById(v.firstScrollId);
+      if(el) el.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+    return;
+  }
   goTo(nextId);
+}
+
+// v4.0 — Validazione obbligatoria per sezione
+function validateSection(secId){
+  const missing = [];
+  let firstScrollId = null;
+  const addMiss = (domId, scrollId) => {
+    missing.push({domId, scrollId: scrollId||domId});
+    if(!firstScrollId) firstScrollId = scrollId || domId;
+  };
+
+  if(secId==='s1'){
+    if(!D.anagrafica.nome || !D.anagrafica.nome.trim()){
+      addMiss('az-nome');
+    }
+  } else if(['s2','s3','s4','s5','s6','s7'].includes(secId)){
+    const Q_MAP = {
+      s2:[...Q_S2_ORG,...Q_S2_PROC,...Q_S2_CTRL,...Q_S2_HR,...Q_S2_GOV],
+      s3:[...Q_S3_BASE,...Q_S3_CTRL,...Q_S3_CICLO,...Q_S3_REP],
+      s4:[...Q_S4_BASE,...Q_S4_PROC,...Q_S4_CICLO,...Q_S4_REP,...Q_S4_CONF],
+      s5: Q_S5, s6: Q_S6, s7: Q_S7
+    };
+    (Q_MAP[secId]||[]).forEach(q=>{
+      if(D[secId][q.id]===undefined) addMiss('lq-'+q.id);
+    });
+  } else if(secId==='s8'){
+    // Indicatori KPI: knowledge sempre obbligatoria, valore obbligatorio se conosce >= 2
+    const items = [
+      {key:'mc_conosce',   valKey:'mc_valore',  valId:'ind-mc-val',     id:'ind_mc_conosce'},
+      {key:'cl_conosce',   valKey:'cl_valore',  valId:'ind-cl-val',     id:'ind_cl_conosce'},
+      {key:'lev_conosce',  valKey:'lev_valore', valId:'ind-lev-val',    id:'ind_lev_conosce'},
+      {key:'masa_conosce', valKey:'masa_stato', valId:'ind-masa-stato', id:'ind_masa_conosce'},
+      {key:'form_dip_conosce',  valKey:'form_dip',  valId:'ind-formdip-val',  id:'ind_formdip'},
+      {key:'form_mgmt_conosce', valKey:'form_mgmt', valId:'ind-formmgmt-val', id:'ind_formmgmt'},
+      {key:'dso_conosce',  valKey:'dso_valore', valId:'ind-dso-val',    id:'ind_dso_conosce'},
+      {key:'cr_conosce',   valKey:'cr_valore',  valId:'ind-cr-val',     id:'ind_cr_conosce'}
+    ];
+    items.forEach(it=>{
+      if(D.indicatori[it.key]===undefined){
+        // missing knowledge: highlight the parent ind-card via lo label
+        const lbl = document.getElementById(`lo-${it.id}-0`);
+        const card = lbl?.closest('.ind-card');
+        const cardId = card?.id || it.valId;
+        if(card && !card.id) card.id = '_card_'+it.key;
+        missing.push({domId: card?.id || it.valId, scrollId: card?.id || it.valId, isCard:true});
+        if(!firstScrollId) firstScrollId = card?.id || it.valId;
+      } else if(D.indicatori[it.key]>=2 && (D.indicatori[it.valKey]===undefined || D.indicatori[it.valKey]===null || D.indicatori[it.valKey]==='')){
+        // missing value when knowledge >= 2
+        addMiss(it.valId);
+      }
+    });
+  }
+
+  return { valid: missing.length===0, missing, firstScrollId };
+}
+
+function highlightMissing(missing){
+  // pulisce tutto, poi evidenzia
+  document.querySelectorAll('.missing').forEach(el=>el.classList.remove('missing'));
+  missing.forEach(m=>{
+    const el = document.getElementById(m.domId);
+    if(!el) return;
+    if(m.isCard){
+      el.classList.add('missing');
+    } else if(el.classList.contains('level-q')){
+      el.classList.add('missing');
+    } else if(el.id && el.id.startsWith('ind-')){
+      el.closest('.ind-val-row')?.classList.add('missing');
+    } else if(el.id==='az-nome'){
+      el.closest('.fg')?.classList.add('missing');
+    } else {
+      el.classList.add('missing');
+    }
+  });
 }
 function updateProgress(id){
   const steps=['s1','s2','s3','s4','s5','s6','s7','s8','send'];
@@ -1092,7 +1206,33 @@ function updateProgress(id){
 // INVIO
 // ============================================================
 async function inviaAssessment(){
-  if(!D.anagrafica.nome){ toast('Compila almeno il nome dell\'azienda','err'); goTo('s1'); return; }
+  // v4.0 — validazione completa di tutte le sezioni prima dell'invio
+  const sections = ['s1','s2','s3','s4','s5','s6','s7','s8'];
+  let firstFailingSec = null;
+  let totalMissing = 0;
+  let allMissing = [];
+  for(const sec of sections){
+    const v = validateSection(sec);
+    if(!v.valid){
+      totalMissing += v.missing.length;
+      allMissing = allMissing.concat(v.missing);
+      if(!firstFailingSec){ firstFailingSec = sec; }
+    }
+  }
+  if(totalMissing > 0){
+    highlightMissing(allMissing);
+    toast(`⚠️ ${totalMissing} risposta/e mancante/i. Vai alla sezione ${firstFailingSec.toUpperCase()} per completare.`,'err');
+    goTo(firstFailingSec);
+    setTimeout(()=>{
+      // re-evaluate after goTo and scroll
+      const v2 = validateSection(firstFailingSec);
+      if(v2.firstScrollId){
+        const el = document.getElementById(v2.firstScrollId);
+        if(el) el.scrollIntoView({behavior:'smooth', block:'center'});
+      }
+    }, 300);
+    return;
+  }
   document.getElementById('send-overlay').style.display='flex';
   const payload={ codiceCliente, data:{...D, anagrafica:{...D.anagrafica}, indicatori:{...D.indicatori}} };
   try{
@@ -1140,7 +1280,56 @@ function generaCodice(){
 // AUTO-SAVE & LOAD
 // ============================================================
 function autoSave(){
-  try{ localStorage.setItem('bdz_survey_draft',JSON.stringify({codiceCliente,D})); }catch(e){}
+  try{ localStorage.setItem('bdz_survey_draft',JSON.stringify({codiceCliente,D,savedAt:new Date().toISOString()})); }catch(e){}
+}
+
+// v4.0 — Verifica se esiste bozza e mostra banner di scelta
+function checkDraftAndShowBanner(){
+  try{
+    const s = localStorage.getItem('bdz_survey_draft');
+    if(!s) return;
+    const saved = JSON.parse(s);
+    const nome = saved?.D?.anagrafica?.nome;
+    if(!nome) {
+      // Bozza vuota o corrotta → puliamo silenziosamente
+      localStorage.removeItem('bdz_survey_draft');
+      return;
+    }
+    const banner = document.getElementById('draft-banner');
+    const info = document.getElementById('draft-banner-info');
+    if(!banner || !info) return;
+    const dateStr = saved.savedAt ? new Date(saved.savedAt).toLocaleString('it-IT', {dateStyle:'short',timeStyle:'short'}) : 'data sconosciuta';
+    const codStr = saved.codiceCliente ? ` (codice <strong>${saved.codiceCliente}</strong>)` : '';
+    info.innerHTML = `Compilazione in corso per <strong>${nome}</strong>${codStr}, salvata l'ultima volta il <strong>${dateStr}</strong>.<br>Se sei un cliente diverso da "<strong>${nome}</strong>" clicca "Inizia nuovo" per evitare di sovrascrivere dati altrui.`;
+    banner.style.display = 'block';
+  } catch(e){
+    localStorage.removeItem('bdz_survey_draft');
+  }
+}
+
+function continueDraft(){
+  loadLocal();
+  document.getElementById('draft-banner').style.display='none';
+  toast('✅ Bozza caricata. Clicca "Inizia il questionario" per continuare.','ok');
+}
+
+function discardDraft(){
+  if(!confirm('Sei sicuro di voler cancellare la bozza esistente?\n\nQuesta azione NON è reversibile.')) return;
+  localStorage.removeItem('bdz_survey_draft');
+  // Reset memoria
+  D = { anagrafica:{}, s2:{}, s3:{}, s4:{}, s5:{}, s6:{}, s7:{}, indicatori:{}, autovalOrg:5, autovalAmm:5, autovalCont:5 };
+  codiceCliente = '';
+  // Reset visivo: ripulisce input/select/textarea + radio già renderizzati
+  document.querySelectorAll('input[type="text"],input[type="number"],input[type="email"],textarea').forEach(el=>el.value='');
+  document.querySelectorAll('select').forEach(el=>{ el.selectedIndex=0; el.classList.remove('chosen'); });
+  document.querySelectorAll('.s8-item').forEach(el=>el.classList.remove('filled'));
+  document.querySelectorAll('.level-opt').forEach(el=>el.className='level-opt');
+  document.querySelectorAll('.level-q').forEach(el=>{ el.classList.remove('answered'); el.classList.remove('missing'); });
+  document.querySelectorAll('.ind-card,.ind-val-row,.fg').forEach(el=>el.classList.remove('missing'));
+  // Resetto le scale8 / autoval ai default
+  document.getElementById('codice-input').value='';
+  document.getElementById('draft-banner').style.display='none';
+  toast('🆕 Bozza cancellata. Inizia da zero.','info');
 }
 function loadLocal(){
   try{
