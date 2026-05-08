@@ -123,18 +123,36 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 @keyframes wiggle{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
 .level-q-num{font-size:10px;font-weight:700;color:var(--gd);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
 .level-q-txt{font-size:13.5px;color:var(--g700);margin-bottom:10px;font-weight:500;line-height:1.4}
-.level-opts{display:flex;flex-direction:column;gap:6px}
-.level-opt{display:flex;align-items:flex-start;gap:10px;padding:9px 12px;border-radius:8px;border:1.5px solid var(--g200);cursor:pointer;font-size:13px;color:var(--g700);transition:var(--tr);user-select:none}
+/* v4.0 UX REFACTOR — opzioni di risposta più chiare e tattili */
+.level-opts{display:flex;flex-direction:column;gap:8px}
+.level-opt{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;border:2px solid var(--g200);cursor:pointer;font-size:13.5px;color:var(--g700);transition:all .18s ease;user-select:none;background:var(--wh);position:relative;line-height:1.45}
+.level-opt:hover{border-color:var(--nv);background:var(--g50);transform:translateX(2px);box-shadow:0 2px 8px rgba(15,31,61,.08)}
 .level-opt input{display:none}
-.lo-badge{min-width:22px;height:22px;border-radius:50%;border:2px solid var(--g300);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--g400);flex-shrink:0;transition:var(--tr)}
-.level-opt.sel-0{background:var(--err-bg);border-color:#fca5a5}
-.level-opt.sel-0 .lo-badge{background:#ef4444;border-color:#ef4444;color:#fff}
-.level-opt.sel-1{background:var(--warn-bg);border-color:#fcd34d}
-.level-opt.sel-1 .lo-badge{background:#f59e0b;border-color:#f59e0b;color:#fff}
-.level-opt.sel-2{background:var(--ok-bg);border-color:#86efac}
-.level-opt.sel-2 .lo-badge{background:#10b981;border-color:#10b981;color:#fff}
-.level-opt.sel-3{background:#eff6ff;border-color:#93c5fd}
-.level-opt.sel-3 .lo-badge{background:#3b82f6;border-color:#3b82f6;color:#fff}
+.lo-badge{min-width:30px;height:30px;border-radius:50%;border:2.5px solid var(--g300);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--g500);flex-shrink:0;transition:all .18s ease;background:var(--wh)}
+.level-opt:hover .lo-badge{border-color:var(--nv);color:var(--nv)}
+
+/* Stato SELEZIONATO — molto più evidente con bordo spesso, sfondo pieno, ombra interna, checkmark */
+.level-opt.sel-0,.level-opt.sel-1,.level-opt.sel-2,.level-opt.sel-3{font-weight:600;color:#111827;border-width:3px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.6),0 4px 12px rgba(0,0,0,.08);transform:none}
+.level-opt.sel-0::after,.level-opt.sel-1::after,.level-opt.sel-2::after,.level-opt.sel-3::after{content:'✓';position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:18px;font-weight:900}
+
+.level-opt.sel-0{background:#fee2e2;border-color:#dc2626}
+.level-opt.sel-0 .lo-badge{background:#dc2626;border-color:#dc2626;color:#fff;box-shadow:0 2px 6px rgba(220,38,38,.4)}
+.level-opt.sel-0::after{color:#dc2626}
+
+.level-opt.sel-1{background:#fef3c7;border-color:#d97706}
+.level-opt.sel-1 .lo-badge{background:#d97706;border-color:#d97706;color:#fff;box-shadow:0 2px 6px rgba(217,119,6,.4)}
+.level-opt.sel-1::after{color:#d97706}
+
+.level-opt.sel-2{background:#d1fae5;border-color:#059669}
+.level-opt.sel-2 .lo-badge{background:#059669;border-color:#059669;color:#fff;box-shadow:0 2px 6px rgba(5,150,105,.4)}
+.level-opt.sel-2::after{color:#059669}
+
+.level-opt.sel-3{background:#cffafe;border-color:#0891b2}
+.level-opt.sel-3 .lo-badge{background:#0891b2;border-color:#0891b2;color:#fff;box-shadow:0 2px 6px rgba(8,145,178,.4)}
+.level-opt.sel-3::after{color:#0891b2}
+
+/* Spazio per il checkmark a destra */
+.level-opt.sel-0,.level-opt.sel-1,.level-opt.sel-2,.level-opt.sel-3{padding-right:38px}
 
 /* ── INDICATORI S8 ── */
 .ind-card{background:var(--wh);border-radius:12px;border:1.5px solid var(--g200);padding:18px;margin-bottom:16px;box-shadow:var(--sh)}
@@ -164,6 +182,22 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 .ind-soglie span{display:inline-block;margin-right:10px}
 .ind-soglie .sg{font-weight:600}
 .ind-sep{border:none;border-top:1px solid var(--g100);margin:14px 0}
+
+/* SEGNALI CCII S9 */
+.ccii-signal{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border:1.5px solid var(--g200);border-radius:10px;margin-bottom:10px;background:var(--wh);transition:var(--tr)}
+.ccii-signal.act-yes{border-color:#fca5a5;background:#fef2f2}
+.ccii-signal.act-partial{border-color:#fcd34d;background:#fffbeb}
+.ccii-signal.act-no{border-color:#86efac;background:#ecfdf5}
+.ccii-num{width:30px;height:30px;border-radius:8px;background:var(--nv);color:var(--gd);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ccii-info{flex:1}
+.ccii-q{font-size:12.5px;color:var(--g700);font-weight:600;margin-bottom:3px}
+.ccii-soglia{font-size:11px;color:var(--g500);margin-bottom:8px;font-style:italic}
+.ccii-opts{display:flex;gap:6px;flex-wrap:wrap}
+.ccii-opt{padding:6px 12px;border-radius:18px;border:1.5px solid var(--g200);font-size:11.5px;cursor:pointer;font-weight:500;color:var(--g500);transition:var(--tr);background:var(--wh)}
+.ccii-opt:hover{border-color:var(--nv)}
+.ccii-opt.sel-yes{background:#fef2f2;border-color:#dc2626;color:#991b1b;font-weight:700}
+.ccii-opt.sel-partial{background:#fffbeb;border-color:#d97706;color:#92400e;font-weight:700}
+.ccii-opt.sel-no{background:#ecfdf5;border-color:#16a34a;color:#065f46;font-weight:700}
 
 .pct-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
 .pct-row label{font-size:13px;color:var(--g700);min-width:120px;font-weight:500}
@@ -229,6 +263,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     <div class="ps" id="ps-s6"><div class="ps-dot"></div>Clima</div>
     <div class="ps" id="ps-s7"><div class="ps-dot"></div>ESG</div>
     <div class="ps" id="ps-s8"><div class="ps-dot"></div>Indicatori</div>
+    <div class="ps" id="ps-s9"><div class="ps-dot"></div>Segnali</div>
     <div class="ps" id="ps-send"><div class="ps-dot"></div>Invio</div>
   </div>
 </div>
@@ -996,6 +1031,27 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 
   <div class="nav-btns">
     <button class="btn btn-o" onclick="goTo('s7')">← Indietro</button>
+    <button class="btn btn-p" onclick="next('s8','s9')">Sezione successiva →</button>
+  </div>
+</div>
+
+<!-- S9: SEGNALI CCII -->
+<div class="screen" id="screen-s9">
+  <div class="sec-hdr">
+    <div class="sec-tag">Sezione 9 di 9 — OBBLIGATORIO PER LEGGE</div>
+    <div class="sec-title">Segnali di crisi — Art. 3 c.4 CCII</div>
+    <div class="sec-desc">4 segnali tipizzati che la legge richiede di monitorare a tutte le imprese.</div>
+  </div>
+
+  <div class="card" style="border-left:4px solid #dc2626">
+    <div style="background:#fef2f2;border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:12.5px;color:#991b1b">
+      🚨 <strong>Importante:</strong> questi 4 segnali sono richiesti dall'art. 3 c.4 del Codice della Crisi a <strong>tutte</strong> le imprese, anche micro. Se almeno uno risulta con soglia superata, scattano obblighi di intervento immediato ex art. 2086 c.c.
+    </div>
+    <div id="q-s9-signals"></div>
+  </div>
+
+  <div class="nav-btns">
+    <button class="btn btn-o" onclick="goTo('s8')">← Indietro</button>
     <button class="btn btn-send" onclick="inviaAssessment()">📤 Invia al consulente BDZ</button>
   </div>
 </div>
@@ -1088,9 +1144,16 @@ const Q_S5=[{id:'s5_str_1',txt:'Avete formalizzato Vision, Mission e valori azie
 const Q_S6=[{id:'s6_cli_1',txt:'Avete mai rilevato il clima o la soddisfazione dei vostri dipendenti?',opts:['No, non lo abbiamo mai fatto','Solo informalmente, parlando con le persone','Una volta, senza un metodo strutturato','Sì, periodicamente con questionari dedicati']},{id:'s6_cli_2',txt:'I dipendenti hanno canali strutturati per dare feedback?',opts:['No, tutto passa verbalmente dal titolare','Possono parlare, ma senza strumenti dedicati','Alcune modalità esistono ma non sistematiche','Sì, esistono strumenti o processi formalizzati']},{id:'s6_cli_3',txt:'Conoscete il livello di engagement e i potenziali rischi di turnover?',opts:['No, lo percepiamo ma senza dati','Abbiamo una percezione informale','Alcune misurazioni occasionali','Sì, monitoriamo continuamente con indicatori']}];
 const Q_S7=[{id:'s7_esg_1',txt:'Conoscete la normativa CSRD/VSME sulla rendicontazione sostenibilità?',opts:['No, non ne abbiamo mai sentito parlare','Ne abbiamo sentito parlare ma non sappiamo cosa implica','Conoscenza base, stiamo valutando l\'impatto','La conosciamo bene e abbiamo già avviato un percorso']},{id:'s7_esg_2',txt:'Monitorate indicatori ambientali (energia, rifiuti, emissioni CO2)?',opts:['No, non monitoriamo nulla','Solo ciò che è obbligatorio per legge','Alcuni indicatori, senza un sistema strutturato','Sì, con un sistema strutturato di raccolta e analisi']},{id:'s7_esg_3',txt:'Avete politiche sociali documentate (welfare, diversità, sicurezza)?',opts:['No, facciamo solo il minimo di legge','Alcune iniziative informali non documentate','Alcune politiche definite ma non sistematizzate','Politiche strutturate e documentate']},{id:'s7_esg_4',txt:'La sostenibilità è un tema rilevante per i vostri clienti o stakeholder?',opts:['No, i nostri clienti non lo richiedono','Marginalmente — solo qualche cliente lo menziona','Sì, è sempre più presente nelle richieste','Sì, è già un requisito esplicito in gare/contratti']}];
 
+const Q_S9_SIGNALS = [
+  {id:'s9_sig_1', num:'1', txt:'Il sistema rileva eventuali ritardi nel pagamento delle retribuzioni ai dipendenti?', soglia:'Soglia: ritardo ≥ 30 giorni sui debiti retributivi'},
+  {id:'s9_sig_2', num:'2', txt:'Sapete in tempo reale se i debiti scaduti verso fornitori superano quelli non scaduti?', soglia:'Soglia: ≥ 90 giorni con debiti scaduti > non scaduti'},
+  {id:'s9_sig_3', num:'3', txt:'Sono monitorate le esposizioni bancarie? (sconfinamenti, fido superato, ritardi rate)', soglia:'Riferimento: ultimo bilancio approvato'},
+  {id:'s9_sig_4', num:'4', txt:'È monitorata la posizione debitoria verso Agenzia Entrate-Riscossione, INPS, INAIL?', soglia:'Soglie ex art. 25-novies CCII (segnalazioni creditori pubblici qualificati)'},
+];
+
 // ── DATA MODEL ──
 let D = {
-  anagrafica:{}, s2:{}, s3:{}, s4:{}, s5:{}, s6:{}, s7:{},
+  anagrafica:{}, s2:{}, s3:{}, s4:{}, s5:{}, s6:{}, s7:{}, s9:{},
   indicatori:{},
   autovalOrg:5, autovalAmm:5, autovalCont:5
 };
@@ -1119,6 +1182,7 @@ function init(){
   buildQuestions('q-s6',      Q_S6,      's6');
   buildQuestions('q-s7',      Q_S7,      's7');
   buildIndicatoriKnowl();
+  buildCciiSignals();
   checkDraftAndShowBanner();   // v4.0 — non carica automaticamente; mostra banner se c'è bozza
   // v4.0 — clear validation highlight on input/change
   document.addEventListener('input', e=>{
@@ -1227,6 +1291,41 @@ function setIndKnowl(key,id,val){
   const anyLabel=document.getElementById(`lo-${id}-0`);
   const card=anyLabel?.closest('.ind-card');
   if(card) card.classList.remove('missing');
+  autoSave();
+}
+
+// ============================================================
+// SEGNALI CCII S9
+// ============================================================
+function buildCciiSignals(){
+  const c = document.getElementById('q-s9-signals');
+  if(!c) return;
+  c.innerHTML = Q_S9_SIGNALS.map(q=>`
+    <div class="ccii-signal" id="ccii-${q.id}">
+      <div class="ccii-num">#${q.num}</div>
+      <div class="ccii-info">
+        <div class="ccii-q">${q.txt}</div>
+        <div class="ccii-soglia">${q.soglia}</div>
+        <div class="ccii-opts">
+          <button class="ccii-opt" id="cco-${q.id}-0" onclick="setCciiSignal('${q.id}',0)">❌ Non ho strumenti per monitorarlo</button>
+          <button class="ccii-opt" id="cco-${q.id}-1" onclick="setCciiSignal('${q.id}',1)">⚠️ Ho gli strumenti, ma la soglia risulta superata</button>
+          <button class="ccii-opt" id="cco-${q.id}-2" onclick="setCciiSignal('${q.id}',2)">✅ Ho gli strumenti e la soglia non è superata</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+function setCciiSignal(qid, val){
+  if(!D.s9) D.s9 = {};
+  D.s9[qid] = val;
+  [0,1,2].forEach(i=>{
+    const el = document.getElementById(`cco-${qid}-${i}`);
+    if(el){ el.className = 'ccii-opt'; if(i===val) el.classList.add(i===0?'sel-yes':i===1?'sel-partial':'sel-no'); }
+  });
+  const wrap = document.getElementById(`ccii-${qid}`);
+  if(wrap){ wrap.className = 'ccii-signal '+(val===0?'act-yes':val===1?'act-partial':'act-no'); }
+  const wrap2 = document.getElementById(`ccii-${qid}`);
+  if(wrap2) wrap2.classList.remove('missing');
   autoSave();
 }
 
@@ -1357,6 +1456,13 @@ function validateSection(secId){
         addMiss(it.valId);
       }
     });
+  } else if(secId==='s9'){
+    Q_S9_SIGNALS.forEach(q=>{
+      if(D.s9[q.id]===undefined){
+        missing.push({domId:'ccii-'+q.id, scrollId:'ccii-'+q.id});
+        if(!firstScrollId) firstScrollId='ccii-'+q.id;
+      }
+    });
   }
 
   return { valid: missing.length===0, missing, firstScrollId };
@@ -1376,13 +1482,15 @@ function highlightMissing(missing){
       el.closest('.ind-val-row')?.classList.add('missing');
     } else if(el.id==='az-nome'){
       el.closest('.fg')?.classList.add('missing');
+    } else if(el.classList.contains('ccii-signal')){
+      el.style.outline='2px solid #dc2626';
     } else {
       el.classList.add('missing');
     }
   });
 }
 function updateProgress(id){
-  const steps=['s1','s2','s3','s4','s5','s6','s7','s8','send'];
+  const steps=['s1','s2','s3','s4','s5','s6','s7','s8','s9','send'];
   const idx=steps.indexOf(id);
   const pct=Math.round((idx/(steps.length-1))*100);
   document.getElementById('prog-fill').style.width=pct+'%';
@@ -1396,7 +1504,7 @@ function updateProgress(id){
 // ============================================================
 async function inviaAssessment(){
   // v4.0 — validazione completa di tutte le sezioni prima dell'invio
-  const sections = ['s1','s2','s3','s4','s5','s6','s7','s8'];
+  const sections = ['s1','s2','s3','s4','s5','s6','s7','s8','s9'];
   let firstFailingSec = null;
   let totalMissing = 0;
   let allMissing = [];
@@ -1506,7 +1614,7 @@ function discardDraft(){
   if(!confirm('Sei sicuro di voler cancellare la bozza esistente?\n\nQuesta azione NON è reversibile.')) return;
   localStorage.removeItem('bdz_survey_draft');
   // Reset memoria
-  D = { anagrafica:{}, s2:{}, s3:{}, s4:{}, s5:{}, s6:{}, s7:{}, indicatori:{}, autovalOrg:5, autovalAmm:5, autovalCont:5 };
+  D = { anagrafica:{}, s2:{}, s3:{}, s4:{}, s5:{}, s6:{}, s7:{}, s9:{}, indicatori:{}, autovalOrg:5, autovalAmm:5, autovalCont:5 };
   codiceCliente = '';
   // Reset visivo: ripulisce input/select/textarea + radio già renderizzati
   document.querySelectorAll('input[type="text"],input[type="number"],input[type="email"],textarea').forEach(el=>el.value='');
@@ -1514,6 +1622,8 @@ function discardDraft(){
   document.querySelectorAll('.s8-item').forEach(el=>el.classList.remove('filled'));
   document.querySelectorAll('.level-opt').forEach(el=>el.className='level-opt');
   document.querySelectorAll('.level-q').forEach(el=>{ el.classList.remove('answered'); el.classList.remove('missing'); });
+  document.querySelectorAll('.ccii-opt').forEach(el=>el.className='ccii-opt');
+  document.querySelectorAll('.ccii-signal').forEach(el=>{ el.className='ccii-signal'; el.style.outline=''; });
   document.querySelectorAll('.ind-card,.ind-val-row,.fg').forEach(el=>el.classList.remove('missing'));
   // Resetto le scale8 / autoval ai default
   document.getElementById('codice-input').value='';
@@ -1541,6 +1651,7 @@ function loadLocal(){
     if(a.swD)        document.getElementById('sw-d').value=a.swD;
     Object.entries(a.scale8||{}).forEach(([id,val])=>{ const sel=document.getElementById(id); if(sel){ sel.value=val; setScale8(id,val,sel); } });
     ['s2','s3','s4','s5','s6','s7'].forEach(sec=>Object.entries(D[sec]||{}).forEach(([qid,val])=>setAnswer(sec,qid,val)));
+    Q_S9_SIGNALS.forEach(q=>{ if(D.s9?.[q.id]!==undefined) setCciiSignal(q.id,D.s9[q.id]); });
     // Ripristina indicatori knowledge
     IND_KNOWL_IDS.forEach(({id,key})=>{
       const val=D.indicatori?.[key];
